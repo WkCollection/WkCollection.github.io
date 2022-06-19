@@ -14,8 +14,7 @@
 <h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><blockquote>
 <p>作用：保存地址</p>
 </blockquote>
-<p>指针的定义：数据类型	*指针变量名</p>
-<p>32位操作系统指针所占内存空间：4个字节</p>
+<p>指针的定义：数据类型	*指针变量名<br>32位操作系统指针所占内存空间：4个字节</p>
 <p>64位操作系统指针所占内存空间：8个字节</p>
 <h3 id="指针的两大类型"><a href="#指针的两大类型" class="headerlink" title="指针的两大类型"></a>指针的两大类型</h3><p>空指针：</p>
 <ol>
@@ -330,7 +329,7 @@
 <h2 id="git的三种状态"><a href="#git的三种状态" class="headerlink" title="git的三种状态"></a>git的三种状态</h2><h3 id="已提交：commited"><a href="#已提交：commited" class="headerlink" title="已提交：commited"></a>已提交：commited</h3><p>已提交表示数据已经安全的保存在本地数据库中。</p>
 <h3 id="已修改：modified"><a href="#已修改：modified" class="headerlink" title="已修改：modified"></a>已修改：modified</h3><p>已修改表示修改了文件，但还没保存到数据库中。</p>
 <h3 id="已暂存：staged"><a href="#已暂存：staged" class="headerlink" title="已暂存：staged"></a>已暂存：staged</h3><p>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
-<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img data-src="E:\TyporaNotes\pic\image-20220213190927776.png" alt="image-20220213190927776"></p>
+<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img data-src="/./Git%E5%AD%A6%E4%B9%A0/git%E8%BF%87%E7%A8%8B.png" alt="git过程"></p>
 <h3 id="git仓库"><a href="#git仓库" class="headerlink" title="git仓库"></a>git仓库</h3><p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，其它计算机克隆</p>
 <p>仓库时，拷贝的就是这里的数据。</p>
 <h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>工作目录是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘</p>
