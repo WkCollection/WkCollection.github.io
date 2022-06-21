@@ -18,6 +18,23 @@
       </tags>
   </entry>
   <entry>
+    <title>计算机网络</title>
+    <url>/2022/06/21/NetWork/</url>
+    <content><![CDATA[<h1 id="计算机网络自顶向下"><a href="#计算机网络自顶向下" class="headerlink" title="计算机网络自顶向下"></a>计算机网络自顶向下</h1><blockquote>
+<p>本文基于计算机网络自顶向下</p>
+</blockquote>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nodejs</title>
     <url>/2022/06/20/Nodejs/</url>
     <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><span id="more"></span>
@@ -36,6 +53,23 @@
       <tags>
         <tag>Nodejs</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机操作系统</title>
+    <url>/2022/06/21/OperateSystem/</url>
+    <content><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><blockquote>
+<p>本文为学习操作系统</p>
+</blockquote>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>计算机基础</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
