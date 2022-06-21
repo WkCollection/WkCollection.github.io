@@ -20,12 +20,10 @@
   <entry>
     <title>计算机网络</title>
     <url>/2022/06/21/NetWork/</url>
-    <content><![CDATA[<h1 id="计算机网络自顶向下"><a href="#计算机网络自顶向下" class="headerlink" title="计算机网络自顶向下"></a>计算机网络自顶向下</h1><blockquote>
-<p>本文基于计算机网络自顶向下</p>
+    <content><![CDATA[<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><blockquote>
+<p>基于《计算机网络 自顶向下》的学习，了解后能够对于网络之间的交换有更加深入的理解，学习前后端必修之课</p>
 </blockquote>
-<span id="more"></span>
-
-]]></content>
+<span id="more"></span>]]></content>
       <categories>
         <category>计算机基础</category>
       </categories>
