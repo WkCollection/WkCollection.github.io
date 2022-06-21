@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CppDeep</title>
+    <url>/2022/06/21/CppDeep/</url>
+    <content><![CDATA[<h1 id="C-深入学习"><a href="#C-深入学习" class="headerlink" title="C++深入学习"></a>C++深入学习</h1><blockquote>
+<p>本文用来进行Cpp的深入学习</p>
+</blockquote>
+<span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>进阶</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nodejs</title>
     <url>/2022/06/20/Nodejs/</url>
     <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><span id="more"></span>
 
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+<h2 id="什么是Nodejs"><a href="#什么是Nodejs" class="headerlink" title="什么是Nodejs?"></a>什么是Nodejs?</h2><p>Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。</p>
+<p>特性：</p>
+<ul>
+<li>文件读写</li>
+<li>进程管理</li>
+<li>网络通信</li>
+</ul>
+]]></content>
       <categories>
         <category>Node</category>
       </categories>
@@ -611,8 +635,8 @@
         <category>C++</category>
       </categories>
       <tags>
-        <tag>后端</tag>
         <tag>C++</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
 </search>
