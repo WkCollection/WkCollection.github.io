@@ -339,7 +339,7 @@
 <h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><p>如果想要检查你的配置，可以使用 git config –list 命令来列出所有 Git 当时能找到的配置。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list</span><br></pre></td></tr></table></figure>
 
-<p>可以通过输入 git config  <key>： 来检查 Git 的某一项配置：</p>
+<p>可以通过输入 git config  <key>： 来检查 Git 的某一项配置：</key></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config user.name</span><br></pre></td></tr></table></figure>
 
 <h3 id="获取帮助手册"><a href="#获取帮助手册" class="headerlink" title="获取帮助手册"></a>获取帮助手册</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git help &lt;verb&gt; #方式一</span><br><span class="line">git &lt;verb&gt; --help #方式二</span><br><span class="line">man git-&lt;verb&gt; #在linux上可以方式三</span><br></pre></td></tr></table></figure>
@@ -462,7 +462,7 @@
 
 <p>git log 的常用选项:</p>
 <p><img data-src="https://s1.ax1x.com/2022/06/19/XjBVhD.png" alt="git log 的常用选项"></p>
-<h4 id="限制输出长度"><a href="#限制输出长度" class="headerlink" title="限制输出长度"></a>限制输出长度</h4><p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前你已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何整数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调 用分页程序，所以你一次只会看到一页的内容。</p>
+<h4 id="限制输出长度"><a href="#限制输出长度" class="headerlink" title="限制输出长度"></a>限制输出长度</h4><p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前你已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何整数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调 用分页程序，所以你一次只会看到一页的内容。</n></p>
 <p>另外还有按照时间作限制的选项，比如 –since 和 –until 也很有用。例如，下面的命令列出所有最近两周内的提交：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --since=2.weeks</span><br></pre></td></tr></table></figure>
 
@@ -491,7 +491,7 @@
 <p>你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>首先在github上创建一个仓库，然后clone到本地，再然后运行git remote add <shortname> <url> 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写：</p>
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>首先在github上创建一个仓库，然后clone到本地，再然后运行git remote add <shortname> <url> 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写：</url></shortname></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add gs https://github.com/mygit-WK/gStudy.git</span><br></pre></td></tr></table></figure>
 
 <p>现在你可以在命令行中使用字符串 gs来代替整个 URL。例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 git fetch gs：</p>
