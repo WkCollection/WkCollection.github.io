@@ -20,29 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"wkcollection.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="操作系统 本文为学习操作系统的基础">
+    <meta name="description" content="CodeBlocks踩坑之路FLTK库 系统环境：Win7旗舰版 CodeBlocks版本：20.3 FLTK版本：1.3.8 Mingw版本：4.2.1（CodeBlocks自带的编译器，无需额外配置编译器）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机操作系统">
-<meta property="og:url" content="https://wkcollection.github.io/2022/06/21/OperateSystem/index.html">
+<meta property="og:title" content="CodeBlocks踩坑之路">
+<meta property="og:url" content="https://wkcollection.github.io/2022/07/04/CodeBlocks/index.html">
 <meta property="og:site_name" content="编程の路">
-<meta property="og:description" content="操作系统 本文为学习操作系统的基础">
+<meta property="og:description" content="CodeBlocks踩坑之路FLTK库 系统环境：Win7旗舰版 CodeBlocks版本：20.3 FLTK版本：1.3.8 Mingw版本：4.2.1（CodeBlocks自带的编译器，无需额外配置编译器）">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-21T05:10:48.000Z">
-<meta property="article:modified_time" content="2022-06-21T05:43:18.799Z">
+<meta property="og:image" content="https://s1.ax1x.com/2022/07/07/jwPqLd.png">
+<meta property="article:published_time" content="2022-07-04T05:32:03.000Z">
+<meta property="article:modified_time" content="2022-07-07T05:09:36.856Z">
 <meta property="article:author" content="BlueHole">
-<meta property="article:tag" content="计算机基础">
-<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="IDE">
+<meta property="article:tag" content="CodeBlocks">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2022/07/07/jwPqLd.png">
 
 
-<link rel="canonical" href="https://wkcollection.github.io/2022/06/21/OperateSystem/">
+<link rel="canonical" href="https://wkcollection.github.io/2022/07/04/CodeBlocks/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wkcollection.github.io/2022/06/21/OperateSystem/","path":"2022/06/21/OperateSystem/","title":"计算机操作系统"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wkcollection.github.io/2022/07/04/CodeBlocks/","path":"2022/07/04/CodeBlocks/","title":"CodeBlocks踩坑之路"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>计算机操作系统 | 编程の路</title>
+<title>CodeBlocks踩坑之路 | 编程の路</title>
   
 
 
@@ -145,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">操作系统</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CodeBlocks%E8%B8%A9%E5%9D%91%E4%B9%8B%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">CodeBlocks踩坑之路</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#FLTK%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">FLTK库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FLTK%E5%8E%86%E5%8F%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">FLTK历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FLTK%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.2.</span> <span class="nav-text">FLTK特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CodeBlocks%E9%9B%86%E6%88%90FLTK"><span class="nav-number">1.1.3.</span> <span class="nav-text">CodeBlocks集成FLTK</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,7 +219,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wkcollection.github.io/2022/06/21/OperateSystem/">
+    <link itemprop="mainEntityOfPage" href="https://wkcollection.github.io/2022/07/04/CodeBlocks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -230,12 +232,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="计算机操作系统 | 编程の路">
+      <meta itemprop="name" content="CodeBlocks踩坑之路 | 编程の路">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机操作系统
+          CodeBlocks踩坑之路
         </h1>
 
         <div class="post-meta-container">
@@ -245,9 +247,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-06-21 13:10:48 / 修改时间：13:43:18" itemprop="dateCreated datePublished" datetime="2022-06-21T13:10:48+08:00">2022-06-21</time>
+      <time title="创建时间：2022-07-04 13:32:03" itemprop="dateCreated datePublished" datetime="2022-07-04T13:32:03+08:00">2022-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-07-07 13:09:36" itemprop="dateModified" datetime="2022-07-07T13:09:36+08:00">2022-07-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -255,7 +263,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+          <a href="/categories/IDE/" itemprop="url" rel="index"><span itemprop="name">IDE</span></a>
         </span>
     </span>
 
@@ -269,10 +277,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><blockquote>
-<p>本文为学习操作系统的基础</p>
+        <h1 id="CodeBlocks踩坑之路"><a href="#CodeBlocks踩坑之路" class="headerlink" title="CodeBlocks踩坑之路"></a>CodeBlocks踩坑之路</h1><h2 id="FLTK库"><a href="#FLTK库" class="headerlink" title="FLTK库"></a>FLTK库</h2><blockquote>
+<p>系统环境：Win7旗舰版</p>
+<p>CodeBlocks版本：20.3</p>
+<p>FLTK版本：1.3.8</p>
+<p>Mingw版本：4.2.1（CodeBlocks自带的编译器，无需额外配置编译器）</p>
 </blockquote>
 <span id="more"></span>
+
+<p><code>本来想使用wxWidgets的，奈何wxWidgets的编译过于复杂且麻烦而且会出很多问题，于是改用FLTK</code></p>
+<h3 id="FLTK历史"><a href="#FLTK历史" class="headerlink" title="FLTK历史"></a>FLTK历史</h3><p>FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包，适用于 UNIX&#x2F;Linux、Windows和Mac OS；FLTK 提供了很多GUI 功能，并通过 OpenGL及其内置的 GLUT 仿真支持 3D 图形。</p>
+<h3 id="FLTK特点"><a href="#FLTK特点" class="headerlink" title="FLTK特点"></a>FLTK特点</h3><ol>
+<li>兼容GLUT库</li>
+<li>兼容XForms库</li>
+<li>支持 X11 和 WIN32 上的 OpenGL</li>
+<li>非常小且快速的便携式二维绘图库</li>
+<li>交互式用户界面构建器程序</li>
+<li>sizeof(Fl_Widget) &#x3D;&#x3D;64</li>
+<li>直接在核心库上编写以实现最高速度，并针对代码大小和性能进行了优化</li>
+</ol>
+<h3 id="CodeBlocks集成FLTK"><a href="#CodeBlocks集成FLTK" class="headerlink" title="CodeBlocks集成FLTK"></a>CodeBlocks集成FLTK</h3><p>在官网<a target="_blank" rel="noopener" href="https://www.fltk.org/">FLTK</a> 下载FLTK的源码，我下载的是<a target="_blank" rel="noopener" href="https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"><code>fltk-1.3.8-source.tar.gz</code></a>，下载完后进行解压，使用CMake进行编译，然后使用codeblocks打开，FLTK.cbp文件进行编译，得到编译后的文件如下：</p>
+<p><img data-src="https://s1.ax1x.com/2022/07/07/jwPqLd.png" alt="编译文件"></p>
+<p>在编译的build文件夹下新建一个文件夹include，将FLTK的源文件的头文件FLTK复制到新建的文件夹include下面。打开CodeBlocks进行库的配置，添加头文件到搜索目录，添加库文件到搜索目录，链接库文件。</p>
 
     </div>
 
@@ -282,22 +308,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" rel="tag"># 计算机基础</a>
-              <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+              <a href="/tags/IDE/" rel="tag"># IDE</a>
+              <a href="/tags/CodeBlocks/" rel="tag"># CodeBlocks</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/21/NetWork/" rel="prev" title="计算机网络">
-                  <i class="fa fa-chevron-left"></i> 计算机网络
+                <a href="/2022/06/21/OperateSystem/" rel="prev" title="计算机操作系统">
+                  <i class="fa fa-chevron-left"></i> 计算机操作系统
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/04/CodeBlocks/" rel="next" title="CodeBlocks踩坑之路">
-                  CodeBlocks踩坑之路 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
