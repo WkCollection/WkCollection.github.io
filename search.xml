@@ -60,6 +60,82 @@
       </tags>
   </entry>
   <entry>
+    <title>深度学习之路：Python配置Pytorch</title>
+    <url>/2022/07/08/Python/</url>
+    <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
+<p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
+</blockquote>
+<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NAVID则可以采用GPU方式，我的电脑没有NAVID所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
+<p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
+<span id="more"></span>
+
+<h2 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h2><p>由于使用Pip进行Pytorch库的安装，过程中坑实在太多，根据网上的建议选用Anaconda这个也很优秀的Python第三库的包管理工具。为节省时间可以采用清华源镜像进行下载<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda</a>选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Windows-x86_64.exe">Anaconda3-5.3.1-Windows-x86_64.exe</a>进行下载：</p>
+<p><img data-src="/img/Anaconda.png" alt="image-20220708154359305"></p>
+<p>下载完成后进行安装</p>
+<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img data-src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
+<p><img data-src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
+<p><img data-src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
+<p><img data-src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
+<p><img data-src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
+<p><img data-src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
+<p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
+<h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
+<p>打开命令行CMD输入conda –version</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
+<h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
+<p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python=3.7</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
+<p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
+<p>先使用activate激活base环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">activate</span><br></pre></td></tr></table></figure>
+
+<p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
+<h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
+<p>查看CUDA的<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">官方文档</a></p>
+<p>查看cuDNN的<a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">官方文档</a></p>
+</blockquote>
+<p>第一步：首先根据显卡的驱动程序版本找到对应的Cuda Toolkit</p>
+<p><img data-src="/../img/CUDA.png" alt="image-20220708225323574"></p>
+<p><img data-src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
+<p>第二步：找到对应的CUDA，在此处<a href="https://developer.nvidia.com/cuda-toolkit-archive">下载</a></p>
+<p>第三步：找到对应的cuDNN,在此处<a href="https://developer.nvidia.com/rdp/cudnn-archive">下载</a></p>
+<p><img data-src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
+<p>第四步：解压cuDNN文件，将bin,include,lib复制到CUDA目录下</p>
+<p>第五步：配置CUDA的环境变量，将CUDA下的include,lib,libnvvp配置到Path路径下</p>
+<p>第六步：验证是否安装成功，打开CMD，输入nvcc -V查看CUDA版本</p>
+<h2 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h2><p>第一步：进入<a href="https://pytorch.org/">Pytorch官网</a>，点击首页Install</p>
+<p><img data-src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
+<p>第二步：找到自己所需配置</p>
+<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
+<p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CUDA-10.2 PyTorch builds are no longer available for Windows, please use CUDA-11.6</span><br></pre></td></tr></table></figure>
+
+<p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
+<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
+<p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>至此Pytorch配置完毕！！！</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>编程语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机操作系统</title>
     <url>/2022/06/21/OperateSystem/</url>
     <content><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><blockquote>
@@ -242,82 +318,6 @@
       <tags>
         <tag>计算机基础</tag>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深度学习之路：Python配置Pytorch</title>
-    <url>/2022/07/08/Python/</url>
-    <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
-<p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
-</blockquote>
-<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NAVID则可以采用GPU方式，我的电脑没有NAVID所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
-<p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
-<span id="more"></span>
-
-<h2 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h2><p>由于使用Pip进行Pytorch库的安装，过程中坑实在太多，根据网上的建议选用Anaconda这个也很优秀的Python第三库的包管理工具。为节省时间可以采用清华源镜像进行下载<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda</a>选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Windows-x86_64.exe">Anaconda3-5.3.1-Windows-x86_64.exe</a>进行下载：</p>
-<p><img data-src="/img/Anaconda.png" alt="image-20220708154359305"></p>
-<p>下载完成后进行安装</p>
-<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img data-src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
-<p><img data-src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
-<p><img data-src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
-<p><img data-src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
-<p><img data-src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
-<p><img data-src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
-<p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
-<h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
-<p>打开命令行CMD输入conda –version</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
-<h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
-<p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python=3.7</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
-<p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
-<p>先使用activate激活base环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">activate</span><br></pre></td></tr></table></figure>
-
-<p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
-<h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
-<p>查看CUDA的<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">官方文档</a></p>
-<p>查看cuDNN的<a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">官方文档</a></p>
-</blockquote>
-<p>第一步：首先根据显卡的驱动程序版本找到对应的Cuda Toolkit</p>
-<p><img data-src="/../img/CUDA.png" alt="image-20220708225323574"></p>
-<p><img data-src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
-<p>第二步：找到对应的CUDA，在此处<a href="https://developer.nvidia.com/cuda-toolkit-archive">下载</a></p>
-<p>第三步：找到对应的cuDNN,在此处<a href="https://developer.nvidia.com/rdp/cudnn-archive">下载</a></p>
-<p><img data-src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
-<p>第四步：解压cuDNN文件，将bin,include,lib复制到CUDA目录下</p>
-<p>第五步：配置CUDA的环境变量，将CUDA下的include,lib,libnvvp配置到Path路径下</p>
-<p>第六步：验证是否安装成功，打开CMD，输入nvcc -V查看CUDA版本</p>
-<h2 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h2><p>第一步：进入<a href="https://pytorch.org/">Pytorch官网</a>，点击首页Install</p>
-<p><img data-src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
-<p>第二步：找到自己所需配置</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
-<p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CUDA-10.2 PyTorch builds are no longer available for Windows, please use CUDA-11.6</span><br></pre></td></tr></table></figure>
-
-<p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
-<p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
-
-<p>至此Pytorch配置完毕！！！</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>编程语言</tag>
       </tags>
   </entry>
   <entry>
