@@ -1071,12 +1071,12 @@
 <li>一个用来建立、配置和测试数据链路连接的链路控制协议 LCP。</li>
 <li>一套网络控制协议 NCP。</li>
 </ol>
-<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img data-src="E:\TyporaNotes\pic\image-20220302114351973.png" alt="image-20220302114351973"></p>
+<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img data-src="/img/NetWork/image-20220302114351973.png" alt="image-20220302114351973"></p>
 <p>首尾两个 F 表示标志位，用来表示一个帧的开始和结束；A，C 两个字段至今还未有定义；协议如果地址是 0xC021 则表示 LCP 的数据；如果是 0x0021 则表示携带的是 IP 数据报；如果是 0x8021 则表示携带的是网络层的控制数据；FCS 表示帧检测序列。</p>
 <h6 id="字节填充"><a href="#字节填充" class="headerlink" title="字节填充"></a>字节填充</h6><p>当信息字段中出现和标志字段一样的比特组合时，就要采取一些措施来解决这个问题。</p>
 <p>当 PPP 协议使用异步传输时，转义符定义为 0x7D，并使用字节填充。</p>
 <h6 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h6><p>只要出现连续的 5 个 1 就在后面填充 1 个 0；这样就可以保证不会出现连续的 6 个 1。接收端在收到帧后，先找到标志字段 F 确定边界，当出现 5 个连续 1 时就将后面的 0 删除，将数据还原为原来的比特流。</p>
-<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img data-src="E:\TyporaNotes\pic\image-20220302115820623.png" alt="image-20220302115820623"></p>
+<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img data-src="/img/NetWork/image-20220302115820623.png" alt="image-20220302115820623"></p>
 <h3 id="广播信道"><a href="#广播信道" class="headerlink" title="广播信道"></a>广播信道</h3><p>局域网：网络为一个单位所有，且地理范围和站点数目有限。</p>
 <p>局域网按网络拓扑分类：星形网；环形网；总线网。</p>
 <h4 id="CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）"><a href="#CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）" class="headerlink" title="CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）"></a>CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）</h4><p>因为在同一时间只能允许一台计算机发送数据。于是 CSMA&#x2F;CD 协议就诞生了。</p>
@@ -1090,14 +1090,14 @@
 <h6 id="分类的-IP-地址-1"><a href="#分类的-IP-地址-1" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h6><p>定义：分类的 IP 地址就是将 IP 地址划分为若干个固定类，每一类地址都由两个固定长度的字段组成。第一个字段是<code>网络号</code>，表示主机所连接到的网络。第二个字段是<code>主机号</code>，表示该主机或路由器。一台主机号在他前面的网络号所指明的网络范围内必须唯一。</p>
 <p>记为：IP 地址：：&#x3D;{&lt;网络号&gt;，&lt;主机号&gt;}</p>
 <p>IP 地址共分为 5 大类：</p>
-<p><img data-src="E:\TyporaNotes\pic\image-20220303131926640.png" alt="image-20220303131926640"></p>
+<p><img data-src="/img/NetWork/image-20220303131926640.png" alt="image-20220303131926640"></p>
 <p>为了提高可读性，常把 32 位 IP 地址中的每 8 位插入一个空格，采用点分十进制记法。</p>
 <h6 id="子网的划分"><a href="#子网的划分" class="headerlink" title="子网的划分"></a>子网的划分</h6><p>详情见第 135 页</p>
 <p>IP 地址：：&#x3D;{&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p>
 <hr>
 <p>子网掩码</p>
 <p>使用子网掩码和 IP 地址进行与运算就可以得出网络地址</p>
-<p><img data-src="E:\TyporaNotes\pic\image-20220303141047407.png" alt="image-20220303141047407"></p>
+<p><img data-src="/img/NetWork/image-20220303141047407.png" alt="image-20220303141047407"></p>
 <hr>
 <p>使用子网时的分组转发</p>
 <p>路由表必须包括：目的网络地址、子网掩码、下一跳地址</p>
@@ -1106,7 +1106,7 @@
 <h5 id="常用的三种类别的-IP-地址"><a href="#常用的三种类别的-IP-地址" class="headerlink" title="常用的三种类别的 IP 地址"></a>常用的三种类别的 IP 地址</h5><h6 id="A-类"><a href="#A-类" class="headerlink" title="A 类"></a>A 类</h6><p>A 类地址网络号只有 7 位可用。可以指派 2^7-2 个网络号，第一，IP 地址全 0 的是保留地址表示本网络，第二，网络号位 127 的保留作为本地软件的环回测试。A 类地址主机号占 3 个字节，A 类网络的最大主机数位 2^24-2，第一，全 0 的主机号字段表示 IP 地址是本主机所连接到的单个网络地址，第二，全 1 的表示网络上的所有主机。</p>
 <h6 id="B-类"><a href="#B-类" class="headerlink" title="B 类"></a>B 类</h6><p>B 类地址网络只有 14 位可用，因为 B 类地址不可能出现全 0 或全 1 的情况，所以网络号不存在少 2 的情况，实际上 128.0.0.0 是不指派的，所以可以指派的网络数为 2^14-1，即 16383 个；而 B 类最大主机数为 2^16-2 个，需要除去全 0 和全 1 的。B 类地址占整个 IP 空间的 25%。</p>
 <h6 id="C-类"><a href="#C-类" class="headerlink" title="C 类"></a>C 类</h6><p>C 类地址有 3 个字节的网络号字段，除去前面的类别位，还有 21 位可用，C 类网络地址 192.0.0.0 也不指派，可以指派的最小网络地址为 192.0.1.0，因此 C 类地址可指派的网络总数是 2^21-1，每一个 C 类地址的最大主机数为 2^8-2，占整个 IP 地址的 12.5%。</p>
-<p><img data-src="E:/TyporaNotes/pic/image-20220303133601236.png" alt="image-20220303133601236"></p>
+<p><img data-src="/img/NetWork/image-20220303133601236.png" alt="image-20220303133601236"></p>
 <h5 id="IP-地址的重要特点"><a href="#IP-地址的重要特点" class="headerlink" title="IP 地址的重要特点"></a>IP 地址的重要特点</h5><ol>
 <li>每个 IP 地址都由网络号和主机号组成。IP 地址是一种分等级的地址结构。分等级后，第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。第二，路由器仅仅根据目的主机所连接的网络号来转发分组，可以使路由表的项目数大幅度减少，从而减少了路由表所占的内存以及查找路由表所需要的时间。</li>
 <li>实际上 IP 地址时标志一台主机和一条链路的接口。</li>
@@ -1114,7 +1114,7 @@
 <li>IP 地址内所分配得到的地址都是平等的。</li>
 </ol>
 <h5 id="IP-数据报格式"><a href="#IP-数据报格式" class="headerlink" title="IP 数据报格式"></a>IP 数据报格式</h5><p>IP 数据报格式能够说明 IP 协议具有什么功能</p>
-<p><img data-src="E:\TyporaNotes\pic\image-20220303135845208.png" alt="image-20220303135845208"></p>
+<p><img data-src="/img/NetWork/image-20220303135845208.png" alt="image-20220303135845208"></p>
 <h6 id="IP-数据报具体部分"><a href="#IP-数据报具体部分" class="headerlink" title="IP 数据报具体部分"></a>IP 数据报具体部分</h6><p><strong>见书籍 128 页</strong></p>
 <h4 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h4><h5 id="IP-地址与硬件地址"><a href="#IP-地址与硬件地址" class="headerlink" title="IP 地址与硬件地址"></a>IP 地址与硬件地址</h5><p>从层次角度看，物理地址是数据链路层和物理层使用的地址，而 IP 地址是指网络层和以上各层使用的地址，是一种逻辑地址。</p>
 <h5 id="ARP-协议的概念及原理"><a href="#ARP-协议的概念及原理" class="headerlink" title="ARP 协议的概念及原理"></a>ARP 协议的概念及原理</h5><p>地址解析协议 ARP 就是用来解决同一个局域网上，知道一个机器的 IP 地址，找到其对应的 MAC 地址。</p>
