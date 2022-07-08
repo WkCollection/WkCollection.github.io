@@ -245,7 +245,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Python</title>
+    <title>深度学习之路：Python配置Pytorch</title>
     <url>/2022/07/08/Python/</url>
     <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
 <p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
