@@ -250,7 +250,7 @@
     <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
 <p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
 </blockquote>
-<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NAVID则可以采用GPU方式，我的电脑没有NAVID所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
+<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NVIDIA则可以采用GPU方式，我的电脑没有NVIDIA所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
 <p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
 <span id="more"></span>
 
