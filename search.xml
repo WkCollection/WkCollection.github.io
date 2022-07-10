@@ -1,46 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>FLTK踩坑之路</title>
-    <url>/2022/07/04/CodeBlocks/</url>
-    <content><![CDATA[<h1 id="FLTK踩坑之路：CodeBlocks配置FLTK库"><a href="#FLTK踩坑之路：CodeBlocks配置FLTK库" class="headerlink" title="FLTK踩坑之路：CodeBlocks配置FLTK库"></a>FLTK踩坑之路：CodeBlocks配置FLTK库</h1><h2 id="FLTK库"><a href="#FLTK库" class="headerlink" title="FLTK库"></a>FLTK库</h2><blockquote>
-<p>系统环境：Win7旗舰版</p>
-<p>CodeBlocks版本：20.3</p>
-<p>FLTK版本：1.3.8</p>
-<p>Mingw版本：4.2.1（CodeBlocks自带的编译器，无需额外配置编译器）</p>
-</blockquote>
-<span id="more"></span>
-
-<p><code>本来想使用wxWidgets的，奈何wxWidgets的编译过于复杂且麻烦而且会出很多问题，于是改用FLTK</code></p>
-<h3 id="FLTK历史"><a href="#FLTK历史" class="headerlink" title="FLTK历史"></a>FLTK历史</h3><p>FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包，适用于 UNIX&#x2F;Linux、Windows和Mac OS；FLTK 提供了很多GUI 功能，并通过 OpenGL及其内置的 GLUT 仿真支持 3D 图形。</p>
-<h3 id="FLTK特点"><a href="#FLTK特点" class="headerlink" title="FLTK特点"></a>FLTK特点</h3><ol>
-<li>兼容GLUT库</li>
-<li>兼容XForms库</li>
-<li>支持 X11 和 WIN32 上的 OpenGL</li>
-<li>非常小且快速的便携式二维绘图库</li>
-<li>交互式用户界面构建器程序</li>
-<li>sizeof(Fl_Widget) &#x3D;&#x3D;64</li>
-<li>直接在核心库上编写以实现最高速度，并针对代码大小和性能进行了优化</li>
-</ol>
-<h3 id="CodeBlocks集成FLTK"><a href="#CodeBlocks集成FLTK" class="headerlink" title="CodeBlocks集成FLTK"></a>CodeBlocks集成FLTK</h3><p>在官网<a href="https://www.fltk.org/">FLTK</a> 下载FLTK的源码，我下载的是<a href="https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"><code>fltk-1.3.8-source.tar.gz</code></a>，下载完后进行解压，使用CMake进行编译，然后使用codeblocks打开，FLTK.cbp文件进行编译，得到编译后的文件如下：</p>
-<p><img data-src="https://s1.ax1x.com/2022/07/07/jwPqLd.png" alt="编译文件"></p>
-<p>在编译的build文件夹下新建一个文件夹include，将FLTK的源文件的头文件FLTK复制到新建的文件夹include下面。打开CodeBlocks进行库的配置，添加头文件到搜索目录，添加库文件到搜索目录，链接库文件。</p>
-<h3 id="第一个FLTK程序：“Hello-World”"><a href="#第一个FLTK程序：“Hello-World”" class="headerlink" title="第一个FLTK程序：“Hello World”"></a>第一个FLTK程序：“Hello World”</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Box.H&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Hello”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">180</span>, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    <span class="comment">//创建弹性盒子，内容为“Hello World”</span></span><br><span class="line">    Fl_Box *box = <span class="keyword">new</span> <span class="built_in">Fl_Box</span>(<span class="number">20</span>, <span class="number">40</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    <span class="comment">//设置盒子的类型</span></span><br><span class="line">    box-&gt;<span class="built_in">box</span>(FL_UP_BOX);</span><br><span class="line">    <span class="comment">//设置盒子的字体样式</span></span><br><span class="line">    box-&gt;<span class="built_in">labelfont</span>(FL_BOLD + FL_ITALIC);</span><br><span class="line">    <span class="comment">//设置盒子字体大小</span></span><br><span class="line">    box-&gt;<span class="built_in">labelsize</span>(<span class="number">36</span>);</span><br><span class="line">    <span class="comment">//设置盒子标签的类型</span></span><br><span class="line">    box-&gt;<span class="built_in">labeltype</span>(FL_SHADOW_LABEL);</span><br><span class="line">    <span class="comment">//窗体内容结束</span></span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/../img/hello.png" alt="image-20220709125525502"></p>
-<h3 id="FLTK按钮：利用回调函数添加点击事件"><a href="#FLTK按钮：利用回调函数添加点击事件" class="headerlink" title="FLTK按钮：利用回调函数添加点击事件"></a>FLTK按钮：利用回调函数添加点击事件</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Return_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Light_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Repeat_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Round_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Check_Button.H&gt;</span></span></span><br><span class="line">Fl_Box *box = (Fl_Box*)<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">confirm_cb</span><span class="params">(Fl_Widget *w, <span class="type">void</span> *data)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *data = <span class="string">&quot;I Am Sad!&quot;</span>;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Demo02”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">250</span>, <span class="string">&quot;Change My Mind&quot;</span>);</span><br><span class="line">    <span class="comment">//创建弹性盒子</span></span><br><span class="line">    box = <span class="keyword">new</span> <span class="built_in">Fl_Box</span>(<span class="number">20</span>, <span class="number">30</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="string">&quot;I Am Happy!&quot;</span>);</span><br><span class="line">    box-&gt;<span class="built_in">box</span>(FL_UP_BOX);</span><br><span class="line">    box-&gt;<span class="built_in">labelfont</span>(FL_BOLD + FL_ITALIC);</span><br><span class="line">    box-&gt;<span class="built_in">labelsize</span>(<span class="number">36</span>);</span><br><span class="line">    box-&gt;<span class="built_in">labeltype</span>(_FL_SHADOW_LABEL);</span><br><span class="line">    box-&gt;<span class="built_in">labelcolor</span>(FL_BLUE);</span><br><span class="line">    <span class="comment">//创建标准按钮</span></span><br><span class="line">    Fl_Button *btn = <span class="keyword">new</span> <span class="built_in">Fl_Button</span>(<span class="number">30</span>, <span class="number">140</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Change Mood&quot;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    btn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//绑定快捷键</span></span><br><span class="line">    btn-&gt;<span class="built_in">shortcut</span>(FL_CTRL + <span class="string">&#x27;t&#x27;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">callback</span>((Fl_Callback*)confirm_cb, data);</span><br><span class="line">    <span class="comment">//创建返回按钮</span></span><br><span class="line">    Fl_Return_Button *retBtn = <span class="keyword">new</span> <span class="built_in">Fl_Return_Button</span>(<span class="number">160</span>, <span class="number">140</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Return&quot;</span>);</span><br><span class="line">    retBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    retBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建重复按钮</span></span><br><span class="line">    Fl_Repeat_Button *repBtn = <span class="keyword">new</span> <span class="built_in">Fl_Repeat_Button</span>(<span class="number">30</span>, <span class="number">180</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Repeat&quot;</span>);</span><br><span class="line">    repBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    repBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建开关按钮</span></span><br><span class="line">    Fl_Light_Button *lgBtn = <span class="keyword">new</span> <span class="built_in">Fl_Light_Button</span>(<span class="number">160</span>, <span class="number">180</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Light&quot;</span>);</span><br><span class="line">    lgBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    lgBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建单选按钮(矩形)</span></span><br><span class="line">    Fl_Round_Button *rouBtn = <span class="keyword">new</span> <span class="built_in">Fl_Round_Button</span>(<span class="number">30</span>, <span class="number">220</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Round&quot;</span>);</span><br><span class="line">    rouBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    rouBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建单选按钮(圆形)</span></span><br><span class="line">    Fl_Check_Button *checkBtn = <span class="keyword">new</span> <span class="built_in">Fl_Check_Button</span>(<span class="number">160</span>, <span class="number">220</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Check&quot;</span>);</span><br><span class="line">    checkBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    checkBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">confirm_cb</span><span class="params">(Fl_Widget *w, <span class="type">void</span> *data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">0</span>) &#123;</span><br><span class="line">        box-&gt;<span class="built_in">label</span>((<span class="type">char</span> *)data);</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        box-&gt;<span class="built_in">label</span>(<span class="string">&quot;I Am Happy!&quot;</span>);</span><br><span class="line">        flag = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/../img/buttons.png" alt="image-20220709125429727"></p>
-<h3 id="FLTK文本框"><a href="#FLTK文本框" class="headerlink" title="FLTK文本框"></a>FLTK文本框</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Input.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Output.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Multiline_Input.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Multiline_Output.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Text_Editor.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Help_View.H&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Hello”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">480</span>, <span class="string">&quot;Demo03&quot;</span>);</span><br><span class="line">    <span class="comment">//创建普通输入文本框(可以修改文本框的值)</span></span><br><span class="line">    Fl_Input *input = <span class="keyword">new</span> <span class="built_in">Fl_Input</span>(<span class="number">100</span>, <span class="number">10</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Enter a Value:&quot;</span>);</span><br><span class="line">    input-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am input&quot;</span>);</span><br><span class="line">    <span class="comment">//创建普通输出文本框</span></span><br><span class="line">    Fl_Output *output = <span class="keyword">new</span> <span class="built_in">Fl_Output</span>(<span class="number">100</span>, <span class="number">50</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Print a Value:&quot;</span>);</span><br><span class="line">    output-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am output&quot;</span>);</span><br><span class="line">    <span class="comment">//创建多行输入文本框</span></span><br><span class="line">    Fl_Multiline_Input *multiInput = <span class="keyword">new</span> <span class="built_in">Fl_Multiline_Input</span>(<span class="number">100</span>, <span class="number">90</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="string">&quot;Enter a Value:&quot;</span>);</span><br><span class="line">    multiInput-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am multinput&quot;</span>);</span><br><span class="line">    <span class="comment">//创建多行输出文本框</span></span><br><span class="line">    Fl_Multiline_Output *multioutput = <span class="keyword">new</span> <span class="built_in">Fl_Multiline_Output</span>(<span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="string">&quot;Print a Value:&quot;</span>);</span><br><span class="line">    multioutput-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am multioutput!!&quot;</span>);</span><br><span class="line">    <span class="comment">//创建Text展板</span></span><br><span class="line">    Fl_Text_Buffer *buff = <span class="keyword">new</span> <span class="built_in">Fl_Text_Buffer</span>();</span><br><span class="line">    Fl_Text_Display *disp = <span class="keyword">new</span> <span class="built_in">Fl_Text_Display</span>(<span class="number">0</span>, <span class="number">320</span>, <span class="number">340</span>, <span class="number">100</span>, <span class="string">&quot;Text Display&quot;</span>);</span><br><span class="line">    disp-&gt;<span class="built_in">buffer</span>(buff);</span><br><span class="line">    buff-&gt;<span class="built_in">text</span>(<span class="string">&quot;line one\nline two&quot;</span>);</span><br><span class="line">    disp-&gt;<span class="built_in">linenumber_width</span>(<span class="number">20</span>);</span><br><span class="line">    <span class="comment">//窗体内容结束</span></span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/../img/input.png" alt="image-20220709232313119"></p>
-]]></content>
+    <title>C和指针</title>
+    <url>/2022/07/10/CAndPoint/</url>
+    <content><![CDATA[<embed src="./C和指针.pdf" width="100%" height="750" type="application/pdf">]]></content>
       <categories>
-        <category>IDE</category>
+        <category>PDF</category>
       </categories>
       <tags>
-        <tag>IDE</tag>
-        <tag>CodeBlocks</tag>
+        <tag>PDF</tag>
       </tags>
   </entry>
   <entry>
@@ -88,6 +56,82 @@
       <tags>
         <tag>后端</tag>
         <tag>Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>深度学习之路：Python配置Pytorch</title>
+    <url>/2022/07/08/Python/</url>
+    <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
+<p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
+</blockquote>
+<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NVIDIA则可以采用GPU方式，我的电脑没有NVIDIA所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
+<p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
+<span id="more"></span>
+
+<h2 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h2><p>由于使用Pip进行Pytorch库的安装，过程中坑实在太多，根据网上的建议选用Anaconda这个也很优秀的Python第三库的包管理工具。为节省时间可以采用清华源镜像进行下载<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda</a>选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Windows-x86_64.exe">Anaconda3-5.3.1-Windows-x86_64.exe</a>进行下载：</p>
+<p><img data-src="/img/Anaconda.png" alt="image-20220708154359305"></p>
+<p>下载完成后进行安装</p>
+<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img data-src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
+<p><img data-src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
+<p><img data-src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
+<p><img data-src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
+<p><img data-src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
+<p><img data-src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
+<p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
+<h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
+<p>打开命令行CMD输入<code>conda --version</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
+<h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
+<p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python=3.7</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
+<p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
+<p>先使用activate激活base环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">activate</span><br></pre></td></tr></table></figure>
+
+<p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
+<h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
+<p>查看CUDA的<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">官方文档</a></p>
+<p>查看cuDNN的<a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">官方文档</a></p>
+</blockquote>
+<p>第一步：首先根据显卡的驱动程序版本找到对应的Cuda Toolkit</p>
+<p><img data-src="/../img/CUDA.png" alt="image-20220708225323574"></p>
+<p><img data-src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
+<p>第二步：找到对应的CUDA，在此处<a href="https://developer.nvidia.com/cuda-toolkit-archive">下载</a></p>
+<p>第三步：找到对应的cuDNN,在此处<a href="https://developer.nvidia.com/rdp/cudnn-archive">下载</a></p>
+<p><img data-src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
+<p>第四步：解压cuDNN文件，将bin,include,lib复制到CUDA目录下</p>
+<p>第五步：配置CUDA的环境变量，将CUDA下的include,lib,libnvvp配置到Path路径下</p>
+<p>第六步：验证是否安装成功，打开CMD，输入nvcc -V查看CUDA版本</p>
+<h2 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h2><p>第一步：进入<a href="https://pytorch.org/">Pytorch官网</a>，点击首页Install</p>
+<p><img data-src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
+<p>第二步：找到自己所需配置</p>
+<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
+<p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CUDA-10.2 PyTorch builds are no longer available for Windows, please use CUDA-11.6</span><br></pre></td></tr></table></figure>
+
+<p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
+<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
+<p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
+
+<p>至此Pytorch配置完毕！！！</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>编程语言</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -273,82 +317,6 @@
       <tags>
         <tag>计算机基础</tag>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深度学习之路：Python配置Pytorch</title>
-    <url>/2022/07/08/Python/</url>
-    <content><![CDATA[<h1 id="深度学习之路：Python配置Pytorch"><a href="#深度学习之路：Python配置Pytorch" class="headerlink" title="深度学习之路：Python配置Pytorch"></a>深度学习之路：Python配置Pytorch</h1><blockquote>
-<p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
-</blockquote>
-<h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NVIDIA则可以采用GPU方式，我的电脑没有NVIDIA所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
-<p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
-<span id="more"></span>
-
-<h2 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h2><p>由于使用Pip进行Pytorch库的安装，过程中坑实在太多，根据网上的建议选用Anaconda这个也很优秀的Python第三库的包管理工具。为节省时间可以采用清华源镜像进行下载<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda</a>选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Windows-x86_64.exe">Anaconda3-5.3.1-Windows-x86_64.exe</a>进行下载：</p>
-<p><img data-src="/img/Anaconda.png" alt="image-20220708154359305"></p>
-<p>下载完成后进行安装</p>
-<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img data-src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
-<p><img data-src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
-<p><img data-src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
-<p><img data-src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
-<p><img data-src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
-<p><img data-src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
-<p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
-<h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
-<p>打开命令行CMD输入<code>conda --version</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
-<h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
-<p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda create -n pytorch python=3.7</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
-<p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
-<p>先使用activate激活base环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">activate</span><br></pre></td></tr></table></figure>
-
-<p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
-<h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
-<p>查看CUDA的<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">官方文档</a></p>
-<p>查看cuDNN的<a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">官方文档</a></p>
-</blockquote>
-<p>第一步：首先根据显卡的驱动程序版本找到对应的Cuda Toolkit</p>
-<p><img data-src="/../img/CUDA.png" alt="image-20220708225323574"></p>
-<p><img data-src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
-<p>第二步：找到对应的CUDA，在此处<a href="https://developer.nvidia.com/cuda-toolkit-archive">下载</a></p>
-<p>第三步：找到对应的cuDNN,在此处<a href="https://developer.nvidia.com/rdp/cudnn-archive">下载</a></p>
-<p><img data-src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
-<p>第四步：解压cuDNN文件，将bin,include,lib复制到CUDA目录下</p>
-<p>第五步：配置CUDA的环境变量，将CUDA下的include,lib,libnvvp配置到Path路径下</p>
-<p>第六步：验证是否安装成功，打开CMD，输入nvcc -V查看CUDA版本</p>
-<h2 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h2><p>第一步：进入<a href="https://pytorch.org/">Pytorch官网</a>，点击首页Install</p>
-<p><img data-src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
-<p>第二步：找到自己所需配置</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
-<p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CUDA-10.2 PyTorch builds are no longer available for Windows, please use CUDA-11.6</span><br></pre></td></tr></table></figure>
-
-<p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
-<p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
-
-<p>至此Pytorch配置完毕！！！</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>编程语言</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -1169,6 +1137,49 @@
       <tags>
         <tag>计算机基础</tag>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>FLTK踩坑之路</title>
+    <url>/2022/07/04/CodeBlocks/</url>
+    <content><![CDATA[<h1 id="FLTK踩坑之路：CodeBlocks配置FLTK库"><a href="#FLTK踩坑之路：CodeBlocks配置FLTK库" class="headerlink" title="FLTK踩坑之路：CodeBlocks配置FLTK库"></a>FLTK踩坑之路：CodeBlocks配置FLTK库</h1><h2 id="FLTK库"><a href="#FLTK库" class="headerlink" title="FLTK库"></a>FLTK库</h2><blockquote>
+<p>系统环境：Win7旗舰版</p>
+<p>CodeBlocks版本：20.3</p>
+<p>FLTK版本：1.3.8</p>
+<p>Mingw版本：4.2.1（CodeBlocks自带的编译器，无需额外配置编译器）</p>
+</blockquote>
+<span id="more"></span>
+
+<p><code>本来想使用wxWidgets的，奈何wxWidgets的编译过于复杂且麻烦而且会出很多问题，于是改用FLTK</code></p>
+<h3 id="FLTK历史"><a href="#FLTK历史" class="headerlink" title="FLTK历史"></a>FLTK历史</h3><p>FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包，适用于 UNIX&#x2F;Linux、Windows和Mac OS；FLTK 提供了很多GUI 功能，并通过 OpenGL及其内置的 GLUT 仿真支持 3D 图形。</p>
+<h3 id="FLTK特点"><a href="#FLTK特点" class="headerlink" title="FLTK特点"></a>FLTK特点</h3><ol>
+<li>兼容GLUT库</li>
+<li>兼容XForms库</li>
+<li>支持 X11 和 WIN32 上的 OpenGL</li>
+<li>非常小且快速的便携式二维绘图库</li>
+<li>交互式用户界面构建器程序</li>
+<li>sizeof(Fl_Widget) &#x3D;&#x3D;64</li>
+<li>直接在核心库上编写以实现最高速度，并针对代码大小和性能进行了优化</li>
+</ol>
+<h3 id="CodeBlocks集成FLTK"><a href="#CodeBlocks集成FLTK" class="headerlink" title="CodeBlocks集成FLTK"></a>CodeBlocks集成FLTK</h3><p>在官网<a href="https://www.fltk.org/">FLTK</a> 下载FLTK的源码，我下载的是<a href="https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"><code>fltk-1.3.8-source.tar.gz</code></a>，下载完后进行解压，使用CMake进行编译，然后使用codeblocks打开，FLTK.cbp文件进行编译，得到编译后的文件如下：</p>
+<p><img data-src="https://s1.ax1x.com/2022/07/07/jwPqLd.png" alt="编译文件"></p>
+<p>在编译的build文件夹下新建一个文件夹include，将FLTK的源文件的头文件FLTK复制到新建的文件夹include下面。打开CodeBlocks进行库的配置，添加头文件到搜索目录，添加库文件到搜索目录，链接库文件。</p>
+<h3 id="第一个FLTK程序：“Hello-World”"><a href="#第一个FLTK程序：“Hello-World”" class="headerlink" title="第一个FLTK程序：“Hello World”"></a>第一个FLTK程序：“Hello World”</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Box.H&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Hello”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">180</span>, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    <span class="comment">//创建弹性盒子，内容为“Hello World”</span></span><br><span class="line">    Fl_Box *box = <span class="keyword">new</span> <span class="built_in">Fl_Box</span>(<span class="number">20</span>, <span class="number">40</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="string">&quot;Hello, World!&quot;</span>);</span><br><span class="line">    <span class="comment">//设置盒子的类型</span></span><br><span class="line">    box-&gt;<span class="built_in">box</span>(FL_UP_BOX);</span><br><span class="line">    <span class="comment">//设置盒子的字体样式</span></span><br><span class="line">    box-&gt;<span class="built_in">labelfont</span>(FL_BOLD + FL_ITALIC);</span><br><span class="line">    <span class="comment">//设置盒子字体大小</span></span><br><span class="line">    box-&gt;<span class="built_in">labelsize</span>(<span class="number">36</span>);</span><br><span class="line">    <span class="comment">//设置盒子标签的类型</span></span><br><span class="line">    box-&gt;<span class="built_in">labeltype</span>(FL_SHADOW_LABEL);</span><br><span class="line">    <span class="comment">//窗体内容结束</span></span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/../img/hello.png" alt="image-20220709125525502"></p>
+<h3 id="FLTK按钮：利用回调函数添加点击事件"><a href="#FLTK按钮：利用回调函数添加点击事件" class="headerlink" title="FLTK按钮：利用回调函数添加点击事件"></a>FLTK按钮：利用回调函数添加点击事件</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Return_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Light_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Repeat_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Round_Button.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Check_Button.H&gt;</span></span></span><br><span class="line">Fl_Box *box = (Fl_Box*)<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> flag = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">confirm_cb</span><span class="params">(Fl_Widget *w, <span class="type">void</span> *data)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *data = <span class="string">&quot;I Am Sad!&quot;</span>;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Demo02”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">250</span>, <span class="string">&quot;Change My Mind&quot;</span>);</span><br><span class="line">    <span class="comment">//创建弹性盒子</span></span><br><span class="line">    box = <span class="keyword">new</span> <span class="built_in">Fl_Box</span>(<span class="number">20</span>, <span class="number">30</span>, <span class="number">300</span>, <span class="number">100</span>, <span class="string">&quot;I Am Happy!&quot;</span>);</span><br><span class="line">    box-&gt;<span class="built_in">box</span>(FL_UP_BOX);</span><br><span class="line">    box-&gt;<span class="built_in">labelfont</span>(FL_BOLD + FL_ITALIC);</span><br><span class="line">    box-&gt;<span class="built_in">labelsize</span>(<span class="number">36</span>);</span><br><span class="line">    box-&gt;<span class="built_in">labeltype</span>(_FL_SHADOW_LABEL);</span><br><span class="line">    box-&gt;<span class="built_in">labelcolor</span>(FL_BLUE);</span><br><span class="line">    <span class="comment">//创建标准按钮</span></span><br><span class="line">    Fl_Button *btn = <span class="keyword">new</span> <span class="built_in">Fl_Button</span>(<span class="number">30</span>, <span class="number">140</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Change Mood&quot;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    btn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//绑定快捷键</span></span><br><span class="line">    btn-&gt;<span class="built_in">shortcut</span>(FL_CTRL + <span class="string">&#x27;t&#x27;</span>);</span><br><span class="line">    btn-&gt;<span class="built_in">callback</span>((Fl_Callback*)confirm_cb, data);</span><br><span class="line">    <span class="comment">//创建返回按钮</span></span><br><span class="line">    Fl_Return_Button *retBtn = <span class="keyword">new</span> <span class="built_in">Fl_Return_Button</span>(<span class="number">160</span>, <span class="number">140</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Return&quot;</span>);</span><br><span class="line">    retBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    retBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建重复按钮</span></span><br><span class="line">    Fl_Repeat_Button *repBtn = <span class="keyword">new</span> <span class="built_in">Fl_Repeat_Button</span>(<span class="number">30</span>, <span class="number">180</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Repeat&quot;</span>);</span><br><span class="line">    repBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    repBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建开关按钮</span></span><br><span class="line">    Fl_Light_Button *lgBtn = <span class="keyword">new</span> <span class="built_in">Fl_Light_Button</span>(<span class="number">160</span>, <span class="number">180</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Light&quot;</span>);</span><br><span class="line">    lgBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    lgBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建单选按钮(矩形)</span></span><br><span class="line">    Fl_Round_Button *rouBtn = <span class="keyword">new</span> <span class="built_in">Fl_Round_Button</span>(<span class="number">30</span>, <span class="number">220</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Round&quot;</span>);</span><br><span class="line">    rouBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    rouBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    <span class="comment">//创建单选按钮(圆形)</span></span><br><span class="line">    Fl_Check_Button *checkBtn = <span class="keyword">new</span> <span class="built_in">Fl_Check_Button</span>(<span class="number">160</span>, <span class="number">220</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Check&quot;</span>);</span><br><span class="line">    checkBtn-&gt;<span class="built_in">color</span>(FL_WHITE);</span><br><span class="line">    checkBtn-&gt;<span class="built_in">labelfont</span>(FL_BOLD);</span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">confirm_cb</span><span class="params">(Fl_Widget *w, <span class="type">void</span> *data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(flag == <span class="number">0</span>) &#123;</span><br><span class="line">        box-&gt;<span class="built_in">label</span>((<span class="type">char</span> *)data);</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        box-&gt;<span class="built_in">label</span>(<span class="string">&quot;I Am Happy!&quot;</span>);</span><br><span class="line">        flag = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/../img/buttons.png" alt="image-20220709125429727"></p>
+<h3 id="FLTK文本框"><a href="#FLTK文本框" class="headerlink" title="FLTK文本框"></a>FLTK文本框</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Window.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Input.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Output.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Multiline_Input.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Multiline_Output.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Text_Editor.H&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;FL/Fl_Help_View.H&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">(<span class="type">int</span> argc, <span class="type">char</span> ** argv)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建窗体:宽340,高180，窗体名为“Hello”</span></span><br><span class="line">    Fl_Window *window = <span class="keyword">new</span> <span class="built_in">Fl_Window</span>(<span class="number">340</span>, <span class="number">480</span>, <span class="string">&quot;Demo03&quot;</span>);</span><br><span class="line">    <span class="comment">//创建普通输入文本框(可以修改文本框的值)</span></span><br><span class="line">    Fl_Input *input = <span class="keyword">new</span> <span class="built_in">Fl_Input</span>(<span class="number">100</span>, <span class="number">10</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Enter a Value:&quot;</span>);</span><br><span class="line">    input-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am input&quot;</span>);</span><br><span class="line">    <span class="comment">//创建普通输出文本框</span></span><br><span class="line">    Fl_Output *output = <span class="keyword">new</span> <span class="built_in">Fl_Output</span>(<span class="number">100</span>, <span class="number">50</span>, <span class="number">120</span>, <span class="number">30</span>, <span class="string">&quot;Print a Value:&quot;</span>);</span><br><span class="line">    output-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am output&quot;</span>);</span><br><span class="line">    <span class="comment">//创建多行输入文本框</span></span><br><span class="line">    Fl_Multiline_Input *multiInput = <span class="keyword">new</span> <span class="built_in">Fl_Multiline_Input</span>(<span class="number">100</span>, <span class="number">90</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="string">&quot;Enter a Value:&quot;</span>);</span><br><span class="line">    multiInput-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am multinput&quot;</span>);</span><br><span class="line">    <span class="comment">//创建多行输出文本框</span></span><br><span class="line">    Fl_Multiline_Output *multioutput = <span class="keyword">new</span> <span class="built_in">Fl_Multiline_Output</span>(<span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="string">&quot;Print a Value:&quot;</span>);</span><br><span class="line">    multioutput-&gt;<span class="built_in">value</span>(<span class="string">&quot;I am multioutput!!&quot;</span>);</span><br><span class="line">    <span class="comment">//创建Text展板</span></span><br><span class="line">    Fl_Text_Buffer *buff = <span class="keyword">new</span> <span class="built_in">Fl_Text_Buffer</span>();</span><br><span class="line">    Fl_Text_Display *disp = <span class="keyword">new</span> <span class="built_in">Fl_Text_Display</span>(<span class="number">0</span>, <span class="number">320</span>, <span class="number">340</span>, <span class="number">100</span>, <span class="string">&quot;Text Display&quot;</span>);</span><br><span class="line">    disp-&gt;<span class="built_in">buffer</span>(buff);</span><br><span class="line">    buff-&gt;<span class="built_in">text</span>(<span class="string">&quot;line one\nline two&quot;</span>);</span><br><span class="line">    disp-&gt;<span class="built_in">linenumber_width</span>(<span class="number">20</span>);</span><br><span class="line">    <span class="comment">//窗体内容结束</span></span><br><span class="line">    window-&gt;<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//显示窗口并进行事件循环</span></span><br><span class="line">    window-&gt;<span class="built_in">show</span>(argc, argv);</span><br><span class="line">    <span class="keyword">return</span> Fl::<span class="built_in">run</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="/../img/input.png" alt="image-20220709232313119"></p>
+]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>IDE</tag>
+        <tag>CodeBlocks</tag>
       </tags>
   </entry>
 </search>
