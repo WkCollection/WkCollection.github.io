@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/null">
     <link rel="icon" type="image/png" href="/null">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>编程の路</title>
+    <title>友链 - 编程の路</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -346,6 +346,13 @@ header .header__right .dropdown-menus .dropdown-menu {
     
 
     
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
     
     <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
     <noscript>
@@ -450,129 +457,70 @@ header .header__right .dropdown-menus .dropdown-menu {
         <div id="page-main" class="main-content">
         <div class="mg-top">
             
-
-<div class="post-card-center">
-<div class="post-card-main">
-
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/06/20/Nodejs/">
-          
-          Nodejs</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            Nodejs学习什么是Nodejs?Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-06-20 19:52" pubdate>
-                2022-06-20
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/Node/">Node</a>
-              
-            
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/06/19/Git/">
-          
-          Git学习</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            Git学习
-学习git这一种主流的版本控制系统
-
-什么是”版本控制”？版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-06-19 19:43" pubdate>
-                2022-06-19
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/Git/">Git</a>
-              
-            
-          
-        </div>
-      </article>
-    </div>
-  
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/2022/06/19/Cpp/">
-          
-          Cpp学习</a>
-        </h3>
-        <p class="index-excerpt">
-            
-            
-              
-            
-            C++学习数组
-方便存放同类型的元素
-
-一维数组一维数组数组名代表数组的首地址
-一维数组名可以计算出数组在内存空间所占内存大小
-二维数组二维数组名代表二维数组的首地址，也可以查看某行的首地址
-二维数组可以计算出数组在内存空间所占内存大小，也可以计算出某行所占内存大小
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-06-19 16:05" pubdate>
-                2022-06-19
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/C/">C++</a>
-              
-            
-          
-        </div>
-      </article>
-    </div>
-  
+<article class="page">
+<div id="post-meta-m" style="padding-bottom:0;">
+  <div class="post-meta" id="post-meta">
+    <h3>友链</h3>
+  </div>
 </div>
-</div>
+<div class="links-page" style="padding-top:10px;" id="links-page">
+    
+    
+      <script>
+        (async () => {
+          var res = await fetch('');
+          var json = await res.json();
+          console.log(json);
+          const Linkscontainer = document.getElementById('links-page');
+          json.forEach(item => {
+            const element = document.createElement('div');
+            element.className = "links-card";
 
-    <nav aria-label="navigation">
-      <span class="pagination" id="pagination">
-        <a class="extend prev" rel="prev" href="/">&lt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </span>
-    </nav>
+            element.innerHTML = `
+        <a href="${item.link}" class="links-card-body" target="_blank" rel="noopener">
+          <div class="links-card-content">
+              <div class="link-avatar my-auto">
+                
+                  <img webp-comp class="lazyload-img" data-srcset="${item.image}" srcset="/img/loading.svg" src="${item.image}" alt="${item.title}" />
+                
+              </div>
+            <div class="link-text">
+              <div class="link-title">${item.title}</div>
+              <div class="link-intro">${item.intro}</div>
+            </div>
+          </div>
+        </a>
+            `;
+            Linkscontainer.appendChild(element);
+          });
+          setTimeout(function () {
+  function query(selector) {
+    return Array.from(document.querySelectorAll(selector));
+}
+    
+var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+        if (entry.isIntersecting) { 
+            var img = entry.target;
+            img.srcset = img.getAttribute('data-srcset');
+            img.className += ' loaded'
+            io.unobserve(img);
+        }
+    });
+});
+    
+query('.lazyload-img').forEach(function (item) {
+    io.observe(item);
+});
+},0)
+        })();
+
+
+      </script>
+    
+</div>
+  </div>
+</article>
 
         </div>
         
