@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>C</title>
-    <url>/2022/07/11/C/</url>
-    <content><![CDATA[<h1 id="C语言突破"><a href="#C语言突破" class="headerlink" title="C语言突破"></a>C语言突破</h1><p>[TOC]</p>
-<span id="more"></span>
-
-<blockquote>
-<p>C语言相关知识点深入理解</p>
-</blockquote>
-<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
-<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
-<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
-<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
-</ol>
-<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
-<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
-<h4 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h4><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
-<p>在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，<code>在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁</code>。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。</p>
-<p>register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。</p>
-<h2 id="第二关：C陷阱与缺陷"><a href="#第二关：C陷阱与缺陷" class="headerlink" title="第二关：C陷阱与缺陷"></a>第二关：C陷阱与缺陷</h2><h2 id="第三关：C专家编程"><a href="#第三关：C专家编程" class="headerlink" title="第三关：C专家编程"></a>第三关：C专家编程</h2><h2 id="第四关：Linux-C编程"><a href="#第四关：Linux-C编程" class="headerlink" title="第四关：Linux C编程"></a>第四关：Linux C编程</h2><h2 id="第五关：数据结构与算法分析"><a href="#第五关：数据结构与算法分析" class="headerlink" title="第五关：数据结构与算法分析"></a>第五关：数据结构与算法分析</h2><h2 id="第六关：CMake"><a href="#第六关：CMake" class="headerlink" title="第六关：CMake"></a>第六关：CMake</h2>]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-        <tag>编程语言</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FLTK踩坑之路</title>
     <url>/2022/07/04/CodeBlocks/</url>
     <content><![CDATA[<h1 id="FLTK踩坑之路：CodeBlocks配置FLTK库"><a href="#FLTK踩坑之路：CodeBlocks配置FLTK库" class="headerlink" title="FLTK踩坑之路：CodeBlocks配置FLTK库"></a>FLTK踩坑之路：CodeBlocks配置FLTK库</h1><h2 id="FLTK库"><a href="#FLTK库" class="headerlink" title="FLTK库"></a>FLTK库</h2><blockquote>
@@ -288,24 +260,30 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
       </tags>
   </entry>
   <entry>
-    <title>Nodejs</title>
-    <url>/2022/06/20/Nodejs/</url>
-    <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><h2 id="什么是Nodejs"><a href="#什么是Nodejs" class="headerlink" title="什么是Nodejs?"></a>什么是Nodejs?</h2><p>Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。</p>
-<span id="more"></span>
+    <title>C</title>
+    <url>/2022/07/11/C/</url>
+    <content><![CDATA[<h1 id="C语言突破"><a href="#C语言突破" class="headerlink" title="C语言突破"></a>C语言突破</h1><span id="more"></span>
 
-<p>特性：</p>
-<ul>
-<li>文件读写</li>
-<li>进程管理</li>
-<li>网络通信</li>
-</ul>
-]]></content>
+<blockquote>
+<p>C语言相关知识点深入理解</p>
+</blockquote>
+<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
+<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
+<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
+<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
+</ol>
+<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
+<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
+<h4 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h4><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
+<p>在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，<code>在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁</code>。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。</p>
+<p>register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。</p>
+<h2 id="第二关：C陷阱与缺陷"><a href="#第二关：C陷阱与缺陷" class="headerlink" title="第二关：C陷阱与缺陷"></a>第二关：C陷阱与缺陷</h2><h2 id="第三关：C专家编程"><a href="#第三关：C专家编程" class="headerlink" title="第三关：C专家编程"></a>第三关：C专家编程</h2><h2 id="第四关：Linux-C编程"><a href="#第四关：Linux-C编程" class="headerlink" title="第四关：Linux C编程"></a>第四关：Linux C编程</h2><h2 id="第五关：数据结构与算法分析"><a href="#第五关：数据结构与算法分析" class="headerlink" title="第五关：数据结构与算法分析"></a>第五关：数据结构与算法分析</h2><h2 id="第六关：CMake"><a href="#第六关：CMake" class="headerlink" title="第六关：CMake"></a>第六关：CMake</h2>]]></content>
       <categories>
-        <category>Node</category>
+        <category>C</category>
       </categories>
       <tags>
-        <tag>Nodejs</tag>
-        <tag>后端</tag>
+        <tag>C</tag>
+        <tag>编程语言</tag>
       </tags>
   </entry>
   <entry>
@@ -491,6 +469,27 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
       <tags>
         <tag>计算机基础</tag>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nodejs</title>
+    <url>/2022/06/20/Nodejs/</url>
+    <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><h2 id="什么是Nodejs"><a href="#什么是Nodejs" class="headerlink" title="什么是Nodejs?"></a>什么是Nodejs?</h2><p>Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。</p>
+<span id="more"></span>
+
+<p>特性：</p>
+<ul>
+<li>文件读写</li>
+<li>进程管理</li>
+<li>网络通信</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Nodejs</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
