@@ -344,23 +344,23 @@
 <p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
 <h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
 <p>打开命令行CMD输入<code>conda --version</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
 <h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
 <p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n pytorch python=3.7</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create -n pytorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
 <p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda info --envs</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda info --envs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
 <p>先使用activate激活base环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">activate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda activate pytorch</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda activate pytorch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
 <h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
@@ -381,12 +381,12 @@
 <p>第二步：找到自己所需配置</p>
 <p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
 <p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CUDA-10.2 PyTorch builds are no longer available for Windows, please use CUDA-11.6</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CUDA-10.2 PyTorch builds are no longer available <span class="token keyword">for</span> Windows, please use CUDA-11.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
 <p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
 <p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch torchvision torchaudio cpuonly -c pytorch</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> pytorch torchvision torchaudio cpuonly -c pytorch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>至此Pytorch配置完毕！！！</p>
 
@@ -460,14 +460,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">55k</span>
+    <span title="站点总字数">51k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:31</span>
+    <span title="站点阅读时长">1:24</span>
   </span>
 </div>
 <div class="busuanzi-count">
