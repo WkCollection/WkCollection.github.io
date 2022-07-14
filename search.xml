@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>C语言深入学习</title>
+    <url>/2022/07/11/C/</url>
+    <content><![CDATA[<h1 id="C语言突破"><a href="#C语言突破" class="headerlink" title="C语言突破"></a>C语言突破</h1><span id="more"></span>
+
+<blockquote>
+<p>C语言相关知识点深入理解</p>
+</blockquote>
+<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
+<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
+<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
+<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
+</ol>
+<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
+<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
+<h4 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h4><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
+<p>在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，<code>在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁</code>。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。</p>
+<p>register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。</p>
+<h2 id="第二关：C陷阱与缺陷"><a href="#第二关：C陷阱与缺陷" class="headerlink" title="第二关：C陷阱与缺陷"></a>第二关：C陷阱与缺陷</h2><h2 id="第三关：C专家编程"><a href="#第三关：C专家编程" class="headerlink" title="第三关：C专家编程"></a>第三关：C专家编程</h2><h2 id="第四关：Linux-C编程"><a href="#第四关：Linux-C编程" class="headerlink" title="第四关：Linux C编程"></a>第四关：Linux C编程</h2><h2 id="第五关：数据结构与算法分析"><a href="#第五关：数据结构与算法分析" class="headerlink" title="第五关：数据结构与算法分析"></a>第五关：数据结构与算法分析</h2><h2 id="第六关：CMake"><a href="#第六关：CMake" class="headerlink" title="第六关：CMake"></a>第六关：CMake</h2>]]></content>
+      <categories>
+        <category>C</category>
+      </categories>
+      <tags>
+        <tag>C</tag>
+        <tag>编程语言</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>FLTK踩坑之路</title>
     <url>/2022/07/04/CodeBlocks/</url>
     <content><![CDATA[<h1 id="FLTK踩坑之路：CodeBlocks配置FLTK库"><a href="#FLTK踩坑之路：CodeBlocks配置FLTK库" class="headerlink" title="FLTK踩坑之路：CodeBlocks配置FLTK库"></a>FLTK踩坑之路：CodeBlocks配置FLTK库</h1><h2 id="FLTK库"><a href="#FLTK库" class="headerlink" title="FLTK库"></a>FLTK库</h2><blockquote>
@@ -257,33 +284,6 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
       <tags>
         <tag>IDE</tag>
         <tag>CodeBlocks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C语言深入学习</title>
-    <url>/2022/07/11/C/</url>
-    <content><![CDATA[<h1 id="C语言突破"><a href="#C语言突破" class="headerlink" title="C语言突破"></a>C语言突破</h1><span id="more"></span>
-
-<blockquote>
-<p>C语言相关知识点深入理解</p>
-</blockquote>
-<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
-<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
-<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
-<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
-</ol>
-<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
-<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
-<h4 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h4><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
-<p>在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，<code>在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁</code>。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。</p>
-<p>register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。</p>
-<h2 id="第二关：C陷阱与缺陷"><a href="#第二关：C陷阱与缺陷" class="headerlink" title="第二关：C陷阱与缺陷"></a>第二关：C陷阱与缺陷</h2><h2 id="第三关：C专家编程"><a href="#第三关：C专家编程" class="headerlink" title="第三关：C专家编程"></a>第三关：C专家编程</h2><h2 id="第四关：Linux-C编程"><a href="#第四关：Linux-C编程" class="headerlink" title="第四关：Linux C编程"></a>第四关：Linux C编程</h2><h2 id="第五关：数据结构与算法分析"><a href="#第五关：数据结构与算法分析" class="headerlink" title="第五关：数据结构与算法分析"></a>第五关：数据结构与算法分析</h2><h2 id="第六关：CMake"><a href="#第六关：CMake" class="headerlink" title="第六关：CMake"></a>第六关：CMake</h2>]]></content>
-      <categories>
-        <category>C</category>
-      </categories>
-      <tags>
-        <tag>C</tag>
-        <tag>编程语言</tag>
       </tags>
   </entry>
   <entry>
@@ -566,6 +566,612 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
       <tags>
         <tag>编程语言</tag>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git学习</title>
+    <url>/2022/06/19/Git/</url>
+    <content><![CDATA[<h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><blockquote>
+<p>学习git这一种主流的版本控制系统</p>
+</blockquote>
+<h2 id="什么是”版本控制”？"><a href="#什么是”版本控制”？" class="headerlink" title="什么是”版本控制”？"></a>什么是”版本控制”？</h2><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
+<span id="more"></span>
+
+<h2 id="git的三种状态"><a href="#git的三种状态" class="headerlink" title="git的三种状态"></a>git的三种状态</h2><h3 id="已提交：commited"><a href="#已提交：commited" class="headerlink" title="已提交：commited"></a>已提交：commited</h3><p>已提交表示数据已经安全的保存在本地数据库中。</p>
+<h3 id="已修改：modified"><a href="#已修改：modified" class="headerlink" title="已修改：modified"></a>已修改：modified</h3><p>已修改表示修改了文件，但还没保存到数据库中。</p>
+<h3 id="已暂存：staged"><a href="#已暂存：staged" class="headerlink" title="已暂存：staged"></a>已暂存：staged</h3><p>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
+<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img data-src="https://s1.ax1x.com/2022/06/19/XjBi0x.png" alt="git的三个工作区"></p>
+<h3 id="git仓库"><a href="#git仓库" class="headerlink" title="git仓库"></a>git仓库</h3><p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，其它计算机克隆仓库时，拷贝的就是这里的数据。</p>
+<h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>工作目录是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
+<h3 id="暂存区域"><a href="#暂存区域" class="headerlink" title="暂存区域"></a>暂存区域</h3><p>暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。有时候也被称作”索引”，不过一般说法还是叫暂存区域。</p>
+<h3 id="基本的-Git-工作流程"><a href="#基本的-Git-工作流程" class="headerlink" title="基本的 Git 工作流程"></a>基本的 Git 工作流程</h3><ol>
+<li><p>在工作目录中修改文件。</p>
+</li>
+<li><p>暂存文件，将文件的快照放入暂存区域。</p>
+</li>
+<li><p>提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录。</p>
+</li>
+</ol>
+<h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><h3 id="Linux上安装"><a href="#Linux上安装" class="headerlink" title="Linux上安装"></a>Linux上安装</h3><p>以Fedora 上为例：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果你在基于 Debian 的发行版上：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Mac上安装"><a href="#Mac上安装" class="headerlink" title="Mac上安装"></a>Mac上安装</h3><p>最简单的方法是安装 Xcode或者<a href="https://git-scm.com/">git官网</a> 下载二进制文件安装</p>
+<h3 id="Windows上安装"><a href="#Windows上安装" class="headerlink" title="Windows上安装"></a>Windows上安装</h3><p>在 Windows 上安装 Git 也有几种安装方法。官方版本可以在 Git 官方网站下载。</p>
+<h3 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h3><p>如果你想从源码安装 Git，需要安装 Git 依赖的库：curl、zlib、openssl、expat，还有libiconv。</p>
+<p>如果你的系统上有 yum （如 Fedora）或者 apt-get（如基于 Debian 的系统），可以使用以下命令之一来安装最小化的依赖包来编译和安装Git的二进制版：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> libcurl4-gnutls-dev libexpat1-dev gettext  libz-dev libssl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>为了能够添加更多格式的文档（如 doc, html, info），你需要安装以下的依赖包：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> asciidoc xmlto docbook2x
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> asciidoc xmlto docbook2x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>从 GitHub 网站上的镜像来获得最新发布版本的 tar 包</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxf git-2.0.0.tar.gz
+<span class="token builtin class-name">cd</span> git-2.0.0
+ <span class="token function">make</span> configure
+ ./configure --prefix<span class="token operator">=</span>/usr
+ <span class="token function">make</span> all doc info
+ <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span> install-doc install-html install-info<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="git的配置"><a href="#git的配置" class="headerlink" title="git的配置"></a>git的配置</h2><h3 id="初次启动（配置环境变量）"><a href="#初次启动（配置环境变量）" class="headerlink" title="初次启动（配置环境变量）"></a>初次启动（配置环境变量）</h3><p>对于Linux系统，Git 自带一个 git config 的工具来帮助设置控制 Git 外观和行为的配置变量。这些变量存储在三个不同的位置：</p>
+<ol>
+<li><strong>&#x2F;etc&#x2F;gitconfig</strong> 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果使用带有 –system 选项的git config 时，它会从此文件读写配置变量。</li>
+<li>~&#x2F;.gitconfig 或 ~&#x2F;.config&#x2F;git&#x2F;config 文件：只针对当前用户。 可以传递 –global 选项让 Git读写此文件。</li>
+<li>当前使用仓库的 Git 目录中的 config 文件（就是 .git&#x2F;config）：针对该仓库。</li>
+</ol>
+<p>每一个级别覆盖上一级别的配置，所以 .git&#x2F;config 的配置变量会覆盖 &#x2F;etc&#x2F;gitconfig 中的配置变量。</p>
+<p>对于windows系统，Git 会查找 $HOME$ 目录下（一般情况下是 C:\Users\$USER$）的 .gitconfig 文件。</p>
+<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>每一次 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Mr.W"</span>	<span class="token comment">#配置用户名</span>
+<span class="token function">git</span> config --global user.email xxxxxxxx@qq.com	<span class="token comment">#配置邮箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>使用–global代表全局设置，该命令只需要运行一次，之后无论你在该系统上做任何事情， Git 都会使用这些信息。</p>
+<p>当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行不带 –global 选项的命令来配置。</p>
+<h3 id="指定文本编辑器"><a href="#指定文本编辑器" class="headerlink" title="指定文本编辑器"></a>指定文本编辑器</h3><p>Git 会使用操作系统默认的文本编辑器，通常是 Vim。如果你想使用不同的文本编辑器，例如 Emacs，可以这样做：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.editor emacs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><p>如果想要检查你的配置，可以使用 git config –list 命令来列出所有 Git 当时能找到的配置。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以通过输入 git config  <key>： 来检查 Git 的某一项配置：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config user.name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="获取帮助手册"><a href="#获取帮助手册" class="headerlink" title="获取帮助手册"></a>获取帮助手册</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token builtin class-name">help</span> <span class="token operator">&lt;</span>verb<span class="token operator">></span> <span class="token comment">#方式一</span>
+<span class="token function">git</span> <span class="token operator">&lt;</span>verb<span class="token operator">></span> --help <span class="token comment">#方式二</span>
+<span class="token function">man</span> git-<span class="token operator">&lt;</span>verb<span class="token operator">></span> <span class="token comment">#在linux上可以方式三</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="git基础"><a href="#git基础" class="headerlink" title="git基础"></a>git基础</h2><h3 id="获取git仓库"><a href="#获取git仓库" class="headerlink" title="获取git仓库"></a>获取git仓库</h3><ol>
+<li>在现有项目或目录下导入所有文件到 Git 中</li>
+<li>从一个服务器克隆一个现有的 Git 仓库</li>
+</ol>
+<h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><p>进入该项目目录并输入：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是Git 仓库的核心。</p>
+<p>如果你是在一个已经存在文件的文件夹（而不是空文件夹）中初始化 Git 仓库来进行版本控制的话，你应该开始跟踪这些文件并提交。你可通过 git add 命令来实现对指定文件的跟踪，然后执行 git commit 提交：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> *.c
+<span class="token function">git</span> <span class="token function">add</span> LICENSE
+<span class="token function">git</span> commit -m <span class="token string">'initial project version'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>如果你想获得一份已经存在了的 Git 仓库的拷贝，比如说，你想为某个开源项目贡献自己的一份力，这时就要用到 git clone 命令。当执行 git clone 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果你想在克隆远程仓库的时候，自定义本地仓库的名字，你可以使用如下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span> 本地仓库的名字<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>经常报错: <code>OpenSSL SSL_read: Connection was reset, errno 10054</code>解决方法如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global http.sslVerify <span class="token string">"false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>Git 支持多种数据传输协议。上面的例子使用的是 https:&#x2F;&#x2F; 协议，不过你也可以使用 git:&#x2F;&#x2F; 协议或者使用SSH 传输协议，比如 user@server:path&#x2F;to&#x2F;repo.git </p>
+<h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><p>工作目录下的每一个文件都不外乎这两种状态：已跟踪或未跟踪。<strong>已跟踪的文件</strong>是指那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放 入暂存区。工作目录中除已跟踪文件以外的所有其它文件都属于<strong>未跟踪文件</strong>，它们既不存在于上次快照的记录中，也没有放入暂存区。初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。</p>
+<p>编辑过某些文件之后，由于自上次提交后你对它们做了修改，Git 将它们标记为已修改文件。我们逐步将这些修改过的文件放入暂存区，然后提交所有暂存了的修改，如此反复。使用 Git 时文件的生命周期如下：</p>
+<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBF76.png" alt="记录每次更新到仓库"></p>
+<h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>要查看哪些文件处于什么状态，可以用 git status 命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果在克隆仓库后立即使用此命令，会看到类似这样的输出：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
+nothing to commit, working directory clean<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>这说明你现在的工作目录相当干净。换句话说，所有已跟踪文件在上次提交后都未被更改过。此外，上面的信息 还表明，当前目录下没有出现任何处于未跟踪状态的新文件，否则 Git 会在这里列出来。最后，该命令还显示了当前所在分支，并告诉你这个分支同远程服务器上对应的分支没有偏离。现在，分支名是 “master”,这是默认的分支名。</p>
+<h3 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h3><p>使用命令 git add 开始跟踪一个文件。所以，要跟踪 <code>README</code> 文件，运行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> README<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>此时再运行 git status 命令，会看到 <code>README</code> 文件已被跟踪，并处于暂存状态：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status
+
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git reset HEAD &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+    new file: README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只要在 Changes to be committed 这行下面的，就说明是已暂存状态。如果此时提交，那么该文件此时此刻的版本将被留存在历史记录中。</p>
+<h3 id="暂存已修改文件"><a href="#暂存已修改文件" class="headerlink" title="暂存已修改文件"></a>暂存已修改文件</h3><p>现在我们来修改一个已被跟踪的文件。如果你修改了一个名为 Git.md 的已被跟踪的文件，然后运行 git status 命令，会看到下面内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
+No commits yet
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+        new file:   Git.md
+        new file:   README
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+        modified:   Git.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>文件 <code>Git.md</code> 出现在 Changes not staged for commit 这行下面，说明已跟踪文件的内容发生了变化，但还没有放到暂存区。</p>
+<p>要暂存这次更新，需要运行 git add 命令。这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。将这个命令理解为“添加内容到下一次提交中”而不是“将一个文件添加到项目中”要更加合适。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> Git.md
+<span class="token function">git</span> status
+
+On branch master
+No commits yet
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+        new file:   Git.md
+        new file:   README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在两个文件都已暂存，下次提交时就会一并记录到仓库。假设此时，你想要在 CONTRIBUTING.md 里再加条注释，重新编辑存盘后，准备好提交。不过且慢，再运行 git status 看看：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
+No commits yet
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+        new file:   Git.md
+        new file:   README
+Changes not staged <span class="token keyword">for</span> commit:
+  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
+  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
+        modified:   Git.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>现在 <code>Git.md</code> 文件同时出现在暂存区和非暂存区。实际上 Git 只不过暂存了你运行 git add 命令时的版本，如果你现在提交，<code>Git.md</code> 的版本是你最后一次运行git add 命令时的那个版本，而不是你运行 git commit 时，在工作目录中的当前版本。所以，运行了 git add 之后又作了修订的文件，需要重新运行 git add 把最新版本重新暂存起来：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> Git.md
+<span class="token function">git</span> status 
+
+On branch master
+No commits yet
+Changes to be committed:
+ <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+       new file:   Git.md
+       new file:   README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="状态简览"><a href="#状态简览" class="headerlink" title="状态简览"></a>状态简览</h3><p>git status 命令的输出十分详细，但其用语有些繁琐。如果你使用 git status -s 命令或 git status –short 命令，你将得到一种更为紧凑的格式输出。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git status -s
+
+ M README
+MM Rakefile
+A lib&#x2F;git.rb
+M lib&#x2F;simplegit.rb
+?? LICENSE.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。你可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。例如，上面的状态报告显示： <code>README</code> 文件在工作区被修改了但是还没有将修改后的文件放入暂存区,<code>lib/simplegit.rb</code> 文件被修改了并将修改后的文件放入了暂存区。而<code>Rakefile</code> 在工作区被修改并提交到暂存区后又在工作区中被修改了，所以在暂存区和工作区都有该文件被修改了的记录。</p>
+<h3 id="忽略文件-gitignore"><a href="#忽略文件-gitignore" class="headerlink" title="忽略文件(.gitignore)"></a>忽略文件(<code>.gitignore</code>)</h3><p>一般我们总会有些文件无需纳入 Git 的管理，也不希望它们总出现在未跟踪文件列表。通常都是些自动生成的文 件，比如日志文件，或者编译过程中创建的临时文件等。在这种情况下，我们可以创建一个名为 <code>.gitignore</code>的文件，列出要忽略的文件模式。来看一个实际的例子：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> .gitignore
+
+*.<span class="token punctuation">[</span>oa<span class="token punctuation">]</span>
+*~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>文件 <code>.gitignore</code> 的格式规范如下： </p>
+<ul>
+<li>所有空行或者以 <code>＃</code> 开头的行都会被 Git 忽略。 </li>
+<li>可以使用标准的 glob 模式匹配。 </li>
+<li>匹配模式可以以<code>/</code>开头防止递归。 </li>
+<li>匹配模式可以以<code>/</code>结尾指定目录。 </li>
+<li>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</li>
+</ul>
+<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。星号<code>*</code>匹配零个或多个任意字符；<code>[abc]</code> 匹配任 何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；问号<code>?</code>只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字）。使用两个星号<code>**</code> 表示匹配任意中间目录，比如<code>a/**/z</code> 可以匹配 <code>a/z</code>,<code>a/b/z</code> 或 <code>a/b/c/z</code>等。</p>
+<h3 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h3><p>如果 git status 命令的输出对于你来说过于模糊，你想知道具体修改了什么地方，可以用 git diff 命令。git diff 将通过文件补丁的格式显示具体哪些行发生了改变。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span>
+
+warning: LF will be replaced by CRLF <span class="token keyword">in</span> Git.md.
+The <span class="token function">file</span> will have its original line endings <span class="token keyword">in</span> your working directory
+<span class="token function">diff</span> --git a/Git.md b/Git.md
+index b49f414<span class="token punctuation">..</span>661e036 <span class="token number">100644</span>
+--- a/Git.md
++++ b/Git.md
+@@ -1,3 +1,4 @@
+ Git Test
+ Modified
+ Second Modified
++Third Modified<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。</p>
+<p>若要查看已暂存的将要添加到下次提交里的内容，可以使用 git diff –staged</p>
+<h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><p>现在的暂存区域已经准备妥当可以提交了。在此之前，请一定要确认还有什么修改过的或新建的文件还没有 git add 过，否则提交的时候不会记录这些还没暂存起来的变化。所以，每次准备提交前，先用 git status 看下，是不是都已暂存起来了，然后再运行提交命令 git commit：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>默认的提交消息包含最后一次运行 git status 的输出，放在注释行里，另外开头还有一空行，供你输入提交说明。如果想要更详细的对修改了哪些内容的提示，可以用 -v 选项，这会将你所做的改变的 diff 输出放到编辑器中从而使你知道本次提交具体做了哪些修改。</p>
+<p>另外，你也可以在 commit 命令后添加 -m 选项，将提交信息与命令放在同一行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"git second commit"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="跳过使用暂存区域"><a href="#跳过使用暂存区域" class="headerlink" title="跳过使用暂存区域"></a>跳过使用暂存区域</h4><p>尽管使用暂存区域的方式可以精心准备要提交的细节，但有时候这么做略显繁琐。Git 提供了一个跳过使用暂存区域的方式，只要在提交的时候，给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git commit -a -m &quot;git third commit&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除（确切地说，是从暂存区域移除），然后提交。<code>可以用 git rm 命令完成此项工作，并连带从工作目录中删除指定的文件</code>，这样以后就不会出现在未跟踪文件清单了。</p>
+<p>如果只是简单地从工作目录中手工删除文件，运行 git status 时就会在 “Changes not staged for commit” 部分（也就是未暂存清单）看到：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> README
+<span class="token function">git</span> status
+
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+        deleted:    README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>下一次提交时，该文件就不再纳入版本管理了。如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <code>-f</code>。这是一种安全特性，用于防止误删还没有添加到快照的数据，<code>这样的数据不能被 git 恢复</code>。</p>
+<p>另外一种情况是，<code>我们想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中</code>。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> --cached test.txt
+<span class="token function">git</span> status
+
+On branch master
+Changes to be committed:
+ <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+       deleted:    test.txt
+Untracked files:
+ <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+       test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">mv</span> Git.md git.md
+<span class="token function">git</span> status
+
+On branch master
+Changes to be committed:
+  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
+        renamed:    Git.md -<span class="token operator">></span> git.md
+        deleted:    test.txt
+Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+        test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其实，运行 git mv 就相当于运行了下面三条命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> README.md README
+<span class="token function">git</span> <span class="token function">rm</span> README.md
+<span class="token function">git</span> <span class="token function">add</span> README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>在提交了若干更新，又或者克隆了某个项目之后，你也许想回顾下提交历史.完成这个任务最简单而又有效的工具是 git log 命令。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>默认不用任何参数的话，git log 会按提交时间列出所有的更新，最近的更新排在最上面。</p>
+<p>git log 有许多选项可以帮助你搜寻你所要找的提交，接下来我们介绍些最常用的。一个常用的选项是 -p，用来显示每次提交的内容差异。你也可以加上 -2 来仅显示最近两次提交：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log -p -2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>你也可以为 git log 附带一系列的总结性选项。比如说，如果你想看到每次提交的简略的统计信息，你可以使用 –stat 选项：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --stat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>另外一个常用的选项是 –pretty。这个选项可以指定使用不同于默认格式的方式展示提交历史。这个选项有一些内建的子选项供你使用。比如用 oneline 将每个提交放在一行显示，查看的提交数很大时非常有用。另外还有short，full 和 fuller 可以用，展示的信息或多或少有些不同。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>有用的是 format，可以定制要显示的记录格式。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h - %an, %ar : %s"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>git log –pretty&#x3D;format 常用的选项 列出了常用的格式占位符写法及其代表的意义。</p>
+<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBEtO.png" alt="git log"></p>
+<p>当 oneline 或 format 与另一个 log 选项 –graph 结合使用时尤其有用。这个选项添加了一些ASCII字符串来形象地展示你的分支、合并历史：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h %s"</span> --graph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>git log 的常用选项:</p>
+<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBVhD.png" alt="git log 的常用选项"></p>
+<h4 id="限制输出长度"><a href="#限制输出长度" class="headerlink" title="限制输出长度"></a>限制输出长度</h4><p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前你已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何整数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调 用分页程序，所以你一次只会看到一页的内容。</p>
+<p>另外还有按照时间作限制的选项，比如 –since 和 –until 也很有用。例如，下面的命令列出所有最近两周内的提交：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --since<span class="token operator">=</span><span class="token number">2</span>.weeks<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>另一个非常有用的筛选选项是 -S，可以列出那些添加或移除了某些字符串的提交。比如说，你想找出添加或移除了某一个特定函数的引用的提交，你可以这样使用：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git log -SModified<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p> 限制 git log 输出的选项:</p>
+<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBAAK.png" alt="限制 git log 输出的选项"></p>
+<h3 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>在任何一个阶段，你都有可能想要撤消某些操作。这里，我们将会学习几个撤消你所做修改的基本工具。</p>
+<p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。此时，可以运行带有 –amend 选项的提交命令尝试重新提交，这个命令会将暂存区中的文件提交。：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果自上次提交以来你还未做任何修改（例如，在上次提交后马上执行了此命令），那么快照会保持不变，而你所修改的只是提交信息。</p>
+<h4 id="取消暂存的文件"><a href="#取消暂存的文件" class="headerlink" title="取消暂存的文件"></a>取消暂存的文件</h4><p>例如，你已经修改了两个文件并且想要将它们作为两次独立的修改提交，但是却意外地输入了git add * 暂存了它们两个。如何只取消暂存两个中的一个呢？</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset HEAD CONTRIBUTING.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="撤消对文件的修改"><a href="#撤消对文件的修改" class="headerlink" title="撤消对文件的修改"></a>撤消对文件的修改</h4><p>如果你并不想保留对 CONTRIBUTING.md 文件的修改怎么办？你该如何方便地撤消修改 - 将它还原成上次提交时的样子（或者刚克隆完的样子，或者刚把它放入工作目录时的样子）？</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -- CONTRIBUTING.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="git远程仓库"><a href="#git远程仓库" class="headerlink" title="git远程仓库"></a>git远程仓库</h2><blockquote>
+<p>远程仓库是指托管在因特网或其他网络中的你的项目的版本库。</p>
+</blockquote>
+<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>如果想查看你已经配置的远程仓库服务器，可以运行 git remote 命令。它会列出你指定的每一个远程服务器的简写。如果你已经克隆了自己的仓库，那么至少应该能看到 origin - 这是 Git 给你克隆的仓库服务器的默认名字：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>首先在github上创建一个仓库，然后clone到本地，再然后运行git remote add <shortname> <url> 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> gs https://github.com/mygit-WK/gStudy.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>现在你可以在命令行中使用字符串 gs来代替整个 URL。例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 git fetch gs：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch gs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h3><p>从远程仓库中获得数据，可以执行：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git fetch [remote-name]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这个命令会访问远程仓库，从中拉取所有你还没有的数据。执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。 </p>
+<p>如果你使用 clone 命令克隆了一个仓库，命令会自动将其添加为远程仓库并默认以 “origin” 为简写。所以git fetch origin 会抓取克隆（或上一次抓取）后新推送的所有工作。必须注意 git fetch 命令会将数据拉取到你的本地仓库它并不会自动合并或修改你当前的工作。</p>
+<p>如果你有一个分支设置为跟踪一个远程分支，可以使用 git pull 命令来自动的抓取然后合并远程分支到当前分支。默认情况下，git clone 命令会自动设置本地 master 分支跟踪克隆的远程仓库的 master 分支（或不管是什么名字的默认分支）。运行 git pull 通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支。</p>
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>当你想分享你的项目时，必须将其推送到上游。这个命令很简单：git push [remote-name] [branch-name]。当你想要将 master 分支推送到 origin 服务器时（再次说明，克隆时通常会自动帮你设置好那两个名字），那么运行这个命令就可以将你所做的备份到服务器：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。</p>
+<h3 id="查看远程仓库-1"><a href="#查看远程仓库-1" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>如果想要查看某一个远程仓库的更多信息，可以使用 git remote show [remote-name] 命令。如果想以一个特定的缩写名运行这个命令，例如 origin，会得到像下面类似的信息：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote show origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="远程仓库的移除与重命名"><a href="#远程仓库的移除与重命名" class="headerlink" title="远程仓库的移除与重命名"></a>远程仓库的移除与重命名</h3><p>如果想要重命名引用的名字可以运行 git remote rename 去修改一个远程仓库的简写名。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">rename</span> gs gitstudy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以使用 git remote rm 来移除远程仓库：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote rm gitstudy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="git标签"><a href="#git标签" class="headerlink" title="git标签"></a>git标签</h2><h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）</p>
+<p>在 Git 中创建一个附注标签是很简单的。最简单的方式是当你在运行 tag 命令时指定 -a 选项，-m 选项指定了一条将会存储在标签中的信息。如果没有为附注标签指定一条信息，Git 会运行编辑器要求你输入信息：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag -a v1.0 -m &#39;my version 1.0&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>通过使用 git show 命令可以看到标签信息与对应的提交信息：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git show v1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>另一种给提交打标签的方式是使用轻量标签。轻量标签本质上是将提交校验和存储到一个文件中,没有保存任何其他信息。创建轻量标签，不需要使用 -a、-s 或 -m 选项，只需要提供标签名字：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag v1.0-lw<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="后期打标签"><a href="#后期打标签" class="headerlink" title="后期打标签"></a>后期打标签</h3><p>你也可以对过去的提交打标签。现在，假设在 v1.2 时你忘记给项目打标签，也就是在 “updated rakefile” 提交。你可以在之后补上标签。要在那个提交上打标签，你需要在命令的末尾指定提交的校验和（或部分校验和）:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -a v1.2 9fceb02<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>默认情况下，git push 命令并不会传送标签到远程仓库服务器上。在创建完标签后你必须显式地推送标签到共享服务器上。这个过程就像共享远程分支一样 - 你可以运行 git push origin [tagname]。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin v1.5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果想要一次性推送很多标签，也可以使用带有 –tags 选项的 git push 命令。这将会把所有不在远程仓库服务器上的标签全部传送到那里。</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git push origin --tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="检出标签"><a href="#检出标签" class="headerlink" title="检出标签"></a>检出标签</h3><p>在 Git 中你并不能真的检出一个标签，因为它们并不能像分支一样来回移动。如果你想要工作目录与仓库中特定的标签版本完全一样，可以使用 git checkout -b [branchname] [tagname] 在特定的标签上创建一个新分支：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b version2 v2.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="Git-别名"><a href="#Git-别名" class="headerlink" title="Git 别名"></a>Git 别名</h3><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。如果不想每次都输入完整的 Git 命令，可以通过 gitconfig 文件来轻松地为每一个命令设置一个别名。这里有一些例子你可以试试：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.co checkout
+<span class="token function">git</span> config --global alias.br branch
+<span class="token function">git</span> config --global alias.ci commit
+<span class="token function">git</span> config --global alias.st status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这意味着，当要输入 git commit<code>时，只需要输入 </code>git ci。</p>
+<p>可以向 Git 中 添加你自己的取消暂存别名：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.unstage <span class="token string">'reset HEAD --'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>等价于：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> unstage fileA
+<span class="token function">git</span> reset HEAD -- fileA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>通常也会添加一个 last 命令，可以轻松地看到最后一次提交：</p>
+<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git config --global alias.last &#39;log -1 HEAD&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>版本控制</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络</title>
+    <url>/2022/06/21/NetWork/</url>
+    <content><![CDATA[<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><blockquote>
+<p>基于谢希仁老师的《计算机网络 第七版》的学习，了解后能够对于网络之间的交换有更加深入的理解，学习前后端必修之课</p>
+</blockquote>
+<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="互联网的历史和组成"><a href="#互联网的历史和组成" class="headerlink" title="互联网的历史和组成"></a>互联网的历史和组成</h3><span id="more"></span>
+
+<h4 id="互联网的两个基本特点："><a href="#互联网的两个基本特点：" class="headerlink" title="互联网的两个基本特点："></a>互联网的两个基本特点：</h4><ol>
+<li>连通性：互联网上的用户之间不管相隔多远，都可以非常方便的交换信息。</li>
+<li>共享：主要指资源共享。包括文件共享，软件共享以及硬件共享。</li>
+</ol>
+<p>计算机网络是由若干结点(计算机、集线器、交换机或路由器)和连接这些结点的链路组成的。</p>
+<h4 id="互联网发展的三个阶段："><a href="#互联网发展的三个阶段：" class="headerlink" title="互联网发展的三个阶段："></a>互联网发展的三个阶段：</h4><ol>
+<li>第一阶段：从单个网络 ARPANET 向互连网发展。1969 年美国国防部创建了第一个分组交换网 ARPANET，刚开始只是简单的分组交换网。20 世纪 70 年代，单一的网络已经无法满足所有的通信问题，于是开始研究多种网络。1983 年 TCP&#x2F;IP 协议成为 ARPANET 的标准协议，于是 1983 年作为互联网的诞生时间。</li>
+<li>第二阶段：建成了三级结构的互联网。1985 年起，NSF 围绕六个大型计算机中心建设计算机网络，即 NSFNET。三级计算机网络分为<code>主干网</code>、<code>地区网</code>、<code>校园网</code>。这种三级结构覆盖了全美国主要的大学和研究所。</li>
+<li>第三阶段：逐渐形成了多层次的 ISP 结构的互联网。</li>
+</ol>
+<h4 id="互联网的标准"><a href="#互联网的标准" class="headerlink" title="互联网的标准"></a>互联网的标准</h4><p>所有的互联网表标准都是以 RFC 的形式在互联网上发表的。但并非所有的 RFC 都是互联网标准。互联网正式标准需要经历三个阶段：</p>
+<ol>
+<li>互联网草案：有效期只有六个月，此时还不能算 RFC 文档</li>
+<li>建议标准：从这阶段开始成为 RFC 文档</li>
+<li>互联网标准：达到正式标准后，每个标准就分配到一个编号。</li>
+</ol>
+<h4 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h4><ul>
+<li><p>边缘部分：由所有连在互联网上的主机组成。</p>
+<ul>
+<li><p>C&#x2F;S 方式：客户端&#x2F;服务器方式</p>
+</li>
+<li><p>P2P 方式：对等连接方式</p>
+</li>
+</ul>
+</li>
+<li><p>核心部分：由大量网络和连接这些网络的路由器组成，主要为边缘部分提供服务。</p>
+<ul>
+<li>路由器：实现分组交换的关键构件</li>
+</ul>
+</li>
+</ul>
+<h5 id="分组交换的特点"><a href="#分组交换的特点" class="headerlink" title="分组交换的特点"></a>分组交换的特点</h5><p>分组交换采用存储转发技术。将一个报文(要发送的整块数据)划分为几个分组后再进行交换。分组又称为”包”，分组的首部又称为”包头”(包含了目的地址和源地址控制信息)。</p>
+<p>分组交换的过程:路由器收到一个分组，先暂存一下(暂存的是短分组)，检查其首部，查找转发表，按照首部中的目的地址，找到合适的接口转发出去，把分组交给下一个路由器。</p>
+<h5 id="分组交换的优点"><a href="#分组交换的优点" class="headerlink" title="分组交换的优点"></a>分组交换的优点</h5><ol>
+<li>高效：在分组传输过程中动态分配传输带宽，对通信链路是逐段占用</li>
+<li>灵活：为每一个分组独立地选择合适的转发路由</li>
+<li>迅速：以分组作为传送单位，可以先不建立连接就能向其他主机发送分组</li>
+<li>可靠：保证可靠性的网络协议，分布式多路由分组交换网</li>
+</ol>
+<h3 id="计算机网络的类别"><a href="#计算机网络的类别" class="headerlink" title="计算机网络的类别"></a>计算机网络的类别</h3><ol>
+<li><p>按照网络作用范围分类</p>
+<ol>
+<li>广域网：作用范围大，任务是通过长距离运送主机所发送的数据。</li>
+<li>城域网：一般是城市，可以是一个或几个单位，也可是一种公用设施</li>
+<li>局域网：一般用于微型计算机或工作站通过高速链路相连</li>
+<li>个人局域网：也称为无线个人局域网</li>
+</ol>
+</li>
+<li><p>按照网络的使用者进行分类</p>
+<ol>
+<li>公用网</li>
+<li>专用网</li>
+</ol>
+</li>
+</ol>
+<h3 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h3><h4 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h4><p>速率指数据的传送速率，也称为数据率或比特率。单位 bit&#x2F;s(或 b&#x2F;s，bps),提到速率时往往指的是额定速率或标称速率，并非实际运行的速率。</p>
+<h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><p>计算机中带宽指的是某通道传送数据的能力，即单位时间内网络中某信道所能通过的最高数据率。</p>
+<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p>吞吐量指单位时间内通过某个网络的实际数据量，受网络的带宽或网络的额定速率的限制。</p>
+<h4 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h4><p>时延指数据从网络的一端传送到另一端所需时间。也被称为延迟。</p>
+<h5 id="时延的组成"><a href="#时延的组成" class="headerlink" title="时延的组成"></a>时延的组成</h5><ol>
+<li><p>发送时延：主机或路由器发送数据帧所需要的时间，又叫传输时延。</p>
+</li>
+<li><p>传播时延：传播时延是电磁波在信道传播一定距离需要花费的时间。与传输信道长度无关。信号传送距离越远，传播时延就越大。</p>
+</li>
+<li><p>处理时延：主机或路由器在收到分组需要花费一定时间进行处理。</p>
+</li>
+<li><p>排队时延：分组在传输过程中要经过许多路由器，进入路由器后要先在输入队列中排队等待处理。</p>
+<p>总时延&#x3D;发送时延+传播时延+处理时延+排队时延</p>
+</li>
+</ol>
+<h4 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h4><p>时延带宽积表示这个链路可以容纳的比特数</p>
+<p>时延带宽积&#x3D;传播时延 x 带宽</p>
+<h4 id="往返时间-RTT"><a href="#往返时间-RTT" class="headerlink" title="往返时间 RTT"></a>往返时间 RTT</h4><p>RTT 表示双向交互一次所需要的时间。</p>
+<h4 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h4><p>信道利用率指出某信道有百分之几的时间是被利用的。网络利用率则是全网络的加权平均值。信道或网络利用率过高会产生非常大的时延。</p>
+<h3 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h3><h4 id="OSI-七层参考模型"><a href="#OSI-七层参考模型" class="headerlink" title="OSI 七层参考模型"></a>OSI 七层参考模型</h4><p>1983 年正式形成了 OSI 模型，OSI 试图达到理想境界，因而全球计算机可以很方便的进行互连和数据交换。<br>OSI 失败原因：</p>
+<ol>
+<li>OSI 专家缺乏实际经验，缺乏商业驱动力</li>
+<li>OSI 协议过于复杂，运行效率低</li>
+<li>OSI 制定的周期太长</li>
+<li>OSI 层次划分不太合理</li>
+</ol>
+<h4 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h4><ol>
+<li>应用层：任务是通过应用进程间的交互来完成特定的网络应用。交互的数据单元称为报文。</li>
+<li>运输层：任务是负责向两台主机中进程之间的通信提供通用的数据传输服务。包括 TCP，UDP 协议，传输数据的单位分别是报文段和用户数据报。</li>
+<li>网络层：负责为分组交换网上的不同主机提供通信服务。数据传输单位是 IP 数据报。</li>
+<li>数据链路层：数据传输单位是帧。</li>
+<li>物理层：数据传输单位是 bit。</li>
+</ol>
+<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>物理层考虑的是怎么才能在连接各种计算机的传输媒介上传输数据比特流。物理层的作用是要尽可能的屏蔽掉这些传输媒体和通信手段的差异。</p>
+<h3 id="数据通信模型"><a href="#数据通信模型" class="headerlink" title="数据通信模型"></a>数据通信模型</h3><p>一个数据通信系统可以划分为三大部分：即源系统（发送端）、传输系统和目的系统（接收端）</p>
+<h3 id="通信的三种方式"><a href="#通信的三种方式" class="headerlink" title="通信的三种方式"></a>通信的三种方式</h3><ol>
+<li>单向通信（单工通信）：只能有一个方向的通信而没有反方向的交互。</li>
+<li>双向交替通信（半双工通信）：即通信双方都可以发送消息，但不能双方同时发送。也就是说一方发送一方接收，过一段时间后可以再反过来。</li>
+<li>双向同时通信（全双工通信）：即通信双方可以同时发送和接收消息。</li>
+</ol>
+<h3 id="传输媒介"><a href="#传输媒介" class="headerlink" title="传输媒介"></a>传输媒介</h3><h4 id="导引型"><a href="#导引型" class="headerlink" title="导引型"></a>导引型</h4><ol>
+<li>双绞线</li>
+<li>同轴电缆</li>
+<li>光纤</li>
+</ol>
+<h4 id="非导引型"><a href="#非导引型" class="headerlink" title="非导引型"></a>非导引型</h4><p>无线电波</p>
+<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><h4 id="频分复用"><a href="#频分复用" class="headerlink" title="频分复用"></a>频分复用</h4><p>用户在分配到一定的频带后，在通信过程中始终占用着这个频带。即所有用户在同样的时间段内占用着不同的带宽资源。</p>
+<h4 id="时分复用"><a href="#时分复用" class="headerlink" title="时分复用"></a>时分复用</h4><p>时分复用是指所有用户在不同时间段内占用着相同的频带宽度。</p>
+<h4 id="统计时分复用"><a href="#统计时分复用" class="headerlink" title="统计时分复用"></a>统计时分复用</h4><p>统计时分复用是一种改进的时分复用，他能明显的提高信道的利用率。</p>
+<h4 id="波分复用"><a href="#波分复用" class="headerlink" title="波分复用"></a>波分复用</h4><p>波分复用就是光的频分复用。</p>
+<h4 id="码分复用"><a href="#码分复用" class="headerlink" title="码分复用"></a>码分复用</h4><p>码分复用是另一种共享信道的方法。由于各用户使用经过特殊挑选的码型，因此各用户之间不会构成干扰。最初用于军事通讯。</p>
+<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h2><p><strong>数据链路层使用的信道主要是：点对点信道和广播信道</strong></p>
+<h3 id="点对点信道"><a href="#点对点信道" class="headerlink" title="点对点信道"></a>点对点信道</h3><p>链路：指从一个结点到相邻结点的一端物理线路，而中间没有其他任何交换结点。</p>
+<p>数据链路：除了需要一条物理线路外，还必须要有一些必要的通信协议来控制这些数据的传输。</p>
+<p>点对点信道的协议数据单元是帧，数据链路层把网络层交下来的数据构成帧发送到链路上，以及把接收到的帧中的数据取出上交给网络层。</p>
+<p>点对点信道的数据链路层进行通信的步骤：</p>
+<ol>
+<li>结点 A 的数据链路层把网络层交下来的 IP 数据报添加首部和尾部封装成帧。</li>
+<li>结点 A 把封装好的帧发送给结点 B 的数据链路层</li>
+<li>若结点 B 的数据链路层收到的帧无差错，则从收到的帧中提取出 IP 数据报交给上面的网络层，否则丢弃这个帧。</li>
+</ol>
+<h4 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h4><p>封装成帧就是在一端数据的前后分别添加首部和尾部，这样就够成了一个帧。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从收到的比特流中识别帧的开始和结束。</p>
+<h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><p>由于帧的开始和结束的标记使用专门指明的控制字符，因此所传输的数据中任何 8 比特的组合一定不允许和用作帧定界的控制符的比特编码一样，否则会导致帧定界的错误。</p>
+<p>当传输的帧是用文本文件组成的帧时，其数据部分显然不会出现 SOH 和 EOT 这样的帧定界符，这样的传输就叫做透明传输。但是当数据部分是 ASCII 码的文本文件时，就有可能会找到错误的帧界。为了解决这样的问题，可以在出现控制字符的地方加一个转义字符，即使用<code>字节填充法</code>。</p>
+<h4 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h4><p>比特在传输过程中可能会产生差错：1 可以变成 0,0 可以变成 1。即出现<code>比特差错</code>。在一段时间内传输错误的比特所占传输比特总数的比率称为误码率 BER。</p>
+<p>目前主要使用的是循环冗余检验 CRC 进行差错检测。</p>
+<p>循环冗余 CRC 的原理：在数据(k 位数据)后面添加供差错检测用的 n 位冗余码，然后构成一个帧发送出去，一共发送 k+n 位。经过 CRC 检验后得出的余数 R 为 0，则说明传输过程无差错，否则认为出现了差错。</p>
+<p>n 位冗余码：用二进制的模 2 运算，相当于在数据后面添加 n 个 0。得到的 k+n 位数除以收发双方事先商定的 n+1 位除数 P，得出商是 Q 而余数是 R。R 就是冗余码，又称为帧检验序列 FCS。</p>
+<h4 id="PPP-协议"><a href="#PPP-协议" class="headerlink" title="PPP 协议"></a>PPP 协议</h4><p>定义：PPP 协议就是用户计算机和 ISP 进行通信时所使用的数据链路层协议。</p>
+<h5 id="PPP-协议要满足的要求"><a href="#PPP-协议要满足的要求" class="headerlink" title="PPP 协议要满足的要求"></a>PPP 协议要满足的要求</h5><ol>
+<li>简单</li>
+<li>封装成帧</li>
+<li>透明性</li>
+<li>多种网络层协议</li>
+<li>多种类型链路</li>
+<li>差错检测</li>
+<li>检测连接状态</li>
+<li>最大传送单元</li>
+<li>网络层地址协商</li>
+<li>数据压缩协商</li>
+</ol>
+<h5 id="PPP-协议的组成"><a href="#PPP-协议的组成" class="headerlink" title="PPP 协议的组成"></a>PPP 协议的组成</h5><ol>
+<li>一个将 IP 数据报封装到串行链路的方法。</li>
+<li>一个用来建立、配置和测试数据链路连接的链路控制协议 LCP。</li>
+<li>一套网络控制协议 NCP。</li>
+</ol>
+<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img data-src="/img/NetWork/image-20220302114351973.png" alt="image-20220302114351973"></p>
+<p>首尾两个 F 表示标志位，用来表示一个帧的开始和结束；A，C 两个字段至今还未有定义；协议如果地址是 0xC021 则表示 LCP 的数据；如果是 0x0021 则表示携带的是 IP 数据报；如果是 0x8021 则表示携带的是网络层的控制数据；FCS 表示帧检测序列。</p>
+<h6 id="字节填充"><a href="#字节填充" class="headerlink" title="字节填充"></a>字节填充</h6><p>当信息字段中出现和标志字段一样的比特组合时，就要采取一些措施来解决这个问题。</p>
+<p>当 PPP 协议使用异步传输时，转义符定义为 0x7D，并使用字节填充。</p>
+<h6 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h6><p>只要出现连续的 5 个 1 就在后面填充 1 个 0；这样就可以保证不会出现连续的 6 个 1。接收端在收到帧后，先找到标志字段 F 确定边界，当出现 5 个连续 1 时就将后面的 0 删除，将数据还原为原来的比特流。</p>
+<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img data-src="/img/NetWork/image-20220302115820623.png" alt="image-20220302115820623"></p>
+<h3 id="广播信道"><a href="#广播信道" class="headerlink" title="广播信道"></a>广播信道</h3><p>局域网：网络为一个单位所有，且地理范围和站点数目有限。</p>
+<p>局域网按网络拓扑分类：星形网；环形网；总线网。</p>
+<h4 id="CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）"><a href="#CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）" class="headerlink" title="CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）"></a>CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）</h4><p>因为在同一时间只能允许一台计算机发送数据。于是 CSMA&#x2F;CD 协议就诞生了。</p>
+<p>“多点接入”说明这是总线型网络，许多计算机以多点接入的方式连接在一根总线上。</p>
+<p>“载波监听”就是指用电子技术检测总线上有无其他计算机也在发送。</p>
+<p>“碰撞检测”就是边发送边监听。</p>
+<h2 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h2><h3 id="IP-协议"><a href="#IP-协议" class="headerlink" title="IP 协议"></a>IP 协议</h3><h4 id="分类的-IP-地址"><a href="#分类的-IP-地址" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h4><h5 id="IP-地址及其表示方法"><a href="#IP-地址及其表示方法" class="headerlink" title="IP 地址及其表示方法"></a>IP 地址及其表示方法</h5><p>整个互联网是一个单一的、抽象的网络。IP 地址就是给互联网上的每一台主机的每一个接口分配一个在全世界范围内的唯一的 32 位的标识符。IP 地址现在由互联网名字和数字分配机构进行分配。</p>
+<blockquote>
+<p>IP 地址的编址方法的历史过程</p>
+</blockquote>
+<h6 id="分类的-IP-地址-1"><a href="#分类的-IP-地址-1" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h6><p>定义：分类的 IP 地址就是将 IP 地址划分为若干个固定类，每一类地址都由两个固定长度的字段组成。第一个字段是<code>网络号</code>，表示主机所连接到的网络。第二个字段是<code>主机号</code>，表示该主机或路由器。一台主机号在他前面的网络号所指明的网络范围内必须唯一。</p>
+<p>记为：IP 地址：：&#x3D;{&lt;网络号&gt;，&lt;主机号&gt;}</p>
+<p>IP 地址共分为 5 大类：</p>
+<p><img data-src="/img/NetWork/image-20220303131926640.png" alt="image-20220303131926640"></p>
+<p>为了提高可读性，常把 32 位 IP 地址中的每 8 位插入一个空格，采用点分十进制记法。</p>
+<h6 id="子网的划分"><a href="#子网的划分" class="headerlink" title="子网的划分"></a>子网的划分</h6><p>详情见第 135 页</p>
+<p>IP 地址：：&#x3D;{&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p>
+<hr>
+<p>子网掩码</p>
+<p>使用子网掩码和 IP 地址进行与运算就可以得出网络地址</p>
+<p><img data-src="/img/NetWork/image-20220303141047407.png" alt="image-20220303141047407"></p>
+<hr>
+<p>使用子网时的分组转发</p>
+<p>路由表必须包括：目的网络地址、子网掩码、下一跳地址</p>
+<h6 id="构造超网（CIDR）"><a href="#构造超网（CIDR）" class="headerlink" title="构造超网（CIDR）"></a>构造超网（CIDR）</h6><p>IP 地址：：&#x3D;{&lt;网络前缀&gt;,&lt;主机号&gt;}</p>
+<p>具体见书第 142 页</p>
+<h5 id="常用的三种类别的-IP-地址"><a href="#常用的三种类别的-IP-地址" class="headerlink" title="常用的三种类别的 IP 地址"></a>常用的三种类别的 IP 地址</h5><h6 id="A-类"><a href="#A-类" class="headerlink" title="A 类"></a>A 类</h6><p>A 类地址网络号只有 7 位可用。可以指派 2^7-2 个网络号，第一，IP 地址全 0 的是保留地址表示本网络，第二，网络号位 127 的保留作为本地软件的环回测试。A 类地址主机号占 3 个字节，A 类网络的最大主机数位 2^24-2，第一，全 0 的主机号字段表示 IP 地址是本主机所连接到的单个网络地址，第二，全 1 的表示网络上的所有主机。</p>
+<h6 id="B-类"><a href="#B-类" class="headerlink" title="B 类"></a>B 类</h6><p>B 类地址网络只有 14 位可用，因为 B 类地址不可能出现全 0 或全 1 的情况，所以网络号不存在少 2 的情况，实际上 128.0.0.0 是不指派的，所以可以指派的网络数为 2^14-1，即 16383 个；而 B 类最大主机数为 2^16-2 个，需要除去全 0 和全 1 的。B 类地址占整个 IP 空间的 25%。</p>
+<h6 id="C-类"><a href="#C-类" class="headerlink" title="C 类"></a>C 类</h6><p>C 类地址有 3 个字节的网络号字段，除去前面的类别位，还有 21 位可用，C 类网络地址 192.0.0.0 也不指派，可以指派的最小网络地址为 192.0.1.0，因此 C 类地址可指派的网络总数是 2^21-1，每一个 C 类地址的最大主机数为 2^8-2，占整个 IP 地址的 12.5%。</p>
+<p><img data-src="/img/NetWork/image-20220303133601236.png" alt="image-20220303133601236"></p>
+<h5 id="IP-地址的重要特点"><a href="#IP-地址的重要特点" class="headerlink" title="IP 地址的重要特点"></a>IP 地址的重要特点</h5><ol>
+<li>每个 IP 地址都由网络号和主机号组成。IP 地址是一种分等级的地址结构。分等级后，第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。第二，路由器仅仅根据目的主机所连接的网络号来转发分组，可以使路由表的项目数大幅度减少，从而减少了路由表所占的内存以及查找路由表所需要的时间。</li>
+<li>实际上 IP 地址时标志一台主机和一条链路的接口。</li>
+<li>用转发器或网桥连接起来的若干局域网仍然为一个网络。</li>
+<li>IP 地址内所分配得到的地址都是平等的。</li>
+</ol>
+<h5 id="IP-数据报格式"><a href="#IP-数据报格式" class="headerlink" title="IP 数据报格式"></a>IP 数据报格式</h5><p>IP 数据报格式能够说明 IP 协议具有什么功能</p>
+<p><img data-src="/img/NetWork/image-20220303135845208.png" alt="image-20220303135845208"></p>
+<h6 id="IP-数据报具体部分"><a href="#IP-数据报具体部分" class="headerlink" title="IP 数据报具体部分"></a>IP 数据报具体部分</h6><p><strong>见书籍 128 页</strong></p>
+<h4 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h4><h5 id="IP-地址与硬件地址"><a href="#IP-地址与硬件地址" class="headerlink" title="IP 地址与硬件地址"></a>IP 地址与硬件地址</h5><p>从层次角度看，物理地址是数据链路层和物理层使用的地址，而 IP 地址是指网络层和以上各层使用的地址，是一种逻辑地址。</p>
+<h5 id="ARP-协议的概念及原理"><a href="#ARP-协议的概念及原理" class="headerlink" title="ARP 协议的概念及原理"></a>ARP 协议的概念及原理</h5><p>地址解析协议 ARP 就是用来解决同一个局域网上，知道一个机器的 IP 地址，找到其对应的 MAC 地址。</p>
+<p>具体实现原理：每一台主机都设有一个 ARP 高速缓存，里面有本局域网上的各个主机和路由器的 IP 地址到硬件地址的映射表。</p>
+<h4 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a>网际控制报文协议 ICMP</h4><p>为了更有效的转发 IP 数据报和提高交付成功的机会，在网际层使用了网际控制报文协议 ICMP。ICMP 允许主机或路由器报告差错情况和提供有关异常的情况。</p>
+<h5 id="ICMP-报文种类"><a href="#ICMP-报文种类" class="headerlink" title="ICMP 报文种类"></a>ICMP 报文种类</h5><h6 id="ICMP-差错报告报文"><a href="#ICMP-差错报告报文" class="headerlink" title="ICMP 差错报告报文"></a>ICMP 差错报告报文</h6><ol>
+<li>终点不可达</li>
+<li>超时</li>
+<li>参数问题</li>
+<li>改变路由（重定向）</li>
+</ol>
+<h6 id="ICMP-询问报文"><a href="#ICMP-询问报文" class="headerlink" title="ICMP 询问报文"></a>ICMP 询问报文</h6><ol>
+<li>回送请求和回答</li>
+<li>时间戳请求和回答</li>
+</ol>
+<p>重要应用就是 PING，用来测试两台主机的连通性。</p>
+<h4 id="网际组管理协议-IGMP"><a href="#网际组管理协议-IGMP" class="headerlink" title="网际组管理协议 IGMP"></a>网际组管理协议 IGMP</h4>]]></content>
+      <categories>
+        <category>计算机基础</category>
+      </categories>
+      <tags>
+        <tag>计算机基础</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1848,612 +2454,6 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
       <tags>
         <tag>后端</tag>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git学习</title>
-    <url>/2022/06/19/Git/</url>
-    <content><![CDATA[<h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><blockquote>
-<p>学习git这一种主流的版本控制系统</p>
-</blockquote>
-<h2 id="什么是”版本控制”？"><a href="#什么是”版本控制”？" class="headerlink" title="什么是”版本控制”？"></a>什么是”版本控制”？</h2><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
-<span id="more"></span>
-
-<h2 id="git的三种状态"><a href="#git的三种状态" class="headerlink" title="git的三种状态"></a>git的三种状态</h2><h3 id="已提交：commited"><a href="#已提交：commited" class="headerlink" title="已提交：commited"></a>已提交：commited</h3><p>已提交表示数据已经安全的保存在本地数据库中。</p>
-<h3 id="已修改：modified"><a href="#已修改：modified" class="headerlink" title="已修改：modified"></a>已修改：modified</h3><p>已修改表示修改了文件，但还没保存到数据库中。</p>
-<h3 id="已暂存：staged"><a href="#已暂存：staged" class="headerlink" title="已暂存：staged"></a>已暂存：staged</h3><p>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
-<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img data-src="https://s1.ax1x.com/2022/06/19/XjBi0x.png" alt="git的三个工作区"></p>
-<h3 id="git仓库"><a href="#git仓库" class="headerlink" title="git仓库"></a>git仓库</h3><p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，其它计算机克隆仓库时，拷贝的就是这里的数据。</p>
-<h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>工作目录是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
-<h3 id="暂存区域"><a href="#暂存区域" class="headerlink" title="暂存区域"></a>暂存区域</h3><p>暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。有时候也被称作”索引”，不过一般说法还是叫暂存区域。</p>
-<h3 id="基本的-Git-工作流程"><a href="#基本的-Git-工作流程" class="headerlink" title="基本的 Git 工作流程"></a>基本的 Git 工作流程</h3><ol>
-<li><p>在工作目录中修改文件。</p>
-</li>
-<li><p>暂存文件，将文件的快照放入暂存区域。</p>
-</li>
-<li><p>提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录。</p>
-</li>
-</ol>
-<h2 id="git的安装"><a href="#git的安装" class="headerlink" title="git的安装"></a>git的安装</h2><h3 id="Linux上安装"><a href="#Linux上安装" class="headerlink" title="Linux上安装"></a>Linux上安装</h3><p>以Fedora 上为例：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果你在基于 Debian 的发行版上：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> <span class="token function">git</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="Mac上安装"><a href="#Mac上安装" class="headerlink" title="Mac上安装"></a>Mac上安装</h3><p>最简单的方法是安装 Xcode或者<a href="https://git-scm.com/">git官网</a> 下载二进制文件安装</p>
-<h3 id="Windows上安装"><a href="#Windows上安装" class="headerlink" title="Windows上安装"></a>Windows上安装</h3><p>在 Windows 上安装 Git 也有几种安装方法。官方版本可以在 Git 官方网站下载。</p>
-<h3 id="从源代码安装"><a href="#从源代码安装" class="headerlink" title="从源代码安装"></a>从源代码安装</h3><p>如果你想从源码安装 Git，需要安装 Git 依赖的库：curl、zlib、openssl、expat，还有libiconv。</p>
-<p>如果你的系统上有 yum （如 Fedora）或者 apt-get（如基于 Debian 的系统），可以使用以下命令之一来安装最小化的依赖包来编译和安装Git的二进制版：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> libcurl4-gnutls-dev libexpat1-dev gettext  libz-dev libssl-dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>为了能够添加更多格式的文档（如 doc, html, info），你需要安装以下的依赖包：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> yum <span class="token function">install</span> asciidoc xmlto docbook2x
-<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> asciidoc xmlto docbook2x<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>从 GitHub 网站上的镜像来获得最新发布版本的 tar 包</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">tar</span> -zxf git-2.0.0.tar.gz
-<span class="token builtin class-name">cd</span> git-2.0.0
- <span class="token function">make</span> configure
- ./configure --prefix<span class="token operator">=</span>/usr
- <span class="token function">make</span> all doc info
- <span class="token function">sudo</span> <span class="token function">make</span> <span class="token function">install</span> install-doc install-html install-info<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="git的配置"><a href="#git的配置" class="headerlink" title="git的配置"></a>git的配置</h2><h3 id="初次启动（配置环境变量）"><a href="#初次启动（配置环境变量）" class="headerlink" title="初次启动（配置环境变量）"></a>初次启动（配置环境变量）</h3><p>对于Linux系统，Git 自带一个 git config 的工具来帮助设置控制 Git 外观和行为的配置变量。这些变量存储在三个不同的位置：</p>
-<ol>
-<li><strong>&#x2F;etc&#x2F;gitconfig</strong> 文件: 包含系统上每一个用户及他们仓库的通用配置。 如果使用带有 –system 选项的git config 时，它会从此文件读写配置变量。</li>
-<li>~&#x2F;.gitconfig 或 ~&#x2F;.config&#x2F;git&#x2F;config 文件：只针对当前用户。 可以传递 –global 选项让 Git读写此文件。</li>
-<li>当前使用仓库的 Git 目录中的 config 文件（就是 .git&#x2F;config）：针对该仓库。</li>
-</ol>
-<p>每一个级别覆盖上一级别的配置，所以 .git&#x2F;config 的配置变量会覆盖 &#x2F;etc&#x2F;gitconfig 中的配置变量。</p>
-<p>对于windows系统，Git 会查找 $HOME$ 目录下（一般情况下是 C:\Users\$USER$）的 .gitconfig 文件。</p>
-<h3 id="设置用户信息"><a href="#设置用户信息" class="headerlink" title="设置用户信息"></a>设置用户信息</h3><p>每一次 Git 的提交都会使用这些信息，并且它会写入到你的每一次提交中，不可更改：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Mr.W"</span>	<span class="token comment">#配置用户名</span>
-<span class="token function">git</span> config --global user.email xxxxxxxx@qq.com	<span class="token comment">#配置邮箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>使用–global代表全局设置，该命令只需要运行一次，之后无论你在该系统上做任何事情， Git 都会使用这些信息。</p>
-<p>当你想针对特定项目使用不同的用户名称与邮件地址时，可以在那个项目目录下运行不带 –global 选项的命令来配置。</p>
-<h3 id="指定文本编辑器"><a href="#指定文本编辑器" class="headerlink" title="指定文本编辑器"></a>指定文本编辑器</h3><p>Git 会使用操作系统默认的文本编辑器，通常是 Vim。如果你想使用不同的文本编辑器，例如 Emacs，可以这样做：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global core.editor emacs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="检查配置信息"><a href="#检查配置信息" class="headerlink" title="检查配置信息"></a>检查配置信息</h3><p>如果想要检查你的配置，可以使用 git config –list 命令来列出所有 Git 当时能找到的配置。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>可以通过输入 git config  <key>： 来检查 Git 的某一项配置：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config user.name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="获取帮助手册"><a href="#获取帮助手册" class="headerlink" title="获取帮助手册"></a>获取帮助手册</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token builtin class-name">help</span> <span class="token operator">&lt;</span>verb<span class="token operator">></span> <span class="token comment">#方式一</span>
-<span class="token function">git</span> <span class="token operator">&lt;</span>verb<span class="token operator">></span> --help <span class="token comment">#方式二</span>
-<span class="token function">man</span> git-<span class="token operator">&lt;</span>verb<span class="token operator">></span> <span class="token comment">#在linux上可以方式三</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="git基础"><a href="#git基础" class="headerlink" title="git基础"></a>git基础</h2><h3 id="获取git仓库"><a href="#获取git仓库" class="headerlink" title="获取git仓库"></a>获取git仓库</h3><ol>
-<li>在现有项目或目录下导入所有文件到 Git 中</li>
-<li>从一个服务器克隆一个现有的 Git 仓库</li>
-</ol>
-<h3 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h3><p>进入该项目目录并输入：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是Git 仓库的核心。</p>
-<p>如果你是在一个已经存在文件的文件夹（而不是空文件夹）中初始化 Git 仓库来进行版本控制的话，你应该开始跟踪这些文件并提交。你可通过 git add 命令来实现对指定文件的跟踪，然后执行 git commit 提交：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> *.c
-<span class="token function">git</span> <span class="token function">add</span> LICENSE
-<span class="token function">git</span> commit -m <span class="token string">'initial project version'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><p>如果你想获得一份已经存在了的 Git 仓库的拷贝，比如说，你想为某个开源项目贡献自己的一份力，这时就要用到 git clone 命令。当执行 git clone 命令的时候，默认配置下远程 Git 仓库中的每一个文件的每一个版本都将被拉取下来。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果你想在克隆远程仓库的时候，自定义本地仓库的名字，你可以使用如下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span> 本地仓库的名字<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>经常报错: <code>OpenSSL SSL_read: Connection was reset, errno 10054</code>解决方法如下：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global http.sslVerify <span class="token string">"false"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>Git 支持多种数据传输协议。上面的例子使用的是 https:&#x2F;&#x2F; 协议，不过你也可以使用 git:&#x2F;&#x2F; 协议或者使用SSH 传输协议，比如 user@server:path&#x2F;to&#x2F;repo.git </p>
-<h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><p>工作目录下的每一个文件都不外乎这两种状态：已跟踪或未跟踪。<strong>已跟踪的文件</strong>是指那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放 入暂存区。工作目录中除已跟踪文件以外的所有其它文件都属于<strong>未跟踪文件</strong>，它们既不存在于上次快照的记录中，也没有放入暂存区。初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。</p>
-<p>编辑过某些文件之后，由于自上次提交后你对它们做了修改，Git 将它们标记为已修改文件。我们逐步将这些修改过的文件放入暂存区，然后提交所有暂存了的修改，如此反复。使用 Git 时文件的生命周期如下：</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBF76.png" alt="记录每次更新到仓库"></p>
-<h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>要查看哪些文件处于什么状态，可以用 git status 命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果在克隆仓库后立即使用此命令，会看到类似这样的输出：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
-nothing to commit, working directory clean<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这说明你现在的工作目录相当干净。换句话说，所有已跟踪文件在上次提交后都未被更改过。此外，上面的信息 还表明，当前目录下没有出现任何处于未跟踪状态的新文件，否则 Git 会在这里列出来。最后，该命令还显示了当前所在分支，并告诉你这个分支同远程服务器上对应的分支没有偏离。现在，分支名是 “master”,这是默认的分支名。</p>
-<h3 id="跟踪新文件"><a href="#跟踪新文件" class="headerlink" title="跟踪新文件"></a>跟踪新文件</h3><p>使用命令 git add 开始跟踪一个文件。所以，要跟踪 <code>README</code> 文件，运行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> README<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>此时再运行 git status 命令，会看到 <code>README</code> 文件已被跟踪，并处于暂存状态：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status
-
-On branch master
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git reset HEAD &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-    new file: README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>只要在 Changes to be committed 这行下面的，就说明是已暂存状态。如果此时提交，那么该文件此时此刻的版本将被留存在历史记录中。</p>
-<h3 id="暂存已修改文件"><a href="#暂存已修改文件" class="headerlink" title="暂存已修改文件"></a>暂存已修改文件</h3><p>现在我们来修改一个已被跟踪的文件。如果你修改了一个名为 Git.md 的已被跟踪的文件，然后运行 git status 命令，会看到下面内容：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
-No commits yet
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-        new file:   Git.md
-        new file:   README
-Changes not staged <span class="token keyword">for</span> commit:
-  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
-  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
-        modified:   Git.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>文件 <code>Git.md</code> 出现在 Changes not staged for commit 这行下面，说明已跟踪文件的内容发生了变化，但还没有放到暂存区。</p>
-<p>要暂存这次更新，需要运行 git add 命令。这是个多功能命令：可以用它开始跟踪新文件，或者把已跟踪的文件放到暂存区，还能用于合并时把有冲突的文件标记为已解决状态等。将这个命令理解为“添加内容到下一次提交中”而不是“将一个文件添加到项目中”要更加合适。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> Git.md
-<span class="token function">git</span> status
-
-On branch master
-No commits yet
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-        new file:   Git.md
-        new file:   README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>现在两个文件都已暂存，下次提交时就会一并记录到仓库。假设此时，你想要在 CONTRIBUTING.md 里再加条注释，重新编辑存盘后，准备好提交。不过且慢，再运行 git status 看看：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">On branch master
-No commits yet
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-        new file:   Git.md
-        new file:   README
-Changes not staged <span class="token keyword">for</span> commit:
-  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to update what will be committed<span class="token punctuation">)</span>
-  <span class="token punctuation">(</span>use <span class="token string">"git restore &lt;file>..."</span> to discard changes <span class="token keyword">in</span> working directory<span class="token punctuation">)</span>
-        modified:   Git.md<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>现在 <code>Git.md</code> 文件同时出现在暂存区和非暂存区。实际上 Git 只不过暂存了你运行 git add 命令时的版本，如果你现在提交，<code>Git.md</code> 的版本是你最后一次运行git add 命令时的那个版本，而不是你运行 git commit 时，在工作目录中的当前版本。所以，运行了 git add 之后又作了修订的文件，需要重新运行 git add 把最新版本重新暂存起来：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> Git.md
-<span class="token function">git</span> status 
-
-On branch master
-No commits yet
-Changes to be committed:
- <span class="token punctuation">(</span>use <span class="token string">"git rm --cached &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-       new file:   Git.md
-       new file:   README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="状态简览"><a href="#状态简览" class="headerlink" title="状态简览"></a>状态简览</h3><p>git status 命令的输出十分详细，但其用语有些繁琐。如果你使用 git status -s 命令或 git status –short 命令，你将得到一种更为紧凑的格式输出。</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git status -s
-
- M README
-MM Rakefile
-A lib&#x2F;git.rb
-M lib&#x2F;simplegit.rb
-?? LICENSE.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>新添加的未跟踪文件前面有 ?? 标记，新添加到暂存区中的文件前面有 A 标记，修改过的文件前面有 M 标记。你可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。例如，上面的状态报告显示： <code>README</code> 文件在工作区被修改了但是还没有将修改后的文件放入暂存区,<code>lib/simplegit.rb</code> 文件被修改了并将修改后的文件放入了暂存区。而<code>Rakefile</code> 在工作区被修改并提交到暂存区后又在工作区中被修改了，所以在暂存区和工作区都有该文件被修改了的记录。</p>
-<h3 id="忽略文件-gitignore"><a href="#忽略文件-gitignore" class="headerlink" title="忽略文件(.gitignore)"></a>忽略文件(<code>.gitignore</code>)</h3><p>一般我们总会有些文件无需纳入 Git 的管理，也不希望它们总出现在未跟踪文件列表。通常都是些自动生成的文 件，比如日志文件，或者编译过程中创建的临时文件等。在这种情况下，我们可以创建一个名为 <code>.gitignore</code>的文件，列出要忽略的文件模式。来看一个实际的例子：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cat</span> .gitignore
-
-*.<span class="token punctuation">[</span>oa<span class="token punctuation">]</span>
-*~<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>文件 <code>.gitignore</code> 的格式规范如下： </p>
-<ul>
-<li>所有空行或者以 <code>＃</code> 开头的行都会被 Git 忽略。 </li>
-<li>可以使用标准的 glob 模式匹配。 </li>
-<li>匹配模式可以以<code>/</code>开头防止递归。 </li>
-<li>匹配模式可以以<code>/</code>结尾指定目录。 </li>
-<li>要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反。</li>
-</ul>
-<p>所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。星号<code>*</code>匹配零个或多个任意字符；<code>[abc]</code> 匹配任 何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；问号<code>?</code>只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 <code>[0-9]</code> 表示匹配所有 0 到 9 的数字）。使用两个星号<code>**</code> 表示匹配任意中间目录，比如<code>a/**/z</code> 可以匹配 <code>a/z</code>,<code>a/b/z</code> 或 <code>a/b/c/z</code>等。</p>
-<h3 id="查看已暂存和未暂存的修改"><a href="#查看已暂存和未暂存的修改" class="headerlink" title="查看已暂存和未暂存的修改"></a>查看已暂存和未暂存的修改</h3><p>如果 git status 命令的输出对于你来说过于模糊，你想知道具体修改了什么地方，可以用 git diff 命令。git diff 将通过文件补丁的格式显示具体哪些行发生了改变。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span>
-
-warning: LF will be replaced by CRLF <span class="token keyword">in</span> Git.md.
-The <span class="token function">file</span> will have its original line endings <span class="token keyword">in</span> your working directory
-<span class="token function">diff</span> --git a/Git.md b/Git.md
-index b49f414<span class="token punctuation">..</span>661e036 <span class="token number">100644</span>
---- a/Git.md
-+++ b/Git.md
-@@ -1,3 +1,4 @@
- Git Test
- Modified
- Second Modified
-+Third Modified<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>此命令比较的是工作目录中当前文件和暂存区域快照之间的差异，也就是修改之后还没有暂存起来的变化内容。</p>
-<p>若要查看已暂存的将要添加到下次提交里的内容，可以使用 git diff –staged</p>
-<h3 id="提交更新"><a href="#提交更新" class="headerlink" title="提交更新"></a>提交更新</h3><p>现在的暂存区域已经准备妥当可以提交了。在此之前，请一定要确认还有什么修改过的或新建的文件还没有 git add 过，否则提交的时候不会记录这些还没暂存起来的变化。所以，每次准备提交前，先用 git status 看下，是不是都已暂存起来了，然后再运行提交命令 git commit：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>默认的提交消息包含最后一次运行 git status 的输出，放在注释行里，另外开头还有一空行，供你输入提交说明。如果想要更详细的对修改了哪些内容的提示，可以用 -v 选项，这会将你所做的改变的 diff 输出放到编辑器中从而使你知道本次提交具体做了哪些修改。</p>
-<p>另外，你也可以在 commit 命令后添加 -m 选项，将提交信息与命令放在同一行：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">"git second commit"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="跳过使用暂存区域"><a href="#跳过使用暂存区域" class="headerlink" title="跳过使用暂存区域"></a>跳过使用暂存区域</h4><p>尽管使用暂存区域的方式可以精心准备要提交的细节，但有时候这么做略显繁琐。Git 提供了一个跳过使用暂存区域的方式，只要在提交的时候，给 git commit 加上 -a 选项，Git 就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过 git add 步骤：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git commit -a -m &quot;git third commit&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="移除文件"><a href="#移除文件" class="headerlink" title="移除文件"></a>移除文件</h3><p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除（确切地说，是从暂存区域移除），然后提交。<code>可以用 git rm 命令完成此项工作，并连带从工作目录中删除指定的文件</code>，这样以后就不会出现在未跟踪文件清单了。</p>
-<p>如果只是简单地从工作目录中手工删除文件，运行 git status 时就会在 “Changes not staged for commit” 部分（也就是未暂存清单）看到：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> README
-<span class="token function">git</span> status
-
-On branch master
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-        deleted:    README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>下一次提交时，该文件就不再纳入版本管理了。如果删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 <code>-f</code>。这是一种安全特性，用于防止误删还没有添加到快照的数据，<code>这样的数据不能被 git 恢复</code>。</p>
-<p>另外一种情况是，<code>我们想把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中</code>。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> --cached test.txt
-<span class="token function">git</span> status
-
-On branch master
-Changes to be committed:
- <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-       deleted:    test.txt
-Untracked files:
- <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
-       test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="移动文件"><a href="#移动文件" class="headerlink" title="移动文件"></a>移动文件</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">mv</span> Git.md git.md
-<span class="token function">git</span> status
-
-On branch master
-Changes to be committed:
-  <span class="token punctuation">(</span>use <span class="token string">"git restore --staged &lt;file>..."</span> to unstage<span class="token punctuation">)</span>
-        renamed:    Git.md -<span class="token operator">></span> git.md
-        deleted:    test.txt
-Untracked files:
-  <span class="token punctuation">(</span>use <span class="token string">"git add &lt;file>..."</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
-        test.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其实，运行 git mv 就相当于运行了下面三条命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mv</span> README.md README
-<span class="token function">git</span> <span class="token function">rm</span> README.md
-<span class="token function">git</span> <span class="token function">add</span> README<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><p>在提交了若干更新，又或者克隆了某个项目之后，你也许想回顾下提交历史.完成这个任务最简单而又有效的工具是 git log 命令。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>默认不用任何参数的话，git log 会按提交时间列出所有的更新，最近的更新排在最上面。</p>
-<p>git log 有许多选项可以帮助你搜寻你所要找的提交，接下来我们介绍些最常用的。一个常用的选项是 -p，用来显示每次提交的内容差异。你也可以加上 -2 来仅显示最近两次提交：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log -p -2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>你也可以为 git log 附带一系列的总结性选项。比如说，如果你想看到每次提交的简略的统计信息，你可以使用 –stat 选项：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --stat<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>另外一个常用的选项是 –pretty。这个选项可以指定使用不同于默认格式的方式展示提交历史。这个选项有一些内建的子选项供你使用。比如用 oneline 将每个提交放在一行显示，查看的提交数很大时非常有用。另外还有short，full 和 fuller 可以用，展示的信息或多或少有些不同。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>有用的是 format，可以定制要显示的记录格式。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h - %an, %ar : %s"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>git log –pretty&#x3D;format 常用的选项 列出了常用的格式占位符写法及其代表的意义。</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBEtO.png" alt="git log"></p>
-<p>当 oneline 或 format 与另一个 log 选项 –graph 结合使用时尤其有用。这个选项添加了一些ASCII字符串来形象地展示你的分支、合并历史：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h %s"</span> --graph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>git log 的常用选项:</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBVhD.png" alt="git log 的常用选项"></p>
-<h4 id="限制输出长度"><a href="#限制输出长度" class="headerlink" title="限制输出长度"></a>限制输出长度</h4><p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前你已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何整数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调 用分页程序，所以你一次只会看到一页的内容。</p>
-<p>另外还有按照时间作限制的选项，比如 –since 和 –until 也很有用。例如，下面的命令列出所有最近两周内的提交：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --since<span class="token operator">=</span><span class="token number">2</span>.weeks<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>另一个非常有用的筛选选项是 -S，可以列出那些添加或移除了某些字符串的提交。比如说，你想找出添加或移除了某一个特定函数的引用的提交，你可以这样使用：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git log -SModified<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p> 限制 git log 输出的选项:</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBAAK.png" alt="限制 git log 输出的选项"></p>
-<h3 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>在任何一个阶段，你都有可能想要撤消某些操作。这里，我们将会学习几个撤消你所做修改的基本工具。</p>
-<p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。此时，可以运行带有 –amend 选项的提交命令尝试重新提交，这个命令会将暂存区中的文件提交。：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果自上次提交以来你还未做任何修改（例如，在上次提交后马上执行了此命令），那么快照会保持不变，而你所修改的只是提交信息。</p>
-<h4 id="取消暂存的文件"><a href="#取消暂存的文件" class="headerlink" title="取消暂存的文件"></a>取消暂存的文件</h4><p>例如，你已经修改了两个文件并且想要将它们作为两次独立的修改提交，但是却意外地输入了git add * 暂存了它们两个。如何只取消暂存两个中的一个呢？</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset HEAD CONTRIBUTING.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="撤消对文件的修改"><a href="#撤消对文件的修改" class="headerlink" title="撤消对文件的修改"></a>撤消对文件的修改</h4><p>如果你并不想保留对 CONTRIBUTING.md 文件的修改怎么办？你该如何方便地撤消修改 - 将它还原成上次提交时的样子（或者刚克隆完的样子，或者刚把它放入工作目录时的样子）？</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -- CONTRIBUTING.md<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="git远程仓库"><a href="#git远程仓库" class="headerlink" title="git远程仓库"></a>git远程仓库</h2><blockquote>
-<p>远程仓库是指托管在因特网或其他网络中的你的项目的版本库。</p>
-</blockquote>
-<h3 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>如果想查看你已经配置的远程仓库服务器，可以运行 git remote 命令。它会列出你指定的每一个远程服务器的简写。如果你已经克隆了自己的仓库，那么至少应该能看到 origin - 这是 Git 给你克隆的仓库服务器的默认名字：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="添加远程仓库"><a href="#添加远程仓库" class="headerlink" title="添加远程仓库"></a>添加远程仓库</h3><p>首先在github上创建一个仓库，然后clone到本地，再然后运行git remote add <shortname> <url> 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> gs https://github.com/mygit-WK/gStudy.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>现在你可以在命令行中使用字符串 gs来代替整个 URL。例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 git fetch gs：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch gs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="从远程仓库中抓取与拉取"><a href="#从远程仓库中抓取与拉取" class="headerlink" title="从远程仓库中抓取与拉取"></a>从远程仓库中抓取与拉取</h3><p>从远程仓库中获得数据，可以执行：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git fetch [remote-name]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这个命令会访问远程仓库，从中拉取所有你还没有的数据。执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。 </p>
-<p>如果你使用 clone 命令克隆了一个仓库，命令会自动将其添加为远程仓库并默认以 “origin” 为简写。所以git fetch origin 会抓取克隆（或上一次抓取）后新推送的所有工作。必须注意 git fetch 命令会将数据拉取到你的本地仓库它并不会自动合并或修改你当前的工作。</p>
-<p>如果你有一个分支设置为跟踪一个远程分支，可以使用 git pull 命令来自动的抓取然后合并远程分支到当前分支。默认情况下，git clone 命令会自动设置本地 master 分支跟踪克隆的远程仓库的 master 分支（或不管是什么名字的默认分支）。运行 git pull 通常会从最初克隆的服务器上抓取数据并自动尝试合并到当前所在的分支。</p>
-<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p>当你想分享你的项目时，必须将其推送到上游。这个命令很简单：git push [remote-name] [branch-name]。当你想要将 master 分支推送到 origin 服务器时（再次说明，克隆时通常会自动帮你设置好那两个名字），那么运行这个命令就可以将你所做的备份到服务器：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>只有当你有所克隆服务器的写入权限，并且之前没有人推送过时，这条命令才能生效。当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。</p>
-<h3 id="查看远程仓库-1"><a href="#查看远程仓库-1" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h3><p>如果想要查看某一个远程仓库的更多信息，可以使用 git remote show [remote-name] 命令。如果想以一个特定的缩写名运行这个命令，例如 origin，会得到像下面类似的信息：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote show origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="远程仓库的移除与重命名"><a href="#远程仓库的移除与重命名" class="headerlink" title="远程仓库的移除与重命名"></a>远程仓库的移除与重命名</h3><p>如果想要重命名引用的名字可以运行 git remote rename 去修改一个远程仓库的简写名。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">rename</span> gs gitstudy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>可以使用 git remote rm 来移除远程仓库：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git remote rm gitstudy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="git标签"><a href="#git标签" class="headerlink" title="git标签"></a>git标签</h2><h3 id="列出标签"><a href="#列出标签" class="headerlink" title="列出标签"></a>列出标签</h3><pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h3><p>Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）</p>
-<p>在 Git 中创建一个附注标签是很简单的。最简单的方式是当你在运行 tag 命令时指定 -a 选项，-m 选项指定了一条将会存储在标签中的信息。如果没有为附注标签指定一条信息，Git 会运行编辑器要求你输入信息：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag -a v1.0 -m &#39;my version 1.0&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>通过使用 git show 命令可以看到标签信息与对应的提交信息：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git show v1.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>另一种给提交打标签的方式是使用轻量标签。轻量标签本质上是将提交校验和存储到一个文件中,没有保存任何其他信息。创建轻量标签，不需要使用 -a、-s 或 -m 选项，只需要提供标签名字：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git tag v1.0-lw<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="后期打标签"><a href="#后期打标签" class="headerlink" title="后期打标签"></a>后期打标签</h3><p>你也可以对过去的提交打标签。现在，假设在 v1.2 时你忘记给项目打标签，也就是在 “updated rakefile” 提交。你可以在之后补上标签。要在那个提交上打标签，你需要在命令的末尾指定提交的校验和（或部分校验和）:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> tag -a v1.2 9fceb02<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="共享标签"><a href="#共享标签" class="headerlink" title="共享标签"></a>共享标签</h3><p>默认情况下，git push 命令并不会传送标签到远程仓库服务器上。在创建完标签后你必须显式地推送标签到共享服务器上。这个过程就像共享远程分支一样 - 你可以运行 git push origin [tagname]。</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push origin v1.5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>如果想要一次性推送很多标签，也可以使用带有 –tags 选项的 git push 命令。这将会把所有不在远程仓库服务器上的标签全部传送到那里。</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git push origin --tags<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="检出标签"><a href="#检出标签" class="headerlink" title="检出标签"></a>检出标签</h3><p>在 Git 中你并不能真的检出一个标签，因为它们并不能像分支一样来回移动。如果你想要工作目录与仓库中特定的标签版本完全一样，可以使用 git checkout -b [branchname] [tagname] 在特定的标签上创建一个新分支：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> checkout -b version2 v2.0.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="Git-别名"><a href="#Git-别名" class="headerlink" title="Git 别名"></a>Git 别名</h3><p>Git 并不会在你输入部分命令时自动推断出你想要的命令。如果不想每次都输入完整的 Git 命令，可以通过 gitconfig 文件来轻松地为每一个命令设置一个别名。这里有一些例子你可以试试：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.co checkout
-<span class="token function">git</span> config --global alias.br branch
-<span class="token function">git</span> config --global alias.ci commit
-<span class="token function">git</span> config --global alias.st status<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这意味着，当要输入 git commit<code>时，只需要输入 </code>git ci。</p>
-<p>可以向 Git 中 添加你自己的取消暂存别名：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.unstage <span class="token string">'reset HEAD --'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>等价于：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> unstage fileA
-<span class="token function">git</span> reset HEAD -- fileA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>通常也会添加一个 last 命令，可以轻松地看到最后一次提交：</p>
-<pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git config --global alias.last &#39;log -1 HEAD&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>版本控制</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络</title>
-    <url>/2022/06/21/NetWork/</url>
-    <content><![CDATA[<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><blockquote>
-<p>基于谢希仁老师的《计算机网络 第七版》的学习，了解后能够对于网络之间的交换有更加深入的理解，学习前后端必修之课</p>
-</blockquote>
-<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="互联网的历史和组成"><a href="#互联网的历史和组成" class="headerlink" title="互联网的历史和组成"></a>互联网的历史和组成</h3><span id="more"></span>
-
-<h4 id="互联网的两个基本特点："><a href="#互联网的两个基本特点：" class="headerlink" title="互联网的两个基本特点："></a>互联网的两个基本特点：</h4><ol>
-<li>连通性：互联网上的用户之间不管相隔多远，都可以非常方便的交换信息。</li>
-<li>共享：主要指资源共享。包括文件共享，软件共享以及硬件共享。</li>
-</ol>
-<p>计算机网络是由若干结点(计算机、集线器、交换机或路由器)和连接这些结点的链路组成的。</p>
-<h4 id="互联网发展的三个阶段："><a href="#互联网发展的三个阶段：" class="headerlink" title="互联网发展的三个阶段："></a>互联网发展的三个阶段：</h4><ol>
-<li>第一阶段：从单个网络 ARPANET 向互连网发展。1969 年美国国防部创建了第一个分组交换网 ARPANET，刚开始只是简单的分组交换网。20 世纪 70 年代，单一的网络已经无法满足所有的通信问题，于是开始研究多种网络。1983 年 TCP&#x2F;IP 协议成为 ARPANET 的标准协议，于是 1983 年作为互联网的诞生时间。</li>
-<li>第二阶段：建成了三级结构的互联网。1985 年起，NSF 围绕六个大型计算机中心建设计算机网络，即 NSFNET。三级计算机网络分为<code>主干网</code>、<code>地区网</code>、<code>校园网</code>。这种三级结构覆盖了全美国主要的大学和研究所。</li>
-<li>第三阶段：逐渐形成了多层次的 ISP 结构的互联网。</li>
-</ol>
-<h4 id="互联网的标准"><a href="#互联网的标准" class="headerlink" title="互联网的标准"></a>互联网的标准</h4><p>所有的互联网表标准都是以 RFC 的形式在互联网上发表的。但并非所有的 RFC 都是互联网标准。互联网正式标准需要经历三个阶段：</p>
-<ol>
-<li>互联网草案：有效期只有六个月，此时还不能算 RFC 文档</li>
-<li>建议标准：从这阶段开始成为 RFC 文档</li>
-<li>互联网标准：达到正式标准后，每个标准就分配到一个编号。</li>
-</ol>
-<h4 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h4><ul>
-<li><p>边缘部分：由所有连在互联网上的主机组成。</p>
-<ul>
-<li><p>C&#x2F;S 方式：客户端&#x2F;服务器方式</p>
-</li>
-<li><p>P2P 方式：对等连接方式</p>
-</li>
-</ul>
-</li>
-<li><p>核心部分：由大量网络和连接这些网络的路由器组成，主要为边缘部分提供服务。</p>
-<ul>
-<li>路由器：实现分组交换的关键构件</li>
-</ul>
-</li>
-</ul>
-<h5 id="分组交换的特点"><a href="#分组交换的特点" class="headerlink" title="分组交换的特点"></a>分组交换的特点</h5><p>分组交换采用存储转发技术。将一个报文(要发送的整块数据)划分为几个分组后再进行交换。分组又称为”包”，分组的首部又称为”包头”(包含了目的地址和源地址控制信息)。</p>
-<p>分组交换的过程:路由器收到一个分组，先暂存一下(暂存的是短分组)，检查其首部，查找转发表，按照首部中的目的地址，找到合适的接口转发出去，把分组交给下一个路由器。</p>
-<h5 id="分组交换的优点"><a href="#分组交换的优点" class="headerlink" title="分组交换的优点"></a>分组交换的优点</h5><ol>
-<li>高效：在分组传输过程中动态分配传输带宽，对通信链路是逐段占用</li>
-<li>灵活：为每一个分组独立地选择合适的转发路由</li>
-<li>迅速：以分组作为传送单位，可以先不建立连接就能向其他主机发送分组</li>
-<li>可靠：保证可靠性的网络协议，分布式多路由分组交换网</li>
-</ol>
-<h3 id="计算机网络的类别"><a href="#计算机网络的类别" class="headerlink" title="计算机网络的类别"></a>计算机网络的类别</h3><ol>
-<li><p>按照网络作用范围分类</p>
-<ol>
-<li>广域网：作用范围大，任务是通过长距离运送主机所发送的数据。</li>
-<li>城域网：一般是城市，可以是一个或几个单位，也可是一种公用设施</li>
-<li>局域网：一般用于微型计算机或工作站通过高速链路相连</li>
-<li>个人局域网：也称为无线个人局域网</li>
-</ol>
-</li>
-<li><p>按照网络的使用者进行分类</p>
-<ol>
-<li>公用网</li>
-<li>专用网</li>
-</ol>
-</li>
-</ol>
-<h3 id="计算机网络的性能指标"><a href="#计算机网络的性能指标" class="headerlink" title="计算机网络的性能指标"></a>计算机网络的性能指标</h3><h4 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h4><p>速率指数据的传送速率，也称为数据率或比特率。单位 bit&#x2F;s(或 b&#x2F;s，bps),提到速率时往往指的是额定速率或标称速率，并非实际运行的速率。</p>
-<h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><p>计算机中带宽指的是某通道传送数据的能力，即单位时间内网络中某信道所能通过的最高数据率。</p>
-<h4 id="吞吐量"><a href="#吞吐量" class="headerlink" title="吞吐量"></a>吞吐量</h4><p>吞吐量指单位时间内通过某个网络的实际数据量，受网络的带宽或网络的额定速率的限制。</p>
-<h4 id="时延"><a href="#时延" class="headerlink" title="时延"></a>时延</h4><p>时延指数据从网络的一端传送到另一端所需时间。也被称为延迟。</p>
-<h5 id="时延的组成"><a href="#时延的组成" class="headerlink" title="时延的组成"></a>时延的组成</h5><ol>
-<li><p>发送时延：主机或路由器发送数据帧所需要的时间，又叫传输时延。</p>
-</li>
-<li><p>传播时延：传播时延是电磁波在信道传播一定距离需要花费的时间。与传输信道长度无关。信号传送距离越远，传播时延就越大。</p>
-</li>
-<li><p>处理时延：主机或路由器在收到分组需要花费一定时间进行处理。</p>
-</li>
-<li><p>排队时延：分组在传输过程中要经过许多路由器，进入路由器后要先在输入队列中排队等待处理。</p>
-<p>总时延&#x3D;发送时延+传播时延+处理时延+排队时延</p>
-</li>
-</ol>
-<h4 id="时延带宽积"><a href="#时延带宽积" class="headerlink" title="时延带宽积"></a>时延带宽积</h4><p>时延带宽积表示这个链路可以容纳的比特数</p>
-<p>时延带宽积&#x3D;传播时延 x 带宽</p>
-<h4 id="往返时间-RTT"><a href="#往返时间-RTT" class="headerlink" title="往返时间 RTT"></a>往返时间 RTT</h4><p>RTT 表示双向交互一次所需要的时间。</p>
-<h4 id="利用率"><a href="#利用率" class="headerlink" title="利用率"></a>利用率</h4><p>信道利用率指出某信道有百分之几的时间是被利用的。网络利用率则是全网络的加权平均值。信道或网络利用率过高会产生非常大的时延。</p>
-<h3 id="计算机网络体系结构"><a href="#计算机网络体系结构" class="headerlink" title="计算机网络体系结构"></a>计算机网络体系结构</h3><h4 id="OSI-七层参考模型"><a href="#OSI-七层参考模型" class="headerlink" title="OSI 七层参考模型"></a>OSI 七层参考模型</h4><p>1983 年正式形成了 OSI 模型，OSI 试图达到理想境界，因而全球计算机可以很方便的进行互连和数据交换。<br>OSI 失败原因：</p>
-<ol>
-<li>OSI 专家缺乏实际经验，缺乏商业驱动力</li>
-<li>OSI 协议过于复杂，运行效率低</li>
-<li>OSI 制定的周期太长</li>
-<li>OSI 层次划分不太合理</li>
-</ol>
-<h4 id="五层参考模型"><a href="#五层参考模型" class="headerlink" title="五层参考模型"></a>五层参考模型</h4><ol>
-<li>应用层：任务是通过应用进程间的交互来完成特定的网络应用。交互的数据单元称为报文。</li>
-<li>运输层：任务是负责向两台主机中进程之间的通信提供通用的数据传输服务。包括 TCP，UDP 协议，传输数据的单位分别是报文段和用户数据报。</li>
-<li>网络层：负责为分组交换网上的不同主机提供通信服务。数据传输单位是 IP 数据报。</li>
-<li>数据链路层：数据传输单位是帧。</li>
-<li>物理层：数据传输单位是 bit。</li>
-</ol>
-<h2 id="第二章-物理层"><a href="#第二章-物理层" class="headerlink" title="第二章 物理层"></a>第二章 物理层</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>物理层考虑的是怎么才能在连接各种计算机的传输媒介上传输数据比特流。物理层的作用是要尽可能的屏蔽掉这些传输媒体和通信手段的差异。</p>
-<h3 id="数据通信模型"><a href="#数据通信模型" class="headerlink" title="数据通信模型"></a>数据通信模型</h3><p>一个数据通信系统可以划分为三大部分：即源系统（发送端）、传输系统和目的系统（接收端）</p>
-<h3 id="通信的三种方式"><a href="#通信的三种方式" class="headerlink" title="通信的三种方式"></a>通信的三种方式</h3><ol>
-<li>单向通信（单工通信）：只能有一个方向的通信而没有反方向的交互。</li>
-<li>双向交替通信（半双工通信）：即通信双方都可以发送消息，但不能双方同时发送。也就是说一方发送一方接收，过一段时间后可以再反过来。</li>
-<li>双向同时通信（全双工通信）：即通信双方可以同时发送和接收消息。</li>
-</ol>
-<h3 id="传输媒介"><a href="#传输媒介" class="headerlink" title="传输媒介"></a>传输媒介</h3><h4 id="导引型"><a href="#导引型" class="headerlink" title="导引型"></a>导引型</h4><ol>
-<li>双绞线</li>
-<li>同轴电缆</li>
-<li>光纤</li>
-</ol>
-<h4 id="非导引型"><a href="#非导引型" class="headerlink" title="非导引型"></a>非导引型</h4><p>无线电波</p>
-<h3 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h3><h4 id="频分复用"><a href="#频分复用" class="headerlink" title="频分复用"></a>频分复用</h4><p>用户在分配到一定的频带后，在通信过程中始终占用着这个频带。即所有用户在同样的时间段内占用着不同的带宽资源。</p>
-<h4 id="时分复用"><a href="#时分复用" class="headerlink" title="时分复用"></a>时分复用</h4><p>时分复用是指所有用户在不同时间段内占用着相同的频带宽度。</p>
-<h4 id="统计时分复用"><a href="#统计时分复用" class="headerlink" title="统计时分复用"></a>统计时分复用</h4><p>统计时分复用是一种改进的时分复用，他能明显的提高信道的利用率。</p>
-<h4 id="波分复用"><a href="#波分复用" class="headerlink" title="波分复用"></a>波分复用</h4><p>波分复用就是光的频分复用。</p>
-<h4 id="码分复用"><a href="#码分复用" class="headerlink" title="码分复用"></a>码分复用</h4><p>码分复用是另一种共享信道的方法。由于各用户使用经过特殊挑选的码型，因此各用户之间不会构成干扰。最初用于军事通讯。</p>
-<h2 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章 数据链路层"></a>第三章 数据链路层</h2><p><strong>数据链路层使用的信道主要是：点对点信道和广播信道</strong></p>
-<h3 id="点对点信道"><a href="#点对点信道" class="headerlink" title="点对点信道"></a>点对点信道</h3><p>链路：指从一个结点到相邻结点的一端物理线路，而中间没有其他任何交换结点。</p>
-<p>数据链路：除了需要一条物理线路外，还必须要有一些必要的通信协议来控制这些数据的传输。</p>
-<p>点对点信道的协议数据单元是帧，数据链路层把网络层交下来的数据构成帧发送到链路上，以及把接收到的帧中的数据取出上交给网络层。</p>
-<p>点对点信道的数据链路层进行通信的步骤：</p>
-<ol>
-<li>结点 A 的数据链路层把网络层交下来的 IP 数据报添加首部和尾部封装成帧。</li>
-<li>结点 A 把封装好的帧发送给结点 B 的数据链路层</li>
-<li>若结点 B 的数据链路层收到的帧无差错，则从收到的帧中提取出 IP 数据报交给上面的网络层，否则丢弃这个帧。</li>
-</ol>
-<h4 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h4><p>封装成帧就是在一端数据的前后分别添加首部和尾部，这样就够成了一个帧。接收端在收到物理层上交的比特流后，就能根据首部和尾部的标记，从收到的比特流中识别帧的开始和结束。</p>
-<h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><p>由于帧的开始和结束的标记使用专门指明的控制字符，因此所传输的数据中任何 8 比特的组合一定不允许和用作帧定界的控制符的比特编码一样，否则会导致帧定界的错误。</p>
-<p>当传输的帧是用文本文件组成的帧时，其数据部分显然不会出现 SOH 和 EOT 这样的帧定界符，这样的传输就叫做透明传输。但是当数据部分是 ASCII 码的文本文件时，就有可能会找到错误的帧界。为了解决这样的问题，可以在出现控制字符的地方加一个转义字符，即使用<code>字节填充法</code>。</p>
-<h4 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h4><p>比特在传输过程中可能会产生差错：1 可以变成 0,0 可以变成 1。即出现<code>比特差错</code>。在一段时间内传输错误的比特所占传输比特总数的比率称为误码率 BER。</p>
-<p>目前主要使用的是循环冗余检验 CRC 进行差错检测。</p>
-<p>循环冗余 CRC 的原理：在数据(k 位数据)后面添加供差错检测用的 n 位冗余码，然后构成一个帧发送出去，一共发送 k+n 位。经过 CRC 检验后得出的余数 R 为 0，则说明传输过程无差错，否则认为出现了差错。</p>
-<p>n 位冗余码：用二进制的模 2 运算，相当于在数据后面添加 n 个 0。得到的 k+n 位数除以收发双方事先商定的 n+1 位除数 P，得出商是 Q 而余数是 R。R 就是冗余码，又称为帧检验序列 FCS。</p>
-<h4 id="PPP-协议"><a href="#PPP-协议" class="headerlink" title="PPP 协议"></a>PPP 协议</h4><p>定义：PPP 协议就是用户计算机和 ISP 进行通信时所使用的数据链路层协议。</p>
-<h5 id="PPP-协议要满足的要求"><a href="#PPP-协议要满足的要求" class="headerlink" title="PPP 协议要满足的要求"></a>PPP 协议要满足的要求</h5><ol>
-<li>简单</li>
-<li>封装成帧</li>
-<li>透明性</li>
-<li>多种网络层协议</li>
-<li>多种类型链路</li>
-<li>差错检测</li>
-<li>检测连接状态</li>
-<li>最大传送单元</li>
-<li>网络层地址协商</li>
-<li>数据压缩协商</li>
-</ol>
-<h5 id="PPP-协议的组成"><a href="#PPP-协议的组成" class="headerlink" title="PPP 协议的组成"></a>PPP 协议的组成</h5><ol>
-<li>一个将 IP 数据报封装到串行链路的方法。</li>
-<li>一个用来建立、配置和测试数据链路连接的链路控制协议 LCP。</li>
-<li>一套网络控制协议 NCP。</li>
-</ol>
-<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img data-src="/img/NetWork/image-20220302114351973.png" alt="image-20220302114351973"></p>
-<p>首尾两个 F 表示标志位，用来表示一个帧的开始和结束；A，C 两个字段至今还未有定义；协议如果地址是 0xC021 则表示 LCP 的数据；如果是 0x0021 则表示携带的是 IP 数据报；如果是 0x8021 则表示携带的是网络层的控制数据；FCS 表示帧检测序列。</p>
-<h6 id="字节填充"><a href="#字节填充" class="headerlink" title="字节填充"></a>字节填充</h6><p>当信息字段中出现和标志字段一样的比特组合时，就要采取一些措施来解决这个问题。</p>
-<p>当 PPP 协议使用异步传输时，转义符定义为 0x7D，并使用字节填充。</p>
-<h6 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h6><p>只要出现连续的 5 个 1 就在后面填充 1 个 0；这样就可以保证不会出现连续的 6 个 1。接收端在收到帧后，先找到标志字段 F 确定边界，当出现 5 个连续 1 时就将后面的 0 删除，将数据还原为原来的比特流。</p>
-<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img data-src="/img/NetWork/image-20220302115820623.png" alt="image-20220302115820623"></p>
-<h3 id="广播信道"><a href="#广播信道" class="headerlink" title="广播信道"></a>广播信道</h3><p>局域网：网络为一个单位所有，且地理范围和站点数目有限。</p>
-<p>局域网按网络拓扑分类：星形网；环形网；总线网。</p>
-<h4 id="CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）"><a href="#CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）" class="headerlink" title="CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）"></a>CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）</h4><p>因为在同一时间只能允许一台计算机发送数据。于是 CSMA&#x2F;CD 协议就诞生了。</p>
-<p>“多点接入”说明这是总线型网络，许多计算机以多点接入的方式连接在一根总线上。</p>
-<p>“载波监听”就是指用电子技术检测总线上有无其他计算机也在发送。</p>
-<p>“碰撞检测”就是边发送边监听。</p>
-<h2 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h2><h3 id="IP-协议"><a href="#IP-协议" class="headerlink" title="IP 协议"></a>IP 协议</h3><h4 id="分类的-IP-地址"><a href="#分类的-IP-地址" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h4><h5 id="IP-地址及其表示方法"><a href="#IP-地址及其表示方法" class="headerlink" title="IP 地址及其表示方法"></a>IP 地址及其表示方法</h5><p>整个互联网是一个单一的、抽象的网络。IP 地址就是给互联网上的每一台主机的每一个接口分配一个在全世界范围内的唯一的 32 位的标识符。IP 地址现在由互联网名字和数字分配机构进行分配。</p>
-<blockquote>
-<p>IP 地址的编址方法的历史过程</p>
-</blockquote>
-<h6 id="分类的-IP-地址-1"><a href="#分类的-IP-地址-1" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h6><p>定义：分类的 IP 地址就是将 IP 地址划分为若干个固定类，每一类地址都由两个固定长度的字段组成。第一个字段是<code>网络号</code>，表示主机所连接到的网络。第二个字段是<code>主机号</code>，表示该主机或路由器。一台主机号在他前面的网络号所指明的网络范围内必须唯一。</p>
-<p>记为：IP 地址：：&#x3D;{&lt;网络号&gt;，&lt;主机号&gt;}</p>
-<p>IP 地址共分为 5 大类：</p>
-<p><img data-src="/img/NetWork/image-20220303131926640.png" alt="image-20220303131926640"></p>
-<p>为了提高可读性，常把 32 位 IP 地址中的每 8 位插入一个空格，采用点分十进制记法。</p>
-<h6 id="子网的划分"><a href="#子网的划分" class="headerlink" title="子网的划分"></a>子网的划分</h6><p>详情见第 135 页</p>
-<p>IP 地址：：&#x3D;{&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p>
-<hr>
-<p>子网掩码</p>
-<p>使用子网掩码和 IP 地址进行与运算就可以得出网络地址</p>
-<p><img data-src="/img/NetWork/image-20220303141047407.png" alt="image-20220303141047407"></p>
-<hr>
-<p>使用子网时的分组转发</p>
-<p>路由表必须包括：目的网络地址、子网掩码、下一跳地址</p>
-<h6 id="构造超网（CIDR）"><a href="#构造超网（CIDR）" class="headerlink" title="构造超网（CIDR）"></a>构造超网（CIDR）</h6><p>IP 地址：：&#x3D;{&lt;网络前缀&gt;,&lt;主机号&gt;}</p>
-<p>具体见书第 142 页</p>
-<h5 id="常用的三种类别的-IP-地址"><a href="#常用的三种类别的-IP-地址" class="headerlink" title="常用的三种类别的 IP 地址"></a>常用的三种类别的 IP 地址</h5><h6 id="A-类"><a href="#A-类" class="headerlink" title="A 类"></a>A 类</h6><p>A 类地址网络号只有 7 位可用。可以指派 2^7-2 个网络号，第一，IP 地址全 0 的是保留地址表示本网络，第二，网络号位 127 的保留作为本地软件的环回测试。A 类地址主机号占 3 个字节，A 类网络的最大主机数位 2^24-2，第一，全 0 的主机号字段表示 IP 地址是本主机所连接到的单个网络地址，第二，全 1 的表示网络上的所有主机。</p>
-<h6 id="B-类"><a href="#B-类" class="headerlink" title="B 类"></a>B 类</h6><p>B 类地址网络只有 14 位可用，因为 B 类地址不可能出现全 0 或全 1 的情况，所以网络号不存在少 2 的情况，实际上 128.0.0.0 是不指派的，所以可以指派的网络数为 2^14-1，即 16383 个；而 B 类最大主机数为 2^16-2 个，需要除去全 0 和全 1 的。B 类地址占整个 IP 空间的 25%。</p>
-<h6 id="C-类"><a href="#C-类" class="headerlink" title="C 类"></a>C 类</h6><p>C 类地址有 3 个字节的网络号字段，除去前面的类别位，还有 21 位可用，C 类网络地址 192.0.0.0 也不指派，可以指派的最小网络地址为 192.0.1.0，因此 C 类地址可指派的网络总数是 2^21-1，每一个 C 类地址的最大主机数为 2^8-2，占整个 IP 地址的 12.5%。</p>
-<p><img data-src="/img/NetWork/image-20220303133601236.png" alt="image-20220303133601236"></p>
-<h5 id="IP-地址的重要特点"><a href="#IP-地址的重要特点" class="headerlink" title="IP 地址的重要特点"></a>IP 地址的重要特点</h5><ol>
-<li>每个 IP 地址都由网络号和主机号组成。IP 地址是一种分等级的地址结构。分等级后，第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。第二，路由器仅仅根据目的主机所连接的网络号来转发分组，可以使路由表的项目数大幅度减少，从而减少了路由表所占的内存以及查找路由表所需要的时间。</li>
-<li>实际上 IP 地址时标志一台主机和一条链路的接口。</li>
-<li>用转发器或网桥连接起来的若干局域网仍然为一个网络。</li>
-<li>IP 地址内所分配得到的地址都是平等的。</li>
-</ol>
-<h5 id="IP-数据报格式"><a href="#IP-数据报格式" class="headerlink" title="IP 数据报格式"></a>IP 数据报格式</h5><p>IP 数据报格式能够说明 IP 协议具有什么功能</p>
-<p><img data-src="/img/NetWork/image-20220303135845208.png" alt="image-20220303135845208"></p>
-<h6 id="IP-数据报具体部分"><a href="#IP-数据报具体部分" class="headerlink" title="IP 数据报具体部分"></a>IP 数据报具体部分</h6><p><strong>见书籍 128 页</strong></p>
-<h4 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h4><h5 id="IP-地址与硬件地址"><a href="#IP-地址与硬件地址" class="headerlink" title="IP 地址与硬件地址"></a>IP 地址与硬件地址</h5><p>从层次角度看，物理地址是数据链路层和物理层使用的地址，而 IP 地址是指网络层和以上各层使用的地址，是一种逻辑地址。</p>
-<h5 id="ARP-协议的概念及原理"><a href="#ARP-协议的概念及原理" class="headerlink" title="ARP 协议的概念及原理"></a>ARP 协议的概念及原理</h5><p>地址解析协议 ARP 就是用来解决同一个局域网上，知道一个机器的 IP 地址，找到其对应的 MAC 地址。</p>
-<p>具体实现原理：每一台主机都设有一个 ARP 高速缓存，里面有本局域网上的各个主机和路由器的 IP 地址到硬件地址的映射表。</p>
-<h4 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a>网际控制报文协议 ICMP</h4><p>为了更有效的转发 IP 数据报和提高交付成功的机会，在网际层使用了网际控制报文协议 ICMP。ICMP 允许主机或路由器报告差错情况和提供有关异常的情况。</p>
-<h5 id="ICMP-报文种类"><a href="#ICMP-报文种类" class="headerlink" title="ICMP 报文种类"></a>ICMP 报文种类</h5><h6 id="ICMP-差错报告报文"><a href="#ICMP-差错报告报文" class="headerlink" title="ICMP 差错报告报文"></a>ICMP 差错报告报文</h6><ol>
-<li>终点不可达</li>
-<li>超时</li>
-<li>参数问题</li>
-<li>改变路由（重定向）</li>
-</ol>
-<h6 id="ICMP-询问报文"><a href="#ICMP-询问报文" class="headerlink" title="ICMP 询问报文"></a>ICMP 询问报文</h6><ol>
-<li>回送请求和回答</li>
-<li>时间戳请求和回答</li>
-</ol>
-<p>重要应用就是 PING，用来测试两台主机的连通性。</p>
-<h4 id="网际组管理协议-IGMP"><a href="#网际组管理协议-IGMP" class="headerlink" title="网际组管理协议 IGMP"></a>网际组管理协议 IGMP</h4>]]></content>
-      <categories>
-        <category>计算机基础</category>
-      </categories>
-      <tags>
-        <tag>计算机基础</tag>
-        <tag>计算机网络</tag>
       </tags>
   </entry>
 </search>
