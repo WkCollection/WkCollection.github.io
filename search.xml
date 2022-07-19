@@ -76,7 +76,7 @@
 <li>对于大型复杂的GUI比较吃力，推荐使用QT</li>
 </ol>
 <h3 id="CodeBlocks集成FLTK"><a href="#CodeBlocks集成FLTK" class="headerlink" title="CodeBlocks集成FLTK"></a>CodeBlocks集成FLTK</h3><p>在官网<a href="https://www.fltk.org/">FLTK</a> 下载FLTK的源码，我下载的是<a href="https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"><code>fltk-1.3.8-source.tar.gz</code></a>，下载完后进行解压，使用CMake进行编译，然后使用codeblocks打开，FLTK.cbp文件进行编译，得到编译后的文件如下：</p>
-<p><img data-src="https://s1.ax1x.com/2022/07/07/jwPqLd.png" alt="编译文件"></p>
+<p><img src="https://s1.ax1x.com/2022/07/07/jwPqLd.png" alt="编译文件"></p>
 <p>在编译的build文件夹下新建一个文件夹include，将FLTK的源文件的头文件FLTK复制到新建的文件夹include下面。打开CodeBlocks进行库的配置，添加头文件到搜索目录，添加库文件到搜索目录，链接库文件。</p>
 <h3 id="第一个FLTK程序"><a href="#第一个FLTK程序" class="headerlink" title="第一个FLTK程序"></a>第一个FLTK程序</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Window.H></span></span>
@@ -101,7 +101,7 @@
     <span class="token keyword">return</span> <span class="token class-name">Fl</span><span class="token double-colon punctuation">::</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img data-src="/../img/hello.png" alt="image-20220709125525502"></p>
+<p><img src="/../img/hello.png" alt="image-20220709125525502"></p>
 <h3 id="FLTK按钮"><a href="#FLTK按钮" class="headerlink" title="FLTK按钮"></a>FLTK按钮</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Window.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Button.H></span></span>
@@ -166,7 +166,7 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img data-src="/../img/buttons.png" alt="image-20220709125429727"></p>
+<p><img src="/../img/buttons.png" alt="image-20220709125429727"></p>
 <h3 id="FLTK文本框"><a href="#FLTK文本框" class="headerlink" title="FLTK文本框"></a>FLTK文本框</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Window.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Input.H></span></span>
@@ -206,7 +206,7 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
     <span class="token keyword">return</span> <span class="token class-name">Fl</span><span class="token double-colon punctuation">::</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img data-src="/../img/input.png" alt="image-20220711152309741"></p>
+<p><img src="/../img/input.png" alt="image-20220711152309741"></p>
 <h3 id="FLTK滑块"><a href="#FLTK滑块" class="headerlink" title="FLTK滑块"></a>FLTK滑块</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Window.H></span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;FL/Fl_Box.H></span></span>
@@ -298,7 +298,7 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img data-src="/../img/slider.png" alt="image-20220711171656646"></p>
+<p><img src="/../img/slider.png" alt="image-20220711171656646"></p>
 ]]></content>
       <categories>
         <category>IDE</category>
@@ -521,62 +521,62 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
 <p>本文为Python配置Pytorch库，利用Anaconda包管理工具</p>
 </blockquote>
 <h2 id="查看电脑显卡配置"><a href="#查看电脑显卡配置" class="headerlink" title="查看电脑显卡配置"></a>查看电脑显卡配置</h2><p>打开电脑的设备管理器查看显示适配器配置，如果有NVIDIA则可以采用GPU方式，我的电脑没有NVIDIA所以不支持GPU，所以后面只能采用CPU方式（采用CPU方式进行训练会很慢）：</p>
-<p><img data-src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
+<p><img src="/img/%E6%98%BE%E5%8D%A1%E9%85%8D%E7%BD%AE.png" alt="image-20220708153616262"></p>
 <span id="more"></span>
 
 <h2 id="下载Anaconda"><a href="#下载Anaconda" class="headerlink" title="下载Anaconda"></a>下载Anaconda</h2><p>由于使用Pip进行Pytorch库的安装，过程中坑实在太多，根据网上的建议选用Anaconda这个也很优秀的Python第三库的包管理工具。为节省时间可以采用清华源镜像进行下载<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Anaconda</a>选择<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.1-Windows-x86_64.exe">Anaconda3-5.3.1-Windows-x86_64.exe</a>进行下载：</p>
-<p><img data-src="/img/Anaconda.png" alt="image-20220708154359305"></p>
+<p><img src="/img/Anaconda.png" alt="image-20220708154359305"></p>
 <p>下载完成后进行安装</p>
-<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img data-src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
-<p><img data-src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
-<p><img data-src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
-<p><img data-src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
-<p><img data-src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
-<p><img data-src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
-<p><img data-src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
+<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p><img src="/img/Anaconda01.png" alt="image-20220708162616546"></p>
+<p><img src="/img/Anaconda02.png" alt="image-20220708162651353"></p>
+<p><img src="/img/Anaconda03.png" alt="image-20220708162720875"></p>
+<p><img src="/img/Anaconda04.png" alt="image-20220708162804641"></p>
+<p><img src="/img/Anaconda05.png" alt="image-20220708162905328"></p>
+<p><img src="/img/Anaconda06.png" alt="image-20220708163817016"></p>
+<p><img src="/img/Anaconda07.png" alt="image-20220708163856146"></p>
 <h3 id="Anaconda配置环境变量"><a href="#Anaconda配置环境变量" class="headerlink" title="Anaconda配置环境变量"></a>Anaconda配置环境变量</h3><p>将D:\Anaconda;D:\Anaconda\Scripts;D:\Anaconda\Library\bin;加入到环境变量Path中</p>
 <p>打开命令行CMD输入<code>conda --version</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda --version<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img data-src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
+<p><img src="/img/Anaconda08.png" alt="image-20220708164520085"></p>
 <h3 id="Conda虚拟环境配置"><a href="#Conda虚拟环境配置" class="headerlink" title="Conda虚拟环境配置"></a>Conda虚拟环境配置</h3><p>在后面的项目我们可能遇见不同的项目需要用到不同环境，此时可以使用虚拟环境：</p>
 <p>使用conda创建一个pytorch的环境，指定Python版本为3.7</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda create -n pytorch <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.7</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img data-src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
+<p><img src="/img/Anaconda09.png" alt="image-20220708164713453"></p>
 <p>使用下面的命令查看当前环境，带<code>*</code>的为当前所处环境</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda info --envs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img data-src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
+<p><img src="/img/Anaconda10.png" alt="image-20220708165032128"></p>
 <p>先使用activate激活base环境</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">activate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>再使用<code>conda activate pytorch</code>激活pytorch这个环境</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda activate pytorch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p><img data-src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
+<p><img src="/img/Anaconda11.png" alt="image-20220708165515210"></p>
 <h2 id="安装CUDA和CUDNN（如无独显则跳过此步）"><a href="#安装CUDA和CUDNN（如无独显则跳过此步）" class="headerlink" title="安装CUDA和CUDNN（如无独显则跳过此步）"></a>安装CUDA和CUDNN（如无独显则跳过此步）</h2><blockquote>
 <p>查看CUDA的<a href="https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html">官方文档</a></p>
 <p>查看cuDNN的<a href="https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html">官方文档</a></p>
 </blockquote>
 <p>第一步：首先根据显卡的驱动程序版本找到对应的Cuda Toolkit</p>
-<p><img data-src="/../img/CUDA.png" alt="image-20220708225323574"></p>
-<p><img data-src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
+<p><img src="/../img/CUDA.png" alt="image-20220708225323574"></p>
+<p><img src="/../img/CUDA-1.png" alt="image-20220708225427206"></p>
 <p>第二步：找到对应的CUDA，在此处<a href="https://developer.nvidia.com/cuda-toolkit-archive">下载</a></p>
 <p>第三步：找到对应的cuDNN,在此处<a href="https://developer.nvidia.com/rdp/cudnn-archive">下载</a></p>
-<p><img data-src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
+<p><img src="/../img/cuDNN.png" alt="image-20220708231139811"></p>
 <p>第四步：解压cuDNN文件，将bin,include,lib复制到CUDA目录下</p>
 <p>第五步：配置CUDA的环境变量，将CUDA下的include,lib,libnvvp配置到Path路径下</p>
 <p>第六步：验证是否安装成功，打开CMD，输入nvcc -V查看CUDA版本</p>
 <h2 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h2><p>第一步：进入<a href="https://pytorch.org/">Pytorch官网</a>，点击首页Install</p>
-<p><img data-src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
+<p><img src="/img/Pytorch%E5%AE%98%E7%BD%91.png" alt="image-20220708161325258"></p>
 <p>第二步：找到自己所需配置</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
+<p><img src="/img/Pytorch%E5%AE%89%E8%A3%85.png" alt="image-20220708161605950"></p>
 <p>即打开CMD运行下面的命令进行Pytorch(使用CUDA-10.2)的安装：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">CUDA-10.2 PyTorch builds are no longer available <span class="token keyword">for</span> Windows, please use CUDA-11.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>由于我电脑无独立显卡只有核显所以我只能选择CPU方式进行安装：</p>
-<p><img data-src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
+<p><img src="/img/Pytorch%E5%AE%89%E8%A3%85-my.png" alt="image-20220708161704139"></p>
 <p>即打开CMD运行下面的命令进行Pytorch的安装：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">conda <span class="token function">install</span> pytorch torchvision torchaudio cpuonly -c pytorch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -1884,7 +1884,7 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 <h2 id="git的三种状态"><a href="#git的三种状态" class="headerlink" title="git的三种状态"></a>git的三种状态</h2><h3 id="已提交：commited"><a href="#已提交：commited" class="headerlink" title="已提交：commited"></a>已提交：commited</h3><p>已提交表示数据已经安全的保存在本地数据库中。</p>
 <h3 id="已修改：modified"><a href="#已修改：modified" class="headerlink" title="已修改：modified"></a>已修改：modified</h3><p>已修改表示修改了文件，但还没保存到数据库中。</p>
 <h3 id="已暂存：staged"><a href="#已暂存：staged" class="headerlink" title="已暂存：staged"></a>已暂存：staged</h3><p>已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。</p>
-<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img data-src="https://s1.ax1x.com/2022/06/19/XjBi0x.png" alt="git的三个工作区"></p>
+<h2 id="git的三个工作区"><a href="#git的三个工作区" class="headerlink" title="git的三个工作区"></a>git的三个工作区</h2><p><img src="https://s1.ax1x.com/2022/06/19/XjBi0x.png" alt="git的三个工作区"></p>
 <h3 id="git仓库"><a href="#git仓库" class="headerlink" title="git仓库"></a>git仓库</h3><p>Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。这是 Git 中最重要的部分，其它计算机克隆仓库时，拷贝的就是这里的数据。</p>
 <h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><p>工作目录是对项目的某个版本独立提取出来的内容。这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。</p>
 <h3 id="暂存区域"><a href="#暂存区域" class="headerlink" title="暂存区域"></a>暂存区域</h3><p>暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。有时候也被称作”索引”，不过一般说法还是叫暂存区域。</p>
@@ -1973,7 +1973,7 @@ ostream<span class="token operator">&amp;</span> <span class="token keyword">ope
 <p>Git 支持多种数据传输协议。上面的例子使用的是 https:&#x2F;&#x2F; 协议，不过你也可以使用 git:&#x2F;&#x2F; 协议或者使用SSH 传输协议，比如 user@server:path&#x2F;to&#x2F;repo.git </p>
 <h3 id="记录每次更新到仓库"><a href="#记录每次更新到仓库" class="headerlink" title="记录每次更新到仓库"></a>记录每次更新到仓库</h3><p>工作目录下的每一个文件都不外乎这两种状态：已跟踪或未跟踪。<strong>已跟踪的文件</strong>是指那些被纳入了版本控制的文件，在上一次快照中有它们的记录，在工作一段时间后，它们的状态可能处于未修改，已修改或已放 入暂存区。工作目录中除已跟踪文件以外的所有其它文件都属于<strong>未跟踪文件</strong>，它们既不存在于上次快照的记录中，也没有放入暂存区。初次克隆某个仓库的时候，工作目录中的所有文件都属于已跟踪文件，并处于未修改状态。</p>
 <p>编辑过某些文件之后，由于自上次提交后你对它们做了修改，Git 将它们标记为已修改文件。我们逐步将这些修改过的文件放入暂存区，然后提交所有暂存了的修改，如此反复。使用 Git 时文件的生命周期如下：</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBF76.png" alt="记录每次更新到仓库"></p>
+<p><img src="https://s1.ax1x.com/2022/06/19/XjBF76.png" alt="记录每次更新到仓库"></p>
 <h3 id="检查当前文件状态"><a href="#检查当前文件状态" class="headerlink" title="检查当前文件状态"></a>检查当前文件状态</h3><p>要查看哪些文件处于什么状态，可以用 git status 命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2150,12 +2150,12 @@ Untracked files:
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h - %an, %ar : %s"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>git log –pretty&#x3D;format 常用的选项 列出了常用的格式占位符写法及其代表的意义。</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBEtO.png" alt="git log"></p>
+<p><img src="https://s1.ax1x.com/2022/06/19/XjBEtO.png" alt="git log"></p>
 <p>当 oneline 或 format 与另一个 log 选项 –graph 结合使用时尤其有用。这个选项添加了一些ASCII字符串来形象地展示你的分支、合并历史：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>format:<span class="token string">"%h %s"</span> --graph<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>git log 的常用选项:</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBVhD.png" alt="git log 的常用选项"></p>
+<p><img src="https://s1.ax1x.com/2022/06/19/XjBVhD.png" alt="git log 的常用选项"></p>
 <h4 id="限制输出长度"><a href="#限制输出长度" class="headerlink" title="限制输出长度"></a>限制输出长度</h4><p>除了定制输出格式的选项之外，git log 还有许多非常实用的限制输出长度的选项，也就是只输出部分提交信息。之前你已经看到过 -2 了，它只显示最近的两条提交，实际上，这是 -<n> 选项的写法，其中的 n 可以是任何整数，表示仅显示最近的若干条提交。不过实践中我们是不太用这个选项的，Git 在输出所有提交时会自动调 用分页程序，所以你一次只会看到一页的内容。</p>
 <p>另外还有按照时间作限制的选项，比如 –since 和 –until 也很有用。例如，下面的命令列出所有最近两周内的提交：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log --since<span class="token operator">=</span><span class="token number">2</span>.weeks<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2164,7 +2164,7 @@ Untracked files:
 <pre class="line-numbers language-sh" data-language="sh"><code class="language-sh">git log -SModified<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p> 限制 git log 输出的选项:</p>
-<p><img data-src="https://s1.ax1x.com/2022/06/19/XjBAAK.png" alt="限制 git log 输出的选项"></p>
+<p><img src="https://s1.ax1x.com/2022/06/19/XjBAAK.png" alt="限制 git log 输出的选项"></p>
 <h3 id="撤消操作"><a href="#撤消操作" class="headerlink" title="撤消操作"></a>撤消操作</h3><p>在任何一个阶段，你都有可能想要撤消某些操作。这里，我们将会学习几个撤消你所做修改的基本工具。</p>
 <p>有时候我们提交完了才发现漏掉了几个文件没有添加，或者提交信息写错了。此时，可以运行带有 –amend 选项的提交命令尝试重新提交，这个命令会将暂存区中的文件提交。：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit --amend<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -2409,12 +2409,12 @@ Untracked files:
 <li>一个用来建立、配置和测试数据链路连接的链路控制协议 LCP。</li>
 <li>一套网络控制协议 NCP。</li>
 </ol>
-<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img data-src="/img/NetWork/image-20220302114351973.png" alt="image-20220302114351973"></p>
+<h5 id="PPP-协议的帧格式"><a href="#PPP-协议的帧格式" class="headerlink" title="PPP 协议的帧格式"></a>PPP 协议的帧格式</h5><h6 id="各字段信息"><a href="#各字段信息" class="headerlink" title="各字段信息"></a>各字段信息</h6><p><img src="/img/NetWork/image-20220302114351973.png" alt="image-20220302114351973"></p>
 <p>首尾两个 F 表示标志位，用来表示一个帧的开始和结束；A，C 两个字段至今还未有定义；协议如果地址是 0xC021 则表示 LCP 的数据；如果是 0x0021 则表示携带的是 IP 数据报；如果是 0x8021 则表示携带的是网络层的控制数据；FCS 表示帧检测序列。</p>
 <h6 id="字节填充"><a href="#字节填充" class="headerlink" title="字节填充"></a>字节填充</h6><p>当信息字段中出现和标志字段一样的比特组合时，就要采取一些措施来解决这个问题。</p>
 <p>当 PPP 协议使用异步传输时，转义符定义为 0x7D，并使用字节填充。</p>
 <h6 id="零比特填充"><a href="#零比特填充" class="headerlink" title="零比特填充"></a>零比特填充</h6><p>只要出现连续的 5 个 1 就在后面填充 1 个 0；这样就可以保证不会出现连续的 6 个 1。接收端在收到帧后，先找到标志字段 F 确定边界，当出现 5 个连续 1 时就将后面的 0 删除，将数据还原为原来的比特流。</p>
-<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img data-src="/img/NetWork/image-20220302115820623.png" alt="image-20220302115820623"></p>
+<h5 id="PPP-协议的工作状态"><a href="#PPP-协议的工作状态" class="headerlink" title="PPP 协议的工作状态"></a>PPP 协议的工作状态</h5><p><img src="/img/NetWork/image-20220302115820623.png" alt="image-20220302115820623"></p>
 <h3 id="广播信道"><a href="#广播信道" class="headerlink" title="广播信道"></a>广播信道</h3><p>局域网：网络为一个单位所有，且地理范围和站点数目有限。</p>
 <p>局域网按网络拓扑分类：星形网；环形网；总线网。</p>
 <h4 id="CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）"><a href="#CSMA-x2F-CD-协议（载波监听多点接入、碰撞检测）" class="headerlink" title="CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）"></a>CSMA&#x2F;CD 协议（载波监听多点接入、碰撞检测）</h4><p>因为在同一时间只能允许一台计算机发送数据。于是 CSMA&#x2F;CD 协议就诞生了。</p>
@@ -2428,14 +2428,14 @@ Untracked files:
 <h6 id="分类的-IP-地址-1"><a href="#分类的-IP-地址-1" class="headerlink" title="分类的 IP 地址"></a>分类的 IP 地址</h6><p>定义：分类的 IP 地址就是将 IP 地址划分为若干个固定类，每一类地址都由两个固定长度的字段组成。第一个字段是<code>网络号</code>，表示主机所连接到的网络。第二个字段是<code>主机号</code>，表示该主机或路由器。一台主机号在他前面的网络号所指明的网络范围内必须唯一。</p>
 <p>记为：IP 地址：：&#x3D;{&lt;网络号&gt;，&lt;主机号&gt;}</p>
 <p>IP 地址共分为 5 大类：</p>
-<p><img data-src="/img/NetWork/image-20220303131926640.png" alt="image-20220303131926640"></p>
+<p><img src="/img/NetWork/image-20220303131926640.png" alt="image-20220303131926640"></p>
 <p>为了提高可读性，常把 32 位 IP 地址中的每 8 位插入一个空格，采用点分十进制记法。</p>
 <h6 id="子网的划分"><a href="#子网的划分" class="headerlink" title="子网的划分"></a>子网的划分</h6><p>详情见第 135 页</p>
 <p>IP 地址：：&#x3D;{&lt;网络号&gt;,&lt;子网号&gt;,&lt;主机号&gt;}</p>
 <hr>
 <p>子网掩码</p>
 <p>使用子网掩码和 IP 地址进行与运算就可以得出网络地址</p>
-<p><img data-src="/img/NetWork/image-20220303141047407.png" alt="image-20220303141047407"></p>
+<p><img src="/img/NetWork/image-20220303141047407.png" alt="image-20220303141047407"></p>
 <hr>
 <p>使用子网时的分组转发</p>
 <p>路由表必须包括：目的网络地址、子网掩码、下一跳地址</p>
@@ -2444,7 +2444,7 @@ Untracked files:
 <h5 id="常用的三种类别的-IP-地址"><a href="#常用的三种类别的-IP-地址" class="headerlink" title="常用的三种类别的 IP 地址"></a>常用的三种类别的 IP 地址</h5><h6 id="A-类"><a href="#A-类" class="headerlink" title="A 类"></a>A 类</h6><p>A 类地址网络号只有 7 位可用。可以指派 2^7-2 个网络号，第一，IP 地址全 0 的是保留地址表示本网络，第二，网络号位 127 的保留作为本地软件的环回测试。A 类地址主机号占 3 个字节，A 类网络的最大主机数位 2^24-2，第一，全 0 的主机号字段表示 IP 地址是本主机所连接到的单个网络地址，第二，全 1 的表示网络上的所有主机。</p>
 <h6 id="B-类"><a href="#B-类" class="headerlink" title="B 类"></a>B 类</h6><p>B 类地址网络只有 14 位可用，因为 B 类地址不可能出现全 0 或全 1 的情况，所以网络号不存在少 2 的情况，实际上 128.0.0.0 是不指派的，所以可以指派的网络数为 2^14-1，即 16383 个；而 B 类最大主机数为 2^16-2 个，需要除去全 0 和全 1 的。B 类地址占整个 IP 空间的 25%。</p>
 <h6 id="C-类"><a href="#C-类" class="headerlink" title="C 类"></a>C 类</h6><p>C 类地址有 3 个字节的网络号字段，除去前面的类别位，还有 21 位可用，C 类网络地址 192.0.0.0 也不指派，可以指派的最小网络地址为 192.0.1.0，因此 C 类地址可指派的网络总数是 2^21-1，每一个 C 类地址的最大主机数为 2^8-2，占整个 IP 地址的 12.5%。</p>
-<p><img data-src="/img/NetWork/image-20220303133601236.png" alt="image-20220303133601236"></p>
+<p><img src="/img/NetWork/image-20220303133601236.png" alt="image-20220303133601236"></p>
 <h5 id="IP-地址的重要特点"><a href="#IP-地址的重要特点" class="headerlink" title="IP 地址的重要特点"></a>IP 地址的重要特点</h5><ol>
 <li>每个 IP 地址都由网络号和主机号组成。IP 地址是一种分等级的地址结构。分等级后，第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。第二，路由器仅仅根据目的主机所连接的网络号来转发分组，可以使路由表的项目数大幅度减少，从而减少了路由表所占的内存以及查找路由表所需要的时间。</li>
 <li>实际上 IP 地址时标志一台主机和一条链路的接口。</li>
@@ -2452,7 +2452,7 @@ Untracked files:
 <li>IP 地址内所分配得到的地址都是平等的。</li>
 </ol>
 <h5 id="IP-数据报格式"><a href="#IP-数据报格式" class="headerlink" title="IP 数据报格式"></a>IP 数据报格式</h5><p>IP 数据报格式能够说明 IP 协议具有什么功能</p>
-<p><img data-src="/img/NetWork/image-20220303135845208.png" alt="image-20220303135845208"></p>
+<p><img src="/img/NetWork/image-20220303135845208.png" alt="image-20220303135845208"></p>
 <h6 id="IP-数据报具体部分"><a href="#IP-数据报具体部分" class="headerlink" title="IP 数据报具体部分"></a>IP 数据报具体部分</h6><p><strong>见书籍 128 页</strong></p>
 <h4 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a>地址解析协议 ARP</h4><h5 id="IP-地址与硬件地址"><a href="#IP-地址与硬件地址" class="headerlink" title="IP 地址与硬件地址"></a>IP 地址与硬件地址</h5><p>从层次角度看，物理地址是数据链路层和物理层使用的地址，而 IP 地址是指网络层和以上各层使用的地址，是一种逻辑地址。</p>
 <h5 id="ARP-协议的概念及原理"><a href="#ARP-协议的概念及原理" class="headerlink" title="ARP 协议的概念及原理"></a>ARP 协议的概念及原理</h5><p>地址解析协议 ARP 就是用来解决同一个局域网上，知道一个机器的 IP 地址，找到其对应的 MAC 地址。</p>
