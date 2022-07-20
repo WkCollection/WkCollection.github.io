@@ -6,7 +6,28 @@
     <content><![CDATA[<h1 id="C语言突破"><a href="#C语言突破" class="headerlink" title="C语言突破"></a>C语言突破</h1><blockquote>
 <p>C语言相关知识点深入理解</p>
 </blockquote>
-<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h3><ol>
+<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="宽字符常量"><a href="#宽字符常量" class="headerlink" title="宽字符常量"></a>宽字符常量</h3><p>如果一个多字节字符常量前面带有一个L，那么他就是宽字符常量。例如：<code>L‘X’</code></p>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举类型的实质是以整型形式进行存储的，符号名其实都是整型值。如果某个符号未显式复制那个他的值就比前面的一个符号名的值大1。第一个未命名的初始化为0。</p>
+<h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><p>浮点数在缺省情况下都是double类型的，加L或l表示为long double类型的，或者加F或f表示是float类型的值。</p>
+<h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><p>字符串常量在程序中使用会生成一个”指向字符的常量指针”。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> *message = “Hello”;</span><br><span class="line"><span class="comment">/*等价于</span></span><br><span class="line"><span class="comment">char *message;</span></span><br><span class="line"><span class="comment">message = “Hello”;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="指向整型常量的指针、指向整型的常量指针和const修饰的指向整型的常量指针"><a href="#指向整型常量的指针、指向整型的常量指针和const修饰的指向整型的常量指针" class="headerlink" title="指向整型常量的指针、指向整型的常量指针和const修饰的指向整型的常量指针"></a>指向整型常量的指针、指向整型的常量指针和const修饰的指向整型的常量指针</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="type">const</span> *p;<span class="comment">//可以修改指针的值，无法修改指针指向的值</span></span><br><span class="line"><span class="type">int</span> * <span class="type">const</span> p1;<span class="comment">//指针为常量无法修改，指针指向的值可以修改</span></span><br><span class="line"><span class="type">int</span> <span class="type">const</span> * <span class="type">const</span> p2;<span class="comment">//指针的指向和指针指向的值都不可以改变</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><p>位于一对花括号之间的所有语句都称为一个代码块，任何在代码块的开始位置声明的标识符都具有代码块作用域。</p>
+<h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><p>任何在所有代码块之外声明的标识符都具有文件作用域。</p>
+<h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><p>原型作用域只适用于在函数原型中声明的参数名。</p>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>函数作用域只适用于语句标签，指在函数内声明的所有变量在函数体内始终是可见的,可以在整个函数的范围内使用及复用。</p>
+<span id="more"></span>
+
+<h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
+<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
+<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
+<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
+</ol>
+<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
+<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于变量第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
+<h3 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h3><ol>
 <li><p>编译一个源文件main.c</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc main.c</span><br></pre></td></tr></table></figure>
 
@@ -24,20 +45,7 @@
 <li><p>编译几个C源文件，并为每个文件产生一个目标文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc -c main.c hello.c</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><p>位于一对花括号之间的所有语句都称为一个代码块，任何在代码块的开始位置声明的标识符都具有代码块作用域。</p>
-<h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><p>任何在所有代码块之外声明的标识符都具有文件作用域。</p>
-<h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><p>原型作用域只适用于在函数原型中声明的参数名。</p>
-<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>函数作用域只适用于语句标签，指在函数内声明的所有变量在函数体内始终是可见的,可以在整个函数的范围内使用及复用。</p>
-<span id="more"></span>
-
-<h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
-<li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
-<li><h5 id="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"><a href="#internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体" class="headerlink" title="internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体"></a>internal：在同一个源文件内的所有声明中都指向同一个实体，不同源文件属于不同实体</h5></li>
-<li><h5 id="none：总是被当做单独的个体"><a href="#none：总是被当做单独的个体" class="headerlink" title="none：总是被当做单独的个体"></a>none：总是被当做单独的个体</h5></li>
-</ol>
-<p><code>关键字extern和static可用来修改链接属性，使用static可以使得链接属性变为internal,但是只对缺省的external有效</code></p>
-<p><code>当extern关键字用于标识符第一次声明，指定有external属性，用于第二次或以后的声明则不会更改第一次声明的链接属性</code></p>
-<h4 id="内存区"><a href="#内存区" class="headerlink" title="内存区"></a>内存区</h4><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
+<h3 id="存储类型"><a href="#存储类型" class="headerlink" title="存储类型"></a>存储类型</h3><p>凡是存在于任何代码块之外声明的变量总是存储于静态内存中，即存储在全局区中，存在于全局区的变量于程序运行前创建，在程序执行的整个期间始终存在，始终保持原来的值，除非赋新的值。</p>
 <p>在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，<code>在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁</code>。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。</p>
 <p>register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。</p>
 <h2 id="第二关：C陷阱与缺陷"><a href="#第二关：C陷阱与缺陷" class="headerlink" title="第二关：C陷阱与缺陷"></a>第二关：C陷阱与缺陷</h2><h2 id="第三关：C专家编程"><a href="#第三关：C专家编程" class="headerlink" title="第三关：C专家编程"></a>第三关：C专家编程</h2><h2 id="第四关：Linux-C编程"><a href="#第四关：Linux-C编程" class="headerlink" title="第四关：Linux C编程"></a>第四关：Linux C编程</h2><h2 id="第五关：数据结构与算法分析"><a href="#第五关：数据结构与算法分析" class="headerlink" title="第五关：数据结构与算法分析"></a>第五关：数据结构与算法分析</h2><h2 id="第六关：CMake"><a href="#第六关：CMake" class="headerlink" title="第六关：CMake"></a>第六关：CMake</h2>]]></content>
@@ -408,7 +416,7 @@
 <h3 id="const与指针结合"><a href="#const与指针结合" class="headerlink" title="const与指针结合"></a>const与指针结合</h3><p>const修饰指针称为常量指针:<strong>指针指向的值不能变，指针的指向可以变</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line"><span class="comment">//	常量指针：指针指向的值不能变，指针的指向可以变</span></span><br><span class="line">	<span class="type">int</span> a=<span class="number">20</span>;</span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> *p=&amp;a;</span><br><span class="line">	<span class="type">int</span> b=<span class="number">30</span>;</span><br><span class="line">	p=&amp;b;<span class="comment">//指针的指向可以改，由指向a修改为指向b </span></span><br><span class="line"><span class="comment">//	*p=b; 指向的值不能改 </span></span><br><span class="line">	cout&lt;&lt;*p&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>const修饰常量称为指针常量：<strong>指针指向的值可以改，指针的指向不可以修改</strong></p>
+<p>const修饰常量称为指针常量(此处为简称，为了方便记忆，事实上这样的称呼是不准确的，因为编译器可能每次为该变量分配的内存地址都不一样)：<strong>指针指向的值可以改，指针的指向不可以修改</strong></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line"><span class="comment">//	指针常量：指针指向的值可以改，指针的指向不可以修改</span></span><br><span class="line">	<span class="type">int</span> a=<span class="number">20</span>;</span><br><span class="line">	<span class="type">int</span> * <span class="type">const</span> p=&amp;a;</span><br><span class="line">	<span class="type">int</span> b=<span class="number">30</span>;</span><br><span class="line">	*p=b; <span class="comment">//指向的值可以改</span></span><br><span class="line"><span class="comment">//	p=&amp;b;//指针的指向不能改</span></span><br><span class="line">	cout&lt;&lt;*p&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>const既修饰常量又修饰指针：指针的指向不能改，指针指向的值也不能改</p>
