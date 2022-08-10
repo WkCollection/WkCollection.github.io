@@ -1164,6 +1164,7 @@
 <h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="宽字符常量"><a href="#宽字符常量" class="headerlink" title="宽字符常量"></a>宽字符常量</h3><p>如果一个多字节字符常量前面带有一个L，那么他就是宽字符常量。例如：<code>L‘X’</code></p>
 <h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举类型的实质是以整型形式进行存储的，符号名其实都是整型值。如果某个符号未显式复制那个他的值就比前面的一个符号名的值大1。第一个未命名的初始化为0。</p>
 <h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><p>浮点数在缺省情况下都是double类型的，加L或l表示为long double类型的，或者加F或f表示是float类型的值。</p>
+<span id="more"></span>
 <h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><p>字符串常量在程序中使用会生成一个”指向字符的常量指针”。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">char</span> *message = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="comment">/*等价于</span></span><br><span class="line"><span class="comment">char *message;</span></span><br><span class="line"><span class="comment">message = “Hello”;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
@@ -1173,7 +1174,7 @@
 <h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><p>任何在所有代码块之外声明的标识符都具有文件作用域。</p>
 <h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><p>原型作用域只适用于在函数原型中声明的参数名。</p>
 <h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>函数作用域只适用于语句标签，指在函数内声明的所有变量在函数体内始终是可见的,可以在整个函数的范围内使用及复用。</p>
-<span id="more"></span>
+<!--more-->
 
 <h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><ol>
 <li><h5 id="external：无论被声明多少次，位于不同源文件的都表示同一个实体"><a href="#external：无论被声明多少次，位于不同源文件的都表示同一个实体" class="headerlink" title="external：无论被声明多少次，位于不同源文件的都表示同一个实体"></a>external：无论被声明多少次，位于不同源文件的都表示同一个实体</h5></li>
