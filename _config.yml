@@ -107,30 +107,30 @@ deploy:
   repo: git@github.com:WkCollection/WkCollection.github.io.git
   branch: main
 # YiLai Config
-#jsonContent:
-#    meta: false
-#    pages: false
-#    posts:
-#      title: true
-#      date: true
-#      path: true
-#      text: false
-#      raw: false
-#      content: false
-#      slug: false
-#      updated: false
-#      comments: false
-#      link: false
-#      permalink: false
-#      excerpt: false
-#      categories: false
-#      tags: tru
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: tru
 # next search
-search:
-  path: search.xml
-  field: post
-  content: true
-  format: html
+#search:
+#  path: search.xml
+#  field: post
+#  content: true
+#  format: html
 symbols_count_time:
   time: true
   symbols: true

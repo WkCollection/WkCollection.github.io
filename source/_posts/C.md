@@ -8,47 +8,25 @@ categories:
 - C
 ---
 
-# C语言突破
-
-> C和C++语言相关知识点深入理解
-
-# C和Cpp
+# C
 
 > C语言相关知识点深入理解
 
 ## 第一关：C和指针
 
-### 宽字符常量
+### 整型
 
-如果一个多字节字符常量前面带有一个L，那么他就是宽字符常量。例如：`L‘X’`
+整型分为有符号和无符号。
 
-### 枚举类型
-
-枚举类型的实质是以整型形式进行存储的，符号名其实都是整型值。如果某个符号未显式复制那个他的值就比前面的一个符号名的值大1。第一个未命名的初始化为0。
+整型值相互之间的规则是：长整型至少应该和整型一样长，而整型至少应该和短整型一样长。
 
 ### 浮点类型
 
 浮点数在缺省情况下都是double类型的，加L或l表示为long double类型的，或者加F或f表示是float类型的值。
-<!--more -->
-### 字符串常量
 
-字符串常量在程序中使用会生成一个"指向字符的常量指针"。
+### 宽字符常量
 
-```c
-char *message = "Hello";
-/*等价于
-char *message;
-message = “Hello”;
-*/
-```
-
-### 指针与常量
-
-```cpp
-int const *p;//可以修改指针的值，无法修改指针指向的值
-int * const p1;//指针为常量无法修改，指针指向的值可以修改
-int const * const p2;//指针的指向和指针指向的值都不可以改变
-```
+如果一个多字节字符常量前面带有一个L，那么他就是宽字符常量。例如：`L‘X’`
 
 ### 作用域
 
@@ -67,6 +45,38 @@ int const * const p2;//指针的指向和指针指向的值都不可以改变
 #### 函数作用域
 
 函数作用域只适用于语句标签，指在函数内声明的所有变量在函数体内始终是可见的,可以在整个函数的范围内使用及复用。
+
+### 枚举类型
+
+枚举类型的实质是以整型形式进行存储的，符号名其实都是整型值。如果某个符号未显式复制那个他的值就比前面的一个符号名的值大1。第一个未命名的初始化为0。
+
+### 可变参数列表
+
+可变参数列表是通过stdarg宏实现的，位于stdarg.h头文件。函数声明了一个var_arg的变量，用于访问参数列表未确定部分，通过调用va_start来初始化，第一个参数是va_list变量的名字，第二个参数是省略号前最后一个有名字的参数。为了访问这个参数，需要使用va_arg这个宏，这个宏接受两个参数，va_list和参数列表中下一个参数的类型。访问完毕后使用va_end函数。
+
+### 字符串常量
+
+K&R C并没有提及一个字符串常量中的字符是否可以被修改，但是其表明具有相同值的不同字符在内存中是分开存储的，因此许多编译器运行程序修改字符串常量。
+
+ANSI C则表明如果对一个字符串常量进行修改，效果是未定义的。他也允许编译器将一个字符串常量存储于一个地方，即使其在一个程序中多次出现。因此许多ANSI C编译器不允许修改字符串常量。
+
+字符串常量在程序中使用会生成一个"指向字符的常量指针"。
+
+```c
+char *message = "Hello";
+/*等价于
+char *message;
+message = “Hello”;
+*/
+```
+
+### 指针与常量
+
+```cpp
+int const *p;//可以修改指针的值，无法修改指针指向的值
+int * const p1;//指针为常量无法修改，指针指向的值可以修改
+int const * const p2;//指针的指向和指针指向的值都不可以改变
+```
 
 <!--more-->
 
@@ -123,6 +133,10 @@ int const * const p2;//指针的指向和指针指向的值都不可以改变
 在代码块内部声明的变量的缺省类型是自动的，存储于堆栈中，`在程序执行到声明的变量时，该变量才被创建，当程序的执行离开代码块时，该变量被销毁`。在代码块内部给声明的变量加上static可以让变量放到全局区内去，但是该变量的作用域依旧不变。
 
 register关键字可以用于自动变量的声明，表示这个变量应该存储于寄存器中而不是内存中，也被称为寄存器变量。通常寄存器变量比内存的变量访问效率更高，但是寄存器不一定会理睬寄存器变量，只会选取前几个实际存储于寄存器中。
+
+### 指向数组的指针
+
+int	(*p)[10]表示声明了一个指向带有10个整型的数组的指针。
 
 ### 字符串常用函数
 
@@ -240,13 +254,162 @@ for(int i = 0; i < sizeof(zero) / sizeof(zero[0]); i++) {
 
 ## 第二关：C陷阱与缺陷
 
+### 词法陷阱
+
+#### =不等于==
+
+#### &和|不同于&&和||
+
+&和I常用于位运算，&&和||则常用语进行逻辑运算。
+
+#### 词法分析的贪心法
+
+贪心法就是指如果输入的数据截止到某个字符之前已经被分解为一个个符号，那么下一个符号也将包括从该字符之后可能组成的一个符号的最长字符串。
+
+#### 整型常量
+
+如果整型常量第一个字符是0，那么这个常量被视为八进制数。
+
+#### 字符与字符串
+
+用双引号引起的字符串，代表的是一个指向无名数组起始字符的指针，而单引号引起的字符实际上是一个整数。
+
 ## 第三关：C专家编程
 
-## 第四关：Linux C编程
+### 第一章	穿越时空的迷雾
 
-## 第五关：数据结构与算法分析
+C语言的诞生历史非常有趣，C语言诞生于一个失败的项目。1969年通用电气、麻省理工和贝尔实验室创立了一个庞大的项目——Multics工程。项目目标是建立一个操作系统，但是最终以失败告终。
 
-## 第六关：Makefile
+#### 根据编译器设计者的思路形成的语言特性
+
+1. 数组下标从0而不是1开始
+
+2. C语言的基本数据类型直接与底层硬件相关
+
+    C语言并不时一开始就支持浮点数的，是因为硬件系统能够支持浮点数后才增加了对浮点数的支持。
+
+3. auto关键字显然是摆设
+
+    auto其实就是缺省的变量内存分配模式。
+
+4. 表达式中的数组可以看作指针
+
+    这样做的好处就是将数组传递给函数时就不用再将数组所有的内容复制一遍。
+
+5. float被自动拓展为double
+
+6. 不允许使用嵌套函数（主要指的是函数的内部包含另一个函数的定义）
+
+7. register关键字
+
+    这个关键字主要是用于程序中那些经常被使用的变量。
+
+1978年，C语言经典著作《The C Programming Language》出版了。这本受到了广泛的赞誉，所以其作者Brian Kernighan和Dennis Ritchie出名了，因此这个版本的C语言被称为K&R C。
+
+1989年12月，C语言标准草案最终呗ANSI委员会接纳，随后ISO也接纳了ANSI C标准。我们常说的标准C其实就是ISO C。
+
+#### 如何写出可移植的代码
+
+1. 只使用已确定的特性
+2. 不突破任何由编译器实现的限制
+3. 不产生任何依赖由编译器定义的或未确定的或未定义的特性的输出
+
+### 第二章	这不是Bug，而是语言特性
+
+`NUL与NULL的区别`
+
+1. NUL用于表示'\0'
+2. NULL用于表示什么也不指向（空指针）
+
+ANSI新特性：
+
+- 相邻的字符串常量被自动合并成一个字符串
+
+`当sizeof的操作数是类型名时。两边必须加上括号，如果操作数是变量则不必加括号`
+
+### 第三章	分析C语言的声明
+
+枚举类型和宏定义相比有一个优点：宏定义一般在编译时会被丢掉但是枚举类型在调试器中是可见的，尽量使用枚举类型。
+
+#### 理解C语言声明的优先级规则
+
+1. 声明从名字开始，然后按照优先级顺序依次读取
+2. 优先级从高到低依次为：
+   - 声明中被括号括起来的部分
+   - 后缀操作符：括号（）表示这是一个函数，而方括号[]表示这是一个数组
+   - 前缀操作符：星号*表示“指向...的指针”
+3. 如果const和volatie关键字的后面紧跟类型说明符如（int，long等），那么它作用于类型说明符。在其他情况下，const和volatile关键字作用于其左边紧邻的指针星号。
+
+#### typedef和define的区别
+
+1. 可以用其他类型说明符对宏类型进行拓展，但是对于typedef所定义的类型名却不能
+
+   ```C
+   #define peach int 
+   unsigned peach int;
+   typedef int banana;
+   //下面的写法错误
+   //unsigned banana i;
+   ```
+
+2. 在连续的几个变量声明中，用typedef所定义类型能保证声明中所有变量均为同一种类型，define则不行。
+
+   ```c
+   #define int_ptr int *
+   int_ptr chalk,chese;
+   //经过宏拓展
+   int *chalk,chese;//两者类型不一致
+   ```
+
+   typedef的用法:
+
+   - 数组、指针、结构以及函数的组合类型
+   - 可移植类型上
+
+### 第四章	数组和指针并不相同
+
+#### 定义和声明的区别
+
+声明相当于普通的声明：他所说的并非自身，而是描述其他地方的创建的对象
+
+定义相当于特殊的声明：它为对象分配内存
+
+### 第五章	对链接的思考
+
+绝大多数编译器是由多达六七个小程序组成，这些程序都是又一个叫作编译器程序驱动器的控制程序来调用。可以单独从编译器分离出来的单独程序包括：预处理器、语法和语义检查器、代码生成器、汇编程序、优化器、链接器和一个调用这些程序并向各个程序传递正确选项的驱动器程序。
+
+动态链接的主要目的就是把程序与他们所使用的特定函数库版本分离开来，取而代之的是，我们约定由系统向程序提供一个接口，该接口保持稳定，不随时间和操作系统的后续版本发生变化。
+
+#### 动态链接可以从两个方面提高性能
+
+1. 动态连接可执行文件比功能相同的静态链接可执行文件体积小
+2. 所有动态链接到某个特定函数库的可执行文件在运行时共享该函数库的一个单独拷贝
+
+#### 函数库链接的5个秘密
+
+1. 动态库文件的拓展名是“.so”,而静态库文件的拓展名“.a”
+2. 可以通过-lthread选项链接到libthread.so文件
+3. 编译器在期望的确定的目录找到库
+4. 通过头文件，确认所使用的函数库
+5. 与提取动态库的符号相比，静态库中符号的提取更为严格
+
+`始终将-l函数库选项放在编译命令行的最右边`
+
+### 第六章	运动的诗章，运行时数据结构
+
+#### a.out的由来
+
+a.out是`assembler output`的缩写，但其实它不是汇编输出，而是链接器输出！保留这个名字属于历史原因。原来在PDP-7尚并不存在链接器，程序是先将所有的源文件链接在一起，然后进行汇编，汇编所产生的程序输出保存在a.out中。后面为PDP-11编写了链接器后，最后一个环节的输出文件依旧沿用了这个命名习惯。
+
+#### 段
+
+目标文件和可执行文件可以有多种不同的格式，但是这些格式有一个共同的概念，那就是段（Segments）。一个段中包含几个section。
+
+在UNIX中一个段就是表示一个二进制文件相关的内容块，而在Inter X86的内存模型中，段表示一种设计的结果。在这种设计中，地址空间并非一个整体，而是分成一些64K大小的区域，称之为段。当一个可执行文件中运行size命令时，它会告诉你这个文件中的三个段（文本段，数据段和bss段）。BSS段只保存没有值的变量，所以事实上它无需保存这些变量的映像。
+
+## 第四关：数据结构与算法分析
+
+## 第五关：Makefile
 
 ### 第一章	什么是makefile？
 
@@ -306,9 +469,9 @@ clean :
 
 1. make 会在当前目录下找名字叫“Makefile”或“makefile”的文件。
 2. 如果找到，它会找文件中的第一个目标文件（target），在上面的例子中，他会找到“edit”这个文件，并把这个文件作为最终的目标文件。
-3. 如果 edit 文件不存在， 或是 edit 所依赖的后面的 .o 文件的文件修改时间要比 edit这个文件新，那么，他就会执行后面所定义的命令来生成 edit 这个文件。
+3.  如果 edit 文件不存在， 或是 edit 所依赖的后面的 .o 文件的文件修改时间要比 edit这个文件新，那么，他就会执行后面所定义的命令来生成 edit 这个文件。
 4. 如果 edit 所依赖的.o 文件也存在，那么 make 会在当前文件中找目标为.o 文件的依赖性，如果找到则再根据那一个规则生成.o 文件。 
-5. 当然，你的 C 文件和 H 文件是存在的啦， 于是 make 会生成 .o 文件， 然后再用 .o 文件生命 make 的终极任务，也就是执行文件 edit 了。  
+5.  当然，你的 C 文件和 H 文件是存在的啦， 于是 make 会生成 .o 文件， 然后再用 .o 文件生命 make 的终极任务，也就是执行文件 edit 了。  
 
 #### makefile中使用变量
 
@@ -518,7 +681,7 @@ VPATH = src:../headers
 
    为符合模式<pattern>的文件指定搜索目录<directories>。  
 
-2. `vpath <pattern>  `
+2.   `vpath <pattern>  `
 
    清除符合模式<pattern>的文件的搜索目录。  
 
@@ -884,5 +1047,249 @@ names := a b c d
 files := $(foreach n,$(names),$(n).o)
 ```
 
-## 第七关：CMake
+#### if函数
+
+语法：`$(if <condition>,<then-part>)  `或者是`$(if <condition>,<then-part>,<else-part>)  `
+
+#### call函数
+
+call 函数是唯一一个可以用来创建新的参数化的函数。
+
+语法：`$(call <expression>,<parm1>,<parm2>,<parm3>...)  `
+
+#### origin 函数  
+
+origin 函数不像其它的函数，他并不操作变量的值，他只是告诉你你的这个变量是哪里来的。
+
+1.  undefined  ：未定义的
+2. default：默认的  
+3. file：表示定义在makefile中
+4. command line：定义在命令行中
+5. override：表示是被override重写的
+6. automatic：表示是自动化变量
+
+#### Shell函数
+
+操作系统 Shell 的命令 。如：
+
+```makefile
+contents := $(shell cat foo)
+files := $(shell echo *.c)
+```
+
+#### 控制make的函数
+
+make 提供了一些函数来控制 make 的运行。通常，你需要检测一些运行 Makefile 时的运行时信息，并且根据这些信息来决定，你是让 make 继续执行，还是停止。  
+
+1. error  
+
+   ```makefile
+   ifdef ERROR_001
+   $(error error is $(ERROR_001))
+   endif
+   ```
+
+2. warning
+
+   ```makefile
+   ifdef WARNING_001
+   $(warning warning is $(WARNING_001))
+   endif
+   ```
+
+### 第十章	make的运行
+
+#### make的退出码
+
+make 命令执行后有三个退出码：
+
+0 - 表示成功执行。
+
+1 - 如果 make 运行时出现任何错误，其返回 1。
+
+2 - 如果你使用了 make 的“-q”选项，并且 make 使得一些目标不需要更新，那么返回 2。  
+
+#### 指定目标
+
+一般来说，make 的最终目标是 makefile 中的第一个目标，而其它目标一般是由这个目标连带出来的。这是 make 的默认行为。当然，一般来说，你的 makefile 中的第一个目标是由许多个目标组成，你可以指示 make，让其完成你所指定的目标。要达到这一目的很简单，需在 make 命令后直接跟目标的名字就可以完成 。如：`make clean`。
+
+有一个 make 的环境变量叫“MAKECMDGOALS”，这个变量中会存放你所指定的终极目标的列表，如果在命令行上，你没有指定目标，那么，这个变量是空值。  如：
+
+```makefile
+sources = foo.c bar.c
+ifneq ( $(MAKECMDGOALS),clean)
+include $(sources:.c=.d)
+endif
+```
+
+## 第六关：CMake
+
+### CMake安装
+
+对于Windows操作系统进入到CMake的官网下载[CMake](https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-windows-x86_64.msi)。下载完毕后直接进行安装即可
+
+### 第一个CMake项目
+
+1. 进入项目目录，新建一个build文件夹，因为CMake会产生很多中间文件
+2. 执行`cmake ../`就会在build目录下产生项目文件，windows默认生成VS项目
+3. 要产生其他编译器的makefile，就需要使用-G命令进行指定`cmkae -G "MinGW Makefiles" ../`
+4. 可以使用`cmake --help`来查看使用编译器的名字
+5. 生成项目工程文件或者makefile后，就可以使用相应的编译器来编译项目
+
+### CMake命令选项设置
+
+1. 指定构建系统：`-G`：可以使用该命令指定编译器
+2.  CMakeCache.txt文件
+   - 当cmake第一次运行一个空构建时，就会创建一个CMakeCache.txt文件，文件里存放了一些可以用来制定工程的设置
+   - 对于同一个变量，如果CMakeCache.txt里有设置，那么CMakeLists.txt会优先使用Cacahe文件里的同名变量。
+   - CMakeLists.txt里要是设置了一个Cache里没有的变量，那么就将这个变量的值写入到Cache里面
+3. 添加到Cache文件中：-D：`cmake  -DCMAKE_BUILD_TYPE:STRING=Debug`
+4. 从Cache中删除变量：-U：支持使用*和/
+5. CMake命令行模式：-E
+6. 打印每一行CMake：使用`--trace`或者`--trace-source='filename'`
+7. 设置编译参数
+   - add_definitions	(-DENABLED)，当CMake添加这一段定义时，如果代码里定义了#ifdef ENABLED #endif，这一段代码就会生效
+   - //add_definitions( “-Wall -ansi –pedantic –g”) 
+8. 设置默认命令：option:`option(MY-MESSAGE "this is my message" ON) `
+
+### CMake基本知识
+
+1. 每一个CMake.txt的第一行都会写：`cmake_minimum_required(VERSION 3.1)`，该命令指定了CMake的最低版本是3.1
+2. 设置生成项目名称：`project（MyProject）` ,使用该指令之后系统会自动创建两个变量:<projectname>_BINARY_DIR:二进 制文件保存路径、<projectname>_SOURCE_DIR：源代码路径 
+3. 生成可执行文件 :`add_executable(exename srcname) `
+4. 获取文件路径中的所有源文件：`aux_sourcr_directory(<dir> <variable>) `
+5. 生成lib库：`add_library(libname [SHARED|STATIC|MODULE] [EXCLUDE_FROM_ALL] source1 source2 ... sourceN) `
+6. 添加头文件目录：`target_include_directories(<target>[SYSTEM][BEFORE]<INTERFACE|PUBLIC|PRIVATE>[items1...]<INTERFACE|PUBLIC|PRIVATE>[ [items2...] ...]))`或者`include_directories([AFTER|BEFORE] [SYSTEM] dir1 [dir2 …])  `
+7. 添加需要链接的库文件：`target_link_libraries(<target> [item1 [item2 [...]]]
+   [[debug|optimized|general] <item>] ...)  `或者`link_libraries() `
+8. 添加需要链接的库文件目录：`link_directories（添加需要链接的库文件目录）  `
+
+### 控制目标属性
+
+如果需要单独的设置target的属性，需要使用命令：
+
+`set_target_properties(target1 target2 ...
+PROPERTIES
+属性名称1 值
+属性名称2 值
+...
+)`
+
+控制编译选项的属性是：COMPILE_FLAGS
+
+控制链接选项的属性是：LINK_FLAGS
+
+控制输出路径的属性：EXECUTABLE_OUTPUT_PATH（exe的输出路径）、LIBRARY_OUTPUT_PATH（库文件的输出路径）  
+
+### 变量和缓存
+
+#### 局部变量  
+
+设置变量：`set(MY_VARIABLE "value")  `
+
+访问变量：`${MY_VARIABLE}  `
+
+#### 缓存变量  
+
+缓存变量就是cache变量，相当于全局变量，都是在第一个执行的CMakeLists.txt里面被设置的，不过在子项目的CMakeLists.txt文件里面也是可以修改这个变量的，此时会影响父目录CMakeLists.txt，这些变量用来配置整个工程，配置好之后对整个工程使用。  
+
+设置缓存变量：`set(MY_CACHE_VALUE "cache_value" CACHE INTERNAL "THIS IS MY CACHE VALUE")  `
+
+#### 环境变量  
+
+设置环境变量：`set(ENV{variable_name} value)  `
+
+获取环境变量：`$ENV{variable_name}  `
+
+#### 内置变量  
+
+1. CMAKE_C_COMPILER：指定C编译器  
+2. CMAKE_CXX_COMPILER：指定C++编译器  
+3. EXECUTABLE_OUTPUT_PATH：指定可执行文件的存放路径  
+4. LIBRARY_OUTPUT_PATH：指定库文件的放置路径  
+5. CMAKE_CURRENT_SOURCE_DIR：当前处理的CMakeLists.txt所在的路径
+6. CMAKE_BUILD_TYPE：控制构建的时候是Debug还是Release
+7. CMAKE_SOURCR_DIR：无论外部构建还是内部构建，都指的是工程的顶层目录
+8. CMAKE_BINARY_DIR：内部构建指的是工程顶层目录，外部构建指的是工程发生编译的目录（参考project命令执行之后，生成的_BINARY_DIR以及CMake预定义的变量PROJECT_BINARY_DIR）
+9. CMAKE_CURRENT_LIST_LINE：输出这个内置变量所在的行  
+
+### CMake基本控制语法
+
+#### IF
+
+`if (expression)
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+else (expression)
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+endif (expression)`
+注意：ENDIF要和IF对应  
+
+#### While
+
+`WHILE(condition)
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+ENDWHILE(condition)  `
+
+##### foreach
+
+列表循环
+
+`FOREACH(loop_var arg1 arg2 ...)
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+ENDFOREACH(loop_var)  `
+
+范围循环
+
+`FOREACH(loop_var RANGE total)
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+ENDFOREACH(loop_var)  `
+
+范围步进循环
+
+`FOREACH(loop_var RANGE start stop [step])
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+ENDFOREACH(loop_var)  `
+
+### 项目构建规范以及属性
+
+- `target_include_directories(<target> [SYSTEM] [BEFORE]<INTERFACE|PUBLIC|PRIVATE> [items1...] [<INTERFACE|PUBLIC|PRIVATE>[items2...] ...])  `
+- `target_compile_definitions(<target> <INTERFACE|PUBLIC|PRIVATE>[items1...][ [items2...] ...])  `
+- `target_compile_options(<target> [BEFORE]<INTERFACE|PUBLIC|PRIVATE> [items1...] [<INTERFACE|PUBLIC|PRIVATE>[items2...] ...]  `
+
+以上的额三个命令会生成INCLUDE_DIRECTORIES, COMPILE_DEFINITIONS, COMPILE_OPTIONS变量的
+值,或者INTERFACE_INCLUDE_DIRECTORIES,INTERFACE_COMPILE_DEFINITIONS,INTERFACE_COMPILE_OPTIONS的值.  
+
+### 宏和函数
+
+CMake里面可以定义自己的函数（function）和宏（macro）  
+
+##### 宏
+
+`macro( [arg1 [arg2 [arg3 ...]]])
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)
+...
+endmacro()  `
+
+##### 函数
+
+`function( [arg1 [arg2 [arg3 ...]]])
+COMMAND1(ARGS ...)
+COMMAND2(ARGS ...)`
+
+`endfunction()`  
+
+
 

@@ -1,1 +1,1 @@
-cmd /k "cd /d D:\gitrepo\blog&&hexo clean&&hexo g -d"
+cmd /k "cd /d D:\gitRep\blog&&hexo clean&&hexo g -d"
