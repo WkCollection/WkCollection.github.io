@@ -1,10 +1,10 @@
 ---
 title: 深度学习之路：Python配置Pytorch
 date: 2022-07-08 15:32:02
-tags:
-- Python
+tags: 
+- Python 
 - 编程语言
-categories:
+categories: 
 - Python
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: FLTK踩坑之路
 date: 2022-07-04 13:32:03
-tags:
+tags: 
 - IDE
-- CodeBlocks
-categories:
+- CodeBlocks]
+categories: 
 - IDE
 ---
 

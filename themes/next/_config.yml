@@ -339,7 +339,7 @@ calendar:
 
 # Preconnect CDN for fonts and plugins.
 # For more information: https://www.w3.org/TR/resource-hints/#preconnect
-preconnect: false
+preconnect: true
 
 # Set the text alignment in posts / pages.
 text_align:
@@ -366,11 +366,11 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: atom-one-dark
-    dark: atom-one-dark
+    light: base16/atelier-dune-light
+    dark: base16/atelier-seaside
   prism:
-    light: prism-darcula
-    dark: prism-darcula
+    light: prism-tomorrow
+    dark: prism-tomorrow
   # Add copy button on codeblock
   copy_button:
     enable: true
@@ -400,10 +400,10 @@ reading_progress:
 bookmark:
   enable: true
   # Customize the color of the bookmark.
-  color: "#222"
+  color: "#284498"
   # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
   # If manual, only save it by clicking the bookmark-icon.
-  save: manual
+  save: auto
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
@@ -524,7 +524,7 @@ math:
 
 # Easily enable fast Ajax navigation on your website.
 # For more information: https://github.com/next-theme/pjax
-pjax: false
+pjax: true
 
 # FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox/
@@ -901,3 +901,7 @@ css: css
 js: js
 images: images
 
+#网易云音乐插件
+music:
+  enable: true
+  autoplay: true

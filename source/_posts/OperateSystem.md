@@ -1,10 +1,10 @@
 ---
 title: 计算机操作系统
 date: 2022-06-21 13:10:48
-tags:
-- 计算机基础
+tags: 
+- 计算机基础 
 - 操作系统
-categories:
+categories: 
 - 计算机基础
 ---
 
