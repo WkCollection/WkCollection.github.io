@@ -1,0 +1,11 @@
+{
+  "accentColor": "",
+  "theme": "moonstone",
+  "cssTheme": "Atom",
+  "monospaceFontFamily": "Consolas,Cascadia Code",
+  "textFontFamily": "Adobe 黑体 Std",
+  "baseFontSize": 16,
+  "translucency": false,
+  "baseFontSizeAction": false,
+  "nativeMenus": false
+}

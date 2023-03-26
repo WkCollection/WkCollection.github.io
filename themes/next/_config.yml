@@ -117,8 +117,8 @@ menu_settings:
 
 sidebar:
   # Sidebar Position.
-  position: left
-  #position: right
+  #position: left
+  position: right
 
   # Manual define the sidebar width. If commented, will be default for:
   # Muse | Mist: 320
@@ -155,7 +155,9 @@ site_state: true
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
   GitHub: https://github.com/WkCollection || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  E-Mail: 1659757992@qq.com || fa fa-envelope
+  QQ: tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1659757992 || fab fa-qq
+
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -381,7 +383,7 @@ codeblock:
 back2top:
   enable: true
   # Back to top in sidebar.
-  sidebar: false
+  sidebar: true
   # Scroll percent label in b2t button.
   scrollpercent: true
 
@@ -574,7 +576,7 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: disqus | disqusjs | changyan | livere | gitalk | utterances
-  active:
+  active: valine
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
@@ -636,6 +638,25 @@ gitalk:
 
 # Utterances
 # For more information: https://utteranc.es
+
+# Valine
+# For more information: https://valine.js.org, https://github.com/xCss/Valine
+valine:
+  enable: true
+  appid: io0Ffa4c1DnmV8DI8UseYZ96-gzGzoHsz # Your leancloud application appid
+  appkey: x2d88aKmOSKPWJgCp8o8er0N # Your leancloud application appkey
+  notify: false # Mail notifier
+  verify: false # Verification code
+  placeholder: 期待与你的交流 # Comment box placeholder
+  avatar: mm # Gravatar style
+  guest_info: nick,mail,link # Custom comment header
+  pageSize: 10 # Pagination size
+  language: zh-cn # Language, available values: en, zh-cn
+  visitor: false # Article reading statistic
+  comment_count: false # If false, comment count will only be displayed in post page, not in home page
+  recordIP: false # Whether to record the commenter IP
+  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  #post_meta_order: 0
 utterances:
   enable: false
   repo: user-name/repo-name # Github repository owner and name
@@ -904,4 +925,4 @@ images: images
 #网易云音乐插件
 music:
   enable: true
-  autoplay: true
+  autoplay: false

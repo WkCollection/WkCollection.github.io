@@ -44,14 +44,14 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: true
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -99,7 +99,8 @@ ignore:
 ## Themes: https://hexo.io/themes/
 #theme: miracle
 #theme: yilia
-theme: next
+#theme: next
+theme: bamboo
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -131,6 +132,9 @@ jsonContent:
 #  field: post
 #  content: true
 #  format: html
+search:
+  path: search.xml
+  field: post
 symbols_count_time:
   time: true
   symbols: true
@@ -148,7 +152,7 @@ live2d:
   tagMode: false
   debug: false
   model:
-    use: live2d-widget-model-epsilon2_1
+    use: live2d-widget-model-hijiki
   display:
     position: left
     width: 300
