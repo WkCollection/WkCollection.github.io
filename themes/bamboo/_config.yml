@@ -17,21 +17,18 @@ menu:
    About:
      url: /about
      icon: fa fa-user
-#   更多: # 这是二级菜单的写法
-#    icon: fas fa-link
-#    children:
-#     - name: 图库
-#       url: /gallery
-#       icon: fas fa-music
-#     - name: 友情连接
-#       url: /huoban
-#       icon: fas fa-film
-#     - name: 关于我
-#       url: /me
-#       icon: fas fa-film
-#     - name: 百度
-#       url: http://baidu.com
-#       icon: fas fa-film
+   更多: # 这是二级菜单的写法
+     icon: fas fa-link
+     children:
+       - name: 单词库
+         url: /words
+         icon: fa fa-font
+       - name: 论文
+         url: /papers
+         icon: fa fa-book
+       - name: 医学
+         url: /medicines
+         icon: fa fa-medkit
 
 # github地址, 头部导航右上角的github链接
 Github: 
@@ -46,7 +43,7 @@ favicon: /favicon-32x32-next.png # or .png .jpg .svg .gif .jpeg .ico
 
 # sidebar侧边栏
 sidebar:
-  position: left # left right
+  position: right # left right
   widget_library:
     side_blogger:
       on: true
@@ -282,7 +279,7 @@ ribbon:
 
 # live-2d(左下角动画人物)
 live2d:
-  on: true # 控制显示或者隐藏
+  on: false # 控制显示或者隐藏
   modelId: 6 # 0 or 1 or 2 or 3 or 4 or 5 or 6
   open: true # 默认展开，false则收缩，通过点左下角的方块点击，控制展开或者收缩
 
@@ -304,8 +301,8 @@ homePostImgsPosition:
 # 灯笼
 lantern:
   on: false
-  left: '春' # 左边灯笼的文字， 空字符串则没有文字
-  right: '节' # 右边灯笼的文字
+  left: '努' # 左边灯笼的文字， 空字符串则没有文字
+  right: '力' # 右边灯笼的文字
 
 # https://scrollrevealjs.org/api/reveal.html 滚动动画, 旧版本用的是aos.js(已经弃用aos.js)
 scrollreveal:
@@ -340,7 +337,7 @@ music:
   type: playlist    # require song, playlist, album, search, artist
   id: 8202248104    # require song id / playlist id / album id / search keyword
   fixed: true       # 开启吸底模式，建议开启
-  autoplay: true   # 是否自动播放, 有些浏览器会禁用自动播放，目前edge可以自动播放
+  autoplay: false   # 是否自动播放, 有些浏览器会禁用自动播放，目前edge可以自动播放
   theme: '#42b983'
   loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
   order: 'random'   # 音频循环顺序, 可选值: 'list', 'random'
@@ -357,7 +354,7 @@ copyright:
 motto:
   on: true
   title: '座右铭'
-  content: '手上有剑和有剑不用是两码事!'
+  content: '我们都不是很完美的人，但我们要接受不完美的自己！'
   background: 'url("https://img10.360buyimg.com/ddimg/jfs/t1/166587/8/21344/72069/6088c24fEda5fdeb6/f9730ab637b7ca47.png")' # url("xxx") or red or #000 or rgba() ..
 
 # 首页公告
@@ -376,14 +373,14 @@ notice:
 
 # 文章置顶
 topArticle:
-  on: false
+  on: true
   background: 'rgba(255,255,255,1)' # url("http://xxx.png") or red or #000 or rgba() ..
 
 # 归档，标签，分类页图片上的打字效果
 typed:
   on: true
   loop: false # 是否循环
-  showCursor: false # 是否显示光标
+  showCursor: true # 是否显示光标
   startDelay: 100 # 开始延迟
   typeSpeed: 100 # 打字速度
   backSpeed: 50 # 删除速度
@@ -648,7 +645,7 @@ pjax:
 cursor:
   pointer: https://zhutix.com/wp-content/themes/b2/x2.cur
   default: https://zhutix.com/wp-content/themes/b2/x1.cur
-  text: 
+  text: Sci +1
   zoom-in: 
   zoom-out: 
 

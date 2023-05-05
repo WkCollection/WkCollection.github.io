@@ -1,5 +1,5 @@
 ---
-title: 深度学习之路：Python配置Pytorch
+title: 深度学习之路：Pytorch
 date: 2022-07-08 15:32:02
 tags: 
 - Python
@@ -140,3 +140,6 @@ conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
 至此Pytorch配置完毕！！！
+
+## Pytorch入门
+

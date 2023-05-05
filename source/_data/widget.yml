@@ -8,6 +8,17 @@ home_widget:
     url: http://baidu.com
     background: '#fff'
     html: '<img src="https://api.dzzui.com/api/ip" style="width:100%">'
+  - class_name: my_github_container
+    id_name: my_github_container
+    order: 0
+    name: Github日历
+    icon: fa-solid fa-calendar-days
+    icon_color: '#42b983'
+    url: https://github.com/WkCollection
+    background: '#fff'
+    html: '
+      <img no-lazy width="100%" hright="300px" src="https://ghchart.rshah.org/42b983/WkCollection" />
+      '
 widget_library_sticky:
   - class_name: historyToday
     id_name: historyToday
@@ -25,5 +36,4 @@ widget_library_sticky:
           </swiper-slide>
         </swiper>
       </div>
-      <script defer src="/historyToday/index.js"></script>
-    '
+      <script defer src="/historyToday/index.js"></script>'

@@ -1,5 +1,5 @@
 ---
-title: FLTK踩坑之路
+title: C++ GUI
 date: 2022-07-04 13:32:03
 tags: 
 - IDE
@@ -7,10 +7,118 @@ tags:
 categories: 
 - IDE
 ---
+# C++ GUI库学习
+## wxWidgets入门：VS2019配置wxWidgets库
 
-# FLTK踩坑之路：CodeBlocks配置FLTK库
+> 系统环境：Win10专业版
+>
+> VStudio版本：2019
+>
+> wxWidgets版本：3.2.2.1
+>
 
-## FLTK库
+### wxWidgets历史
+
+WxWidgets 是一个开源的C++框架，允许用C++和其他语言编写具有本地外观的跨平台GUI应用程序。
+
+与其他类似的库相比，wxWidgets具有以下优点：
+
+1. 唯一一个通过包装原生GUI小部件构建的C++ GUI库，在每个平台上都能产生最佳的用户体验。
+2. 只使用标准C++编写，不依赖任何自定义扩展或预处理。
+3. 开源并且可以免费在商业项目中使用。
+
+了解了这些后。Let's Go！首先去下载[wxWidgets](https://www.wxwidgets.org/downloads/)的源码，这里我选择的是7z格式。
+
+### 编译wxWidgets源代码
+
+找到wx_vc17.sln，然后使用VS2019打开。
+
+![image-20230411233638500](../img/wxWidgets/build.png)
+
+选择批生成，全选，然后点击生成按钮：
+
+![image-20230411233926968](../img/wxWidgets/build2.png)
+
+生成结束后新建一个Windows桌面应用程序。
+
+![image-20230412001701450](../img/wxWidgets/programmer.png)
+
+删除其中的文件夹，然后新建一个类。添加头文件目录`D:\gitRep\wxWidgets\include和D:\gitRep\wxWidgets\include\msvc`；然后添加lib库目录`D:\gitRep\wxWidgets\lib\vc_lib`即可。
+
+创建一个Hello World界面！代码如下：
+
+```cpp
+#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+    #include <wx/wx.h>
+#endif
+class MyApp : public wxApp
+{
+public:
+    virtual bool OnInit();
+};
+class MyFrame : public wxFrame
+{
+public:
+    MyFrame();
+private:
+    void OnHello(wxCommandEvent& event);
+    void OnExit(wxCommandEvent& event);
+    void OnAbout(wxCommandEvent& event);
+};
+enum
+{
+    ID_Hello = 1
+};
+wxIMPLEMENT_APP(MyApp);
+bool MyApp::OnInit()
+{
+    MyFrame *frame = new MyFrame();
+    frame->Show(true);
+    return true;
+}
+MyFrame::MyFrame()
+    : wxFrame(NULL, wxID_ANY, "Hello World")
+{
+    wxMenu *menuFile = new wxMenu;
+    menuFile->Append(ID_Hello, "&Hello...\tCtrl-H",
+                     "Help string shown in status bar for this menu item");
+    menuFile->AppendSeparator();
+    menuFile->Append(wxID_EXIT);
+    wxMenu *menuHelp = new wxMenu;
+    menuHelp->Append(wxID_ABOUT);
+    wxMenuBar *menuBar = new wxMenuBar;
+    menuBar->Append(menuFile, "&File");
+    menuBar->Append(menuHelp, "&Help");
+    SetMenuBar( menuBar );
+    CreateStatusBar();
+    SetStatusText("Welcome to wxWidgets!");
+    Bind(wxEVT_MENU, &MyFrame::OnHello, this, ID_Hello);
+    Bind(wxEVT_MENU, &MyFrame::OnAbout, this, wxID_ABOUT);
+    Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
+}
+void MyFrame::OnExit(wxCommandEvent& event)
+{
+    Close(true);
+}
+void MyFrame::OnAbout(wxCommandEvent& event)
+{
+    wxMessageBox("This is a wxWidgets Hello World example",
+                 "About Hello World", wxOK | wxICON_INFORMATION);
+}
+void MyFrame::OnHello(wxCommandEvent& event)
+{
+    wxLogMessage("Hello world from wxWidgets!");
+}
+```
+
+运行成功后如下：
+
+![image-20230412002217028](../img/wxWidgets/sucess.png)
+
+## FLTK踩坑之路：CodeBlocks配置FLTK库
+
+### FLTK库
 
 > 系统环境：Win7旗舰版
 >
@@ -22,13 +130,11 @@ categories:
 
 <!-- more -->
 
-`本来想使用wxWidgets的，奈何wxWidgets的编译过于复杂且麻烦而且会出很多问题，于是改用FLTK`
-
-### FLTK历史
+#### FLTK历史
 
 FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包，适用于 UNIX/Linux、Windows和Mac OS；FLTK 提供了很多GUI 功能，并通过 OpenGL及其内置的 GLUT 仿真支持 3D 图形。
 
-### FLTK特点
+#### FLTK特点
 
 1. 兼容GLUT库
 2. 兼容XForms库
@@ -38,12 +144,12 @@ FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包
 6. sizeof(Fl_Widget) ==64
 7. 直接在核心库上编写以实现最高速度，并针对代码大小和性能进行了优化 
 
-### FLTK缺点
+#### FLTK缺点
 
 1. 不支持GB2312/GBK中文字符编码
 2. 对于大型复杂的GUI比较吃力，推荐使用QT
 
-### CodeBlocks集成FLTK
+#### CodeBlocks集成FLTK
 
 在官网[FLTK](https://www.fltk.org/) 下载FLTK的源码，我下载的是[`fltk-1.3.8-source.tar.gz`](https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz)，下载完后进行解压，使用CMake进行编译，然后使用codeblocks打开，FLTK.cbp文件进行编译，得到编译后的文件如下：
 
@@ -51,7 +157,7 @@ FLTK正如他的名字Fast Light Tool Kit，是一个跨平台C++的GUI工具包
 
 在编译的build文件夹下新建一个文件夹include，将FLTK的源文件的头文件FLTK复制到新建的文件夹include下面。打开CodeBlocks进行库的配置，添加头文件到搜索目录，添加库文件到搜索目录，链接库文件。
 
-### 第一个FLTK程序
+#### 第一个FLTK程序
 
 ```cpp
 #include <FL/Fl.H>
@@ -80,7 +186,7 @@ int main (int argc, char ** argv) {
 
 ![image-20220709125525502](../img/hello.png)
 
-### FLTK按钮
+#### FLTK按钮
 
 ```cpp
 #include <FL/Fl.H>
@@ -150,7 +256,7 @@ void confirm_cb(Fl_Widget *w, void *data) {
 
 ![image-20220709125429727](../img/buttons.png)
 
-### FLTK文本框
+#### FLTK文本框
 
 ```cpp
 #include <FL/Fl.H>
@@ -195,7 +301,7 @@ int main (int argc, char ** argv) {
 
 ![image-20220711152309741](../img/input.png)
 
-### FLTK滑块
+#### FLTK滑块
 
 ```cpp
 #include <FL/Fl.H>

@@ -5,6 +5,7 @@ tags:
 - C++
 categories: 
 - C++
+top: true
 ---
 
 # C++学习
@@ -1507,10 +1508,6 @@ int main(int argc, char** argv) {
 ##### Deque
 
 双端数组，可以对头端进行插入和删除
-
-##### Stack（栈）：没啥可说的
-
-##### Queue（队列）：没啥可说的
 
 ##### List
 

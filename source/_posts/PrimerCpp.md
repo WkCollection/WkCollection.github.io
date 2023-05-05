@@ -5,6 +5,7 @@ tags:
 - C++
 categories:
 - C++
+top: true
 ---
 
 # PrimerCpp学习
@@ -1604,31 +1605,137 @@ int main(int argc, char** argv) {
 - 动态绑定：函数的运行版本由实参决定，即在运行时选择函数的版本，又称为运行时绑定。
 - 使用基类的引用或指针调用一个虚函数时将发生动态绑定。
 
-> 继承可以联系在一起的类构成一种层次关系，基类希望其派生类各自定义适合自身的版本，则可以使用虚函数
+> 通过继承可以联系在一起的类构成一种层次关系，基类希望其派生类各自定义适合自身的版本，则可以使用虚函数
 
-
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+class People
+{
+	public:
+		People()=default;
+		People(string name){
+			this->name=name;
+		}
+		void introduce(){
+			cout<<"I am "<<this->name<<endl;
+		}
+	private:
+		string name;
+};
+class Teacher:public People
+{
+public:
+		Teacher()=default;
+		Teacher(string name){
+			this->name=name;
+		}
+	private:
+		string name;
+};
+int main(int argc, char *argv[])
+{
+	People p("zhangsan");
+	p.introduce();
+	return 0;
+}
+```
 
 #### 多态
 
-> 
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+class Animal
+{
+	public:
+		Animal()=default;
+		Animal(string name){
+			this->name=name;
+		}
+		virtual void doSpeak(){
+			cout<<"animal is speaking!"<<endl;
+		}
+		virtual ~Animal()=default;
+    private:
+		string name;
+};
+class Dog:public Animal
+{
+	public:
+		Dog()=default;
+		Dog(string name){
+			this->name=name;
+		}
+		void doSpeak(){
+			cout<<"dog is speaking!"<<endl;
+		}
+    private:
+		string name;
+};
+class Cat:public Animal
+{
+	public:
+		Cat()=default;
+		Cat(string name){
+			this->name=name;
+		}
+		void doSpeak(){
+			cout<<"cat is speaking!"<<endl;
+		}
+    private:
+		string name;
+};
+int main(int argc, char *argv[])
+{
+	Dog d;
+	Animal &dog=d;
+	dog.doSpeak();
+	return 0;
+}
+```
 
 ### 模板与泛型
 
 #### 函数模板
 
+```cpp
+#include <iostream>
+using namespace std;
+template <typename T>
+int compare(const T &v1,const T &v2)
+{
+	if(v1<v2)return -1;
+	if(v1>v2)return 1;
+	return 0;
+}
+int main(int argc, char *argv[])
+{
+	cout<<compare(1,2)<<endl;
+	return 0;
+}
+```
+
 #### 类模板
 
-#### 成员模板
-
-#### 模板实参推断
-
-#### 可变参数模板
-
-## C++高级
-
-### 常用标准库函数
-
-### 异常处理、多继承与虚继承
-
-
-
+```cpp
+#include <iostream>
+using namespace std;
+template <typename T> class Int
+{
+	public:
+		T value;
+	    void print(){
+			cout<<value<<endl;
+	    }
+};
+int main(int argc, char *argv[])
+{
+	Int<int> i;
+	i.value=10;
+	i.print();
+	return 0;
+}
+```
