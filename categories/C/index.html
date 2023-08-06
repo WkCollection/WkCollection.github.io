@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>分类: C++ | 编程の路</title>
+  <title>分类: C | 编程の路</title>
 
   <link rel="icon" type="image/png" href="/favicon-32x32-next.png">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -633,7 +633,7 @@
 
 <div class="category">
   <div class="category-name">
-    <div class="name" style="background-color: #85C1E9;">C++ 分类</div>
+    <div class="name" style="background-color: #D5F5E3;">C 分类</div>
   </div>
   <!-- 每一篇文章卡片 -->
   <!-- hash算法 -->
@@ -646,17 +646,17 @@
         <div class="post-info">
           <div class="post-time">
             <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2023-04-24</span>
+            <span class="post-time">2022-07-11</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/2023/04/24/CMake/">CMake学习</a>
+            <a class="post-title-link" href="/2022/07/11/C/">C语言突破</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CMake/" rel="tag">CMake</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li></ul>
 
             </div>
             <div class="post-categories">
@@ -664,155 +664,56 @@
 
 <div class="article-category">
   <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/C/">C++</a>
+  <a class="article-category-link" href="/categories/C/">C</a>
 </div>
 
 
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/2023/04/24/CMake/" style="background-size: cover; 
+            <a href="/2022/07/11/C/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
-            CMake学习
-学习如何使用CMake进行构建
+            <h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><blockquote>
+<p>C语言相关知识点深入理解</p>
+</blockquote>
+<h2 id="第一关：C和指针"><a href="#第一关：C和指针" class="headerlink" title="第一关：C和指针"></a>第一关：C和指针</h2><h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><p>整型分为有符号和无符号。</p>
+<p>整型值相互之间的规则是：长整型至少应该和整型一样长，而整型至少应该和短整型一样长。</p>
+<h3 id="浮点类型"><a href="#浮点类型" class="headerlink" title="浮点类型"></a>浮点类型</h3><p>浮点数在缺省情况下都是double类型的，加L或l表示为long double类型的，或者加F或f表示是float类型的值。</p>
+<h3 id="宽字符常量"><a href="#宽字符常量" class="headerlink" title="宽字符常量"></a>宽字符常量</h3><p>如果一个多字节字符常量前面带有一个L，那么他就是宽字符常量。例如：<code>L‘X’</code></p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><h4 id="代码块作用域"><a href="#代码块作用域" class="headerlink" title="代码块作用域"></a>代码块作用域</h4><p>位于一对花括号之间的所有语句都称为一个代码块，任何在代码块的开始位置声明的标识符都具有代码块作用域。</p>
+<h4 id="文件作用域"><a href="#文件作用域" class="headerlink" title="文件作用域"></a>文件作用域</h4><p>任何在所有代码块之外声明的标识符都具有文件作用域。</p>
+<h4 id="原型作用域"><a href="#原型作用域" class="headerlink" title="原型作用域"></a>原型作用域</h4><p>原型作用域只适用于在函数原型中声明的参数名。</p>
+<h4 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h4><p>函数作用域只适用于语句标签，指在函数内声明的所有变量在函数体内始终是可见的,可以在整个函数的范围内使用及复用。</p>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><p>枚举类型的实质是以整型形式进行存储的，符号名其实都是整型值。如果某个符号未显式复制那个他的值就比前面的一个符号名的值大1。第一个未命名的初始化为0。</p>
+<h3 id="可变参数列表"><a href="#可变参数列表" class="headerlink" title="可变参数列表"></a>可变参数列表</h3><p>可变参数列表是通过stdarg宏实现的，位于stdarg.h头文件。函数声明了一个var_arg的变量，用于访问参数列表未确定部分，通过调用va_start来初始化，第一个参数是va_list变量的名字，第二个参数是省略号前最后一个有名字的参数。为了访问这个参数，需要使用va_arg这个宏，这个宏接受两个参数，va_list和参数列表中下一个参数的类型。访问完毕后使用va_end函数。</p>
+<h3 id="字符串常量"><a href="#字符串常量" class="headerlink" title="字符串常量"></a>字符串常量</h3><p>K&amp;R C并没有提及一个字符串常量中的字符是否可以被修改，但是其表明具有相同值的不同字符在内存中是分开存储的，因此许多编译器运行程序修改字符串常量。</p>
+<p>ANSI C则表明如果对一个字符串常量进行修改，效果是未定义的。他也允许编译器将一个字符串常量存储于一个地方，即使其在一个程序中多次出现。因此许多ANSI C编译器不允许修改字符串常量。</p>
+<p>字符串常量在程序中使用会生成一个”指向字符的常量指针”。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">char</span> <span class="token operator">*</span>message <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token comment">/*等价于
+char *message;
+message = “Hello”;
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-基础知识
-CMake 是一套工具，涵盖了从创建构建到生产，以及发布的一切操作。不仅涵盖了从头到尾的流程，还有广泛的平台、工具和语言支持。
-
-创建项目CMake完整的构建流程如下图所示:首先需
+<h3 id="指针与常量"><a href="#指针与常量" class="headerlink" title="指针与常量"></a>指针与常量</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token keyword">const</span> <span class="token operator">*</span>p<span class="token punctuation">;</span><span class="token comment">//可以修改指针的值，无法修改指针指向的值</span>
+<span class="token keyword">int</span> <span class="token operator">*</span> <span class="token keyword">const</span> p1<span class="token punctuation">;</span><span class="token comment">//指针为常量无法修改，指针指向的值可以修改</span>
+<span class="token keyword">int</span> <span class="token keyword">const</span> <span class="token operator">*</span> <span class="token keyword">const</span> p2<span class="token punctuation">;</span><span class="token comment">//指针的指向和指针指向的值都不可以改变</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
           </div>
         </div>
         <div class="post-more">
-          <a href="/2023/04/24/CMake/">
+          <a href="/2022/07/11/C/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/2023/04/24/CMake/" style="background-size: cover; 
+        <a href="/2022/07/11/C/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2023-02-28</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2023/02/28/PrimerCpp/">C++ Primer</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/C/">C++</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2023/02/28/PrimerCpp/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            <h1 id="PrimerCpp学习"><a href="#PrimerCpp学习" class="headerlink" title="PrimerCpp学习"></a>PrimerCpp学习</h1><blockquote>
-<p>Primer C++作为C++的经典书籍，值得一读！</p>
-</blockquote>
-<h2 id="C-基础"><a href="#C-基础" class="headerlink" title="C++基础"></a>C++基础</h2><h3 id="变量、语句、字符串、数组"><a href="#变量、语句、字符串、数组" class="headerlink" title="变量、语句、字符串、数组"></a>变量、语句、字符串、数组</h3><h3 id="表达式和函数"><a href="#表达式和函数" class="headerlink" title="表达式和函数"></a>表达式和函数</h3><h3 id="类的初步使用"><a href="#类的初步使用" class="headerlink" title="类的初步使用"></a>类的初步使用</h3>
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2023/02/28/PrimerCpp/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2023/02/28/PrimerCpp/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-85c31120acff76826ab53ea8934ef4bb_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2022-06-19</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/2022/06/19/Cpp/">Cpp学习</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/categories/C/">C++</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/2022/06/19/Cpp/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            <h1 id="C-学习"><a href="#C-学习" class="headerlink" title="C++学习"></a>C++学习</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><blockquote>
-<p>方便存放同类型的元素</p>
-</blockquote>
-<h3 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h3><p>一维数组数组名代表数组的首地址</p>
-<p>一维数组名可以计算出数组在内存空间所占内存大小</p>
-<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>二维数组名代表二维数组的首地址，也可以查看某行的首地址</p>
-<p>二维数组可以计算出数组在内存空间所占内存大小，也可以计算出某行所占内存大小</p>
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/2022/06/19/Cpp/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/2022/06/19/Cpp/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>

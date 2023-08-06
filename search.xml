@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>CMake学习</title>
+    <url>/2023/04/24/CMake/</url>
+    <content><![CDATA[<h1 id="CMake学习"><a href="#CMake学习" class="headerlink" title="CMake学习"></a>CMake学习</h1><blockquote>
+<p>学习如何使用CMake进行构建</p>
+</blockquote>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><blockquote>
+<p>CMake 是一套工具，涵盖了从创建构建到生产，以及发布的一切操作。不仅涵盖了从头到尾的流程，还有广泛的平台、工具和语言支持。</p>
+</blockquote>
+<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>CMake完整的构建流程如下图所示:<br><img src="/../img/CMake/CMake%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.png" class="lazyload placeholder" data-srcset="/../img/CMake/CMake%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"><br>首先需要对项目进行描述，并生成特定于平台的项目文件，这些文件与开发人员选择的构建工具 (例如make、Xcode、Visual Studio等)适配。这是CMake有名的设置阶段，CMake工具套件还包括 CTest 和 CPack，分别用于管理测试和打包。</p>
+<p>源目录和二进制目录概念是CMake的基础。源目录是CMakeLists.txt文件所在的文件夹，项目的源文件和构建所需的其他文件都组织在该位置下。二进制目录是生成构建内容的地方，通常称为构建目录。</p>
+<p>CMake还在构建目录中创建一个CMakeCache.txt的特殊文件，存储各种信息，以便在后续运行时重用。CMakeLists.txt文件是项目的描述，生成的项目文件应该视为构建输出。开发人员处理项目需要确定构建目录相对于源目录的位置。有两种方式：源内构建和源外构建。</p>
+<h4 id="源内构建"><a href="#源内构建" class="headerlink" title="源内构建"></a>源内构建</h4><p>源目录和构建目录可以相同，但不推荐这样做，这种方式称为源内构建。内源构建的主要问题在于，构建输出与源文件混杂在一起。这种缺乏分离的方式导致目录与各种文件和目录混杂在一起，使得项目管理变得非常困难，并有着构建输出覆盖源文件的风险。这种方式还使版本控制系统的工作难度增加，因为有许多由构建创建的文件，源代码控制工具必须知道要忽略哪些文件，或者在提交时手动排除这些文件。源内构建的另一个缺点是，清除所有构建输出并使用干净的源重新开发非常困难。由于这些原因，不推荐开发人员在任何的情况下使用源内构建方式进行构建。</p>
+<h4 id="源外构建"><a href="#源外构建" class="headerlink" title="源外构建"></a>源外构建</h4><p>更可取的方式是让源目录和构建目录不同，这称为源外构建。这使得源文件和构建输出完全分离，从而避免了混合问题。源外构建还有一个优势，开发人员可以为同一个源目录创建多个构建目录，这就允许使用不同的选项设置构建项目，比如：Debug和Release版本等等。如图：<br><img src="/../img/CMake/%E6%BA%90%E5%A4%96%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F.png" class="lazyload placeholder" data-srcset="/../img/CMake/%E6%BA%90%E5%A4%96%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"></p>
+<h4 id="生成项目文件"><a href="#生成项目文件" class="headerlink" title="生成项目文件"></a>生成项目文件</h4><p>开发人员通过选择生成器来选择要创建的项目文件。 CMake 支持一系列生成器，下图列出了常用的生成器：<br><img src="/../img/CMake/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8.png" class="lazyload placeholder" data-srcset="/../img/CMake/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"><br>一些生成器支持多种配置(如Debug、Release等)，其允许开发者在不同的配置中进行选择，不必重新运行CMake，CMake很适合为Xcode和Visual  Studio等IDE生成项目文件。对于不支持多配置的生成器，开发人员必须重新运行 CMake 在 Debug、 Release 等之间切换构建方式。运行 CMake 最基本的方法是通过CMake命令行。调用它的最简单方法是将目录切换到 build目录，并将生成器类型和源树位置的选项传递给CMake。例如:</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> build
+<span class="token builtin class-name">cd</span> build
+cmake -G <span class="token string">" Unix  Makefiles "</span> <span class="token punctuation">..</span>/ <span class="token builtin class-name">source</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>若省略了-G选项， CMake 将根据平台选择默认的生成器类型。</p>
+<p>对于所有的生成器类型，CMake将执行测试并询问系统，以确定如何建立项目文件。这包括验证编译器是否工作、确定支持的编译器特性集和其他各种任务。</p>
+<p>上面展示了项目文件的创建时的两个步骤：配置和生成。在配置阶段，CMake 读取 CMakeLists.txt文件，并构建整个项目的内部表示文件。完成这些之后，生成阶段将创建项目文件。</p>
+<h4 id="运行构建工具"><a href="#运行构建工具" class="headerlink" title="运行构建工具"></a>运行构建工具</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cmake --build /some/path/build --config Debug --target MyApp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这种方式更适用于常用IDE的开发人员，–build选项指向CMake项目生成的构建目录。对于多个配置，–config选项指定要构建哪个配置，而单个配置生成器将忽略–config选项，而依赖于执行 CMake项目生成时的信息。–target选项可以用来告诉构建工具要构建什么目标，如果省略该选项，将构建默认目标。</p>
+<h2 id="深度构建"><a href="#深度构建" class="headerlink" title="深度构建"></a>深度构建</h2><h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>CMake</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言突破</title>
     <url>/2022/07/11/C/</url>
     <content><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C"></a>C</h1><blockquote>
@@ -1062,37 +1093,6 @@ Fl_Box <span class="token operator">*</span>box <span class="token operator">=</
       <tags>
         <tag>IDE</tag>
         <tag>CodeBlocks</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CMake学习</title>
-    <url>/2023/04/24/CMake/</url>
-    <content><![CDATA[<h1 id="CMake学习"><a href="#CMake学习" class="headerlink" title="CMake学习"></a>CMake学习</h1><blockquote>
-<p>学习如何使用CMake进行构建</p>
-</blockquote>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><blockquote>
-<p>CMake 是一套工具，涵盖了从创建构建到生产，以及发布的一切操作。不仅涵盖了从头到尾的流程，还有广泛的平台、工具和语言支持。</p>
-</blockquote>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>CMake完整的构建流程如下图所示:<br><img src="/../img/CMake/CMake%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.png" class="lazyload placeholder" data-srcset="/../img/CMake/CMake%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"><br>首先需要对项目进行描述，并生成特定于平台的项目文件，这些文件与开发人员选择的构建工具 (例如make、Xcode、Visual Studio等)适配。这是CMake有名的设置阶段，CMake工具套件还包括 CTest 和 CPack，分别用于管理测试和打包。</p>
-<p>源目录和二进制目录概念是CMake的基础。源目录是CMakeLists.txt文件所在的文件夹，项目的源文件和构建所需的其他文件都组织在该位置下。二进制目录是生成构建内容的地方，通常称为构建目录。</p>
-<p>CMake还在构建目录中创建一个CMakeCache.txt的特殊文件，存储各种信息，以便在后续运行时重用。CMakeLists.txt文件是项目的描述，生成的项目文件应该视为构建输出。开发人员处理项目需要确定构建目录相对于源目录的位置。有两种方式：源内构建和源外构建。</p>
-<h4 id="源内构建"><a href="#源内构建" class="headerlink" title="源内构建"></a>源内构建</h4><p>源目录和构建目录可以相同，但不推荐这样做，这种方式称为源内构建。内源构建的主要问题在于，构建输出与源文件混杂在一起。这种缺乏分离的方式导致目录与各种文件和目录混杂在一起，使得项目管理变得非常困难，并有着构建输出覆盖源文件的风险。这种方式还使版本控制系统的工作难度增加，因为有许多由构建创建的文件，源代码控制工具必须知道要忽略哪些文件，或者在提交时手动排除这些文件。源内构建的另一个缺点是，清除所有构建输出并使用干净的源重新开发非常困难。由于这些原因，不推荐开发人员在任何的情况下使用源内构建方式进行构建。</p>
-<h4 id="源外构建"><a href="#源外构建" class="headerlink" title="源外构建"></a>源外构建</h4><p>更可取的方式是让源目录和构建目录不同，这称为源外构建。这使得源文件和构建输出完全分离，从而避免了混合问题。源外构建还有一个优势，开发人员可以为同一个源目录创建多个构建目录，这就允许使用不同的选项设置构建项目，比如：Debug和Release版本等等。如图：<br><img src="/../img/CMake/%E6%BA%90%E5%A4%96%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F.png" class="lazyload placeholder" data-srcset="/../img/CMake/%E6%BA%90%E5%A4%96%E6%9E%84%E5%BB%BA%E6%96%B9%E5%BC%8F.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"></p>
-<h4 id="生成项目文件"><a href="#生成项目文件" class="headerlink" title="生成项目文件"></a>生成项目文件</h4><p>开发人员通过选择生成器来选择要创建的项目文件。 CMake 支持一系列生成器，下图列出了常用的生成器：<br><img src="/../img/CMake/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8.png" class="lazyload placeholder" data-srcset="/../img/CMake/%E5%B8%B8%E7%94%A8%E7%94%9F%E6%88%90%E5%99%A8.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="CMake构建流程"><br>一些生成器支持多种配置(如Debug、Release等)，其允许开发者在不同的配置中进行选择，不必重新运行CMake，CMake很适合为Xcode和Visual  Studio等IDE生成项目文件。对于不支持多配置的生成器，开发人员必须重新运行 CMake 在 Debug、 Release 等之间切换构建方式。运行 CMake 最基本的方法是通过CMake命令行。调用它的最简单方法是将目录切换到 build目录，并将生成器类型和源树位置的选项传递给CMake。例如:</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> build
-<span class="token builtin class-name">cd</span> build
-cmake -G <span class="token string">" Unix  Makefiles "</span> <span class="token punctuation">..</span>/ <span class="token builtin class-name">source</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>若省略了-G选项， CMake 将根据平台选择默认的生成器类型。</p>
-<p>对于所有的生成器类型，CMake将执行测试并询问系统，以确定如何建立项目文件。这包括验证编译器是否工作、确定支持的编译器特性集和其他各种任务。</p>
-<p>上面展示了项目文件的创建时的两个步骤：配置和生成。在配置阶段，CMake 读取 CMakeLists.txt文件，并构建整个项目的内部表示文件。完成这些之后，生成阶段将创建项目文件。</p>
-<h4 id="运行构建工具"><a href="#运行构建工具" class="headerlink" title="运行构建工具"></a>运行构建工具</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cmake --build /some/path/build --config Debug --target MyApp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这种方式更适用于常用IDE的开发人员，–build选项指向CMake项目生成的构建目录。对于多个配置，–config选项指定要构建哪个配置，而单个配置生成器将忽略–config选项，而依赖于执行 CMake项目生成时的信息。–target选项可以用来告诉构建工具要构建什么目标，如果省略该选项，将构建默认目标。</p>
-<h2 id="深度构建"><a href="#深度构建" class="headerlink" title="深度构建"></a>深度构建</h2><h2 id="常用功能"><a href="#常用功能" class="headerlink" title="常用功能"></a>常用功能</h2><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>CMake</tag>
       </tags>
   </entry>
   <entry>
@@ -2709,35 +2709,6 @@ void oops()
       </tags>
   </entry>
   <entry>
-    <title>Docker</title>
-    <url>/2023/04/11/Docker/</url>
-    <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Docker是一个容器,容器是您的机器上的一个沙箱进程，它与主机上的所有其他进程隔离开来。</p>
-<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><p>使用默认源安装(版本可能比较老):<br><code>sudo apt-get install -y docker.io</code></p>
-<p>使用脚本安装:<br><code>curl -k -sSl https://get.docker.com | sudo sh</code></p>
-<p>使用<code>sudo docker run hello-world</code>测试Docker是否安装成功!</p>
-<span id="more"></span>
-
-
-]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode</title>
-    <url>/2023/02/28/LeetCode/</url>
-    <content><![CDATA[<h1 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h1><span id="more"></span>]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git学习</title>
     <url>/2022/06/19/Git/</url>
     <content><![CDATA[<h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><blockquote>
@@ -3126,6 +3097,35 @@ Untracked files:
       </tags>
   </entry>
   <entry>
+    <title>LeetCode</title>
+    <url>/2023/02/28/LeetCode/</url>
+    <content><![CDATA[<h1 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h1><span id="more"></span>]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker</title>
+    <url>/2023/04/11/Docker/</url>
+    <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Docker是一个容器,容器是您的机器上的一个沙箱进程，它与主机上的所有其他进程隔离开来。</p>
+<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><p>使用默认源安装(版本可能比较老):<br><code>sudo apt-get install -y docker.io</code></p>
+<p>使用脚本安装:<br><code>curl -k -sSl https://get.docker.com | sudo sh</code></p>
+<p>使用<code>sudo docker run hello-world</code>测试Docker是否安装成功!</p>
+<span id="more"></span>
+
+
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux</title>
     <url>/2023/03/05/Linux/</url>
     <content><![CDATA[<h1 id="Linux进阶学习"><a href="#Linux进阶学习" class="headerlink" title="Linux进阶学习"></a>Linux进阶学习</h1><blockquote>
@@ -3180,32 +3180,6 @@ For details <span class="token builtin class-name">type</span> `warranty'.
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>机器学习</title>
-    <url>/2023/04/02/MachineLearning/</url>
-    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>机器学习实际上就是找寻一个函数，给定一个输入，获得一个输出</p>
-</blockquote>
-<p>Regression:函数输出一个数值 </p>
-<p>Classification:给定一些类别，选择一个输出</p>
-<p>Structured Learning:创建一些结构化的东西</p>
-<p>训练的步骤：</p>
-<ul>
-<li><p>步骤一:找一个带有未知参数的函数(Model)</p>
-</li>
-<li><p>步骤二:从训练数据中定义出损失函数(L(<em>b</em>,<em>w</em>))</p>
-</li>
-<li><p>步骤三:最优化</p>
-<span id="more"></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3332,18 +3306,29 @@ rs<span class="token punctuation">.</span><span class="token keyword">status</sp
       </tags>
   </entry>
   <entry>
-    <title>MySql</title>
-    <url>/2023/03/16/MySql/</url>
-    <content><![CDATA[<h1 id="MySql学习"><a href="#MySql学习" class="headerlink" title="MySql学习"></a>MySql学习</h1><blockquote>
-<p>记录学习Mysql的过程</p>
+    <title>机器学习</title>
+    <url>/2023/04/02/MachineLearning/</url>
+    <content><![CDATA[<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>机器学习实际上就是找寻一个函数，给定一个输入，获得一个输出</p>
 </blockquote>
-<span id="more"></span>
+<p>Regression:函数输出一个数值 </p>
+<p>Classification:给定一些类别，选择一个输出</p>
+<p>Structured Learning:创建一些结构化的东西</p>
+<p>训练的步骤：</p>
+<ul>
+<li><p>步骤一:找一个带有未知参数的函数(Model)</p>
+</li>
+<li><p>步骤二:从训练数据中定义出损失函数(L(<em>b</em>,<em>w</em>))</p>
+</li>
+<li><p>步骤三:最优化</p>
+<span id="more"></span></li>
+</ul>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>机器学习</category>
       </categories>
       <tags>
-        <tag>Mysql</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3564,6 +3549,107 @@ rs<span class="token punctuation">.</span><span class="token keyword">status</sp
       </tags>
   </entry>
   <entry>
+    <title>Nodejs</title>
+    <url>/2022/06/20/Nodejs/</url>
+    <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><h2 id="Node简介"><a href="#Node简介" class="headerlink" title="Node简介"></a>Node简介</h2><blockquote>
+<p>Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。简单的说Nodejs就是运行在服务端的Javascript。其具有1）异步IO，2）事件与回调函数，3）单线程，4）跨平台的特点。</p>
+</blockquote>
+<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/url'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Node.js'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'收到响应'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'发出Ajax结束 '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>收到ֽ响应是在发出Ajax结束之后输出的。在使用$.post()后，后续代码是立即被执行的，而收到ֽ响应的执行时间是不被预期的。我们只知道它将在这个异步请求结束后执行但是并不知道具体的时间点。  </p>
+<h3 id="事件与回调"><a href="#事件与回调" class="headerlink" title="事件与回调"></a>事件与回调</h3><p>Node创建一个Web服务器，并监听8080端口。对于服务器，绑定了request事件，对于请求对象，我们绑定了on和end事件。  </p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> querystring <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'querystring'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> postData <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">setEncoding</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">trunk</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	postData <span class="token operator">+=</span> trunk<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>postData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务器启完成'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    <span class="token string-property property">'url'</span><span class="token operator">:</span> <span class="token string">'/url'</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'method'</span><span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'data'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'success'</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    	<span class="token comment">// success事件</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h3><p>Node保持了JavaScript在浏览器中单线程的特点。而且在Node中，JavaScript与其余线程是无法共享任何状态的。单线程的最大好处是不用像多线程编程那样处处在意状态的同步问题,这里没有死锁的存在，也没有线程上下文交换所带来的性能上的开销。</p>
+<h3 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h3><p>兼容Windows和*nix平台主要得益于Node在架构层面的改动,它在操作系统与Node上层模块系统之间构建了一层平台层架构,即libuv。目前, libuv已经成为许多系统实现跨平台的基础组件。</p>
+<h3 id="Node应用场景"><a href="#Node应用场景" class="headerlink" title="Node应用场景"></a>Node应用场景</h3><ol>
+<li>I&#x2F;O密集型</li>
+<li>是否不擅长I&#x2F;O密集型业务</li>
+<li>分布式应用</li>
+</ol>
+<span id="more"></span>
+
+<h2 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h2><h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h3><blockquote>
+<p>CommonJS的提出是希望JS能够在任何地方运行。</p>
+</blockquote>
+<p>CommonJS中涵盖了模块、二进制、Buffer、字符集编码、IO流、进程环境、文件系统、套接字、单元测试、Web服务网关接口、包管理等。</p>
+<h4 id="CommonJS模块规范"><a href="#CommonJS模块规范" class="headerlink" title="CommonJS模块规范"></a>CommonJS模块规范</h4><ol>
+<li><p>模块引用</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> math<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>模块定义</p>
+<p>在模块中，上下文使用require()方法来引入外部模块。对应于引入，exports对象用于导出当前模块的方法或者变量。在模块中还存在一个module对象，他代表模块自身，而exports是module的属性。在Node中，一个文件就是一个模块。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//math.js</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    args <span class="token operator">=</span> arguments<span class="token punctuation">,</span>
+    l <span class="token operator">=</span> args<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> l<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        sum <span class="token operator">+=</span> args<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在另一个文件中，我们通过require()引入模块后，就能使用定义的属性和方法了。</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// program.js</span>
+<span class="token keyword">var</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">increment</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>模块标识</p>
+<p>模块标识就是传递给require()的参数，必须是小驼峰命名的字符串、相对路径或者绝对路径，可以不含后缀js。</p>
+</li>
+</ol>
+<h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2><h2 id="内存控制和理解Buffer"><a href="#内存控制和理解Buffer" class="headerlink" title="内存控制和理解Buffer"></a>内存控制和理解Buffer</h2><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h2 id="构建web"><a href="#构建web" class="headerlink" title="构建web"></a>构建web</h2><h2 id="实现进程"><a href="#实现进程" class="headerlink" title="实现进程"></a>实现进程</h2><h2 id="测试与产品化"><a href="#测试与产品化" class="headerlink" title="测试与产品化"></a>测试与产品化</h2>]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySql</title>
+    <url>/2023/03/16/MySql/</url>
+    <content><![CDATA[<h1 id="MySql学习"><a href="#MySql学习" class="headerlink" title="MySql学习"></a>MySql学习</h1><blockquote>
+<p>记录学习Mysql的过程</p>
+</blockquote>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Nginx</title>
     <url>/2023/04/09/Nginx/</url>
     <content><![CDATA[<h1 id="Nginx学习"><a href="#Nginx学习" class="headerlink" title="Nginx学习"></a>Nginx学习</h1><blockquote>
@@ -3777,126 +3863,6 @@ http <span class="token punctuation">&#123;</span>
       </tags>
   </entry>
   <entry>
-    <title>Nodejs</title>
-    <url>/2022/06/20/Nodejs/</url>
-    <content><![CDATA[<h1 id="Nodejs学习"><a href="#Nodejs学习" class="headerlink" title="Nodejs学习"></a>Nodejs学习</h1><h2 id="Node简介"><a href="#Node简介" class="headerlink" title="Node简介"></a>Node简介</h2><blockquote>
-<p>Nodejs是一个建立在Chrome的Javascript的V8引擎上的一个Javascript运行时环境。简单的说Nodejs就是运行在服务端的Javascript。其具有1）异步IO，2）事件与回调函数，3）单线程，4）跨平台的特点。</p>
-</blockquote>
-<h3 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h3><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/url'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'Node.js'</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'收到响应'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'发出Ajax结束 '</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>收到ֽ响应是在发出Ajax结束之后输出的。在使用$.post()后，后续代码是立即被执行的，而收到ֽ响应的执行时间是不被预期的。我们只知道它将在这个异步请求结束后执行但是并不知道具体的时间点。  </p>
-<h3 id="事件与回调"><a href="#事件与回调" class="headerlink" title="事件与回调"></a>事件与回调</h3><p>Node创建一个Web服务器，并监听8080端口。对于服务器，绑定了request事件，对于请求对象，我们绑定了on和end事件。  </p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> querystring <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'querystring'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> postData <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-    req<span class="token punctuation">.</span><span class="token function">setEncoding</span><span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">trunk</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    	postData <span class="token operator">+=</span> trunk<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    req<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'end'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    	res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>postData<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务器启完成'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">$<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    <span class="token string-property property">'url'</span><span class="token operator">:</span> <span class="token string">'/url'</span><span class="token punctuation">,</span>
-    <span class="token string-property property">'method'</span><span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
-    <span class="token string-property property">'data'</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token string-property property">'success'</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    	<span class="token comment">// success事件</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h3><p>Node保持了JavaScript在浏览器中单线程的特点。而且在Node中，JavaScript与其余线程是无法共享任何状态的。单线程的最大好处是不用像多线程编程那样处处在意状态的同步问题,这里没有死锁的存在，也没有线程上下文交换所带来的性能上的开销。</p>
-<h3 id="跨平台"><a href="#跨平台" class="headerlink" title="跨平台"></a>跨平台</h3><p>兼容Windows和*nix平台主要得益于Node在架构层面的改动,它在操作系统与Node上层模块系统之间构建了一层平台层架构,即libuv。目前, libuv已经成为许多系统实现跨平台的基础组件。</p>
-<h3 id="Node应用场景"><a href="#Node应用场景" class="headerlink" title="Node应用场景"></a>Node应用场景</h3><ol>
-<li>I&#x2F;O密集型</li>
-<li>是否不擅长I&#x2F;O密集型业务</li>
-<li>分布式应用</li>
-</ol>
-<span id="more"></span>
-
-<h2 id="模块机制"><a href="#模块机制" class="headerlink" title="模块机制"></a>模块机制</h2><h3 id="CommonJS规范"><a href="#CommonJS规范" class="headerlink" title="CommonJS规范"></a>CommonJS规范</h3><blockquote>
-<p>CommonJS的提出是希望JS能够在任何地方运行。</p>
-</blockquote>
-<p>CommonJS中涵盖了模块、二进制、Buffer、字符集编码、IO流、进程环境、文件系统、套接字、单元测试、Web服务网关接口、包管理等。</p>
-<h4 id="CommonJS模块规范"><a href="#CommonJS模块规范" class="headerlink" title="CommonJS模块规范"></a>CommonJS模块规范</h4><ol>
-<li><p>模块引用</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> math<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>模块定义</p>
-<p>在模块中，上下文使用require()方法来引入外部模块。对应于引入，exports对象用于导出当前模块的方法或者变量。在模块中还存在一个module对象，他代表模块自身，而exports是module的属性。在Node中，一个文件就是一个模块。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">//math.js</span>
-exports<span class="token punctuation">.</span><span class="token function-variable function">add</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    args <span class="token operator">=</span> arguments<span class="token punctuation">,</span>
-    l <span class="token operator">=</span> args<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> l<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        sum <span class="token operator">+=</span> args<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在另一个文件中，我们通过require()引入模块后，就能使用定义的属性和方法了。</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// program.js</span>
-<span class="token keyword">var</span> math <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'math'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-exports<span class="token punctuation">.</span><span class="token function-variable function">increment</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-	<span class="token keyword">return</span> math<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>val<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>模块标识</p>
-<p>模块标识就是传递给require()的参数，必须是小驼峰命名的字符串、相对路径或者绝对路径，可以不含后缀js。</p>
-</li>
-</ol>
-<h2 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h2><h2 id="内存控制和理解Buffer"><a href="#内存控制和理解Buffer" class="headerlink" title="内存控制和理解Buffer"></a>内存控制和理解Buffer</h2><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><h2 id="构建web"><a href="#构建web" class="headerlink" title="构建web"></a>构建web</h2><h2 id="实现进程"><a href="#实现进程" class="headerlink" title="实现进程"></a>实现进程</h2><h2 id="测试与产品化"><a href="#测试与产品化" class="headerlink" title="测试与产品化"></a>测试与产品化</h2>]]></content>
-      <categories>
-        <category>Node</category>
-      </categories>
-      <tags>
-        <tag>Nodejs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Postgresql</title>
-    <url>/2023/04/19/Postgresql/</url>
-    <content><![CDATA[<h1 id="Postgresql源码阅读"><a href="#Postgresql源码阅读" class="headerlink" title="Postgresql源码阅读"></a>Postgresql源码阅读</h1><blockquote>
-<p>记录学习Postgresql源码的过程</p>
-</blockquote>
-<h2 id="Postgresql编译安装"><a href="#Postgresql编译安装" class="headerlink" title="Postgresql编译安装"></a>Postgresql编译安装</h2><p>Windows系统下:</p>
-<p>首先进入Postgresql的官网下载相应版本的<a href="https://www.postgresql.org/ftp/source/">源码</a></p>
-<p>Linux系统下:</p>
-<ol>
-<li>通过<code>wget https://ftp.postgresql.org/pub/source/v15.2/postgresql-15.2.tar.gz</code> 下载postgresql的源码。</li>
-<li>解压下载好的源码文件<code>tar -zxvf postgresql-15.2.tar.gz</code></li>
-<li>重命名postgresql<code>mv  postgresql-15.2 postgresql15</code></li>
-<li>进行configure生成makefile文件*.&#x2F;configure –prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;psql –enable-debug –enable-thread-safety –enable-cassert CFLAGS&#x3D;’-O0’*</li>
-<li>安装所需要的依赖库<code>sudo apt install libreadline-dev</code></li>
-<li>然后进行<code>sudo make -j2&amp;&amp;sudo make install -j2</code><span id="more"></span></li>
-</ol>
-<h2 id="运行postgresql"><a href="#运行postgresql" class="headerlink" title="运行postgresql"></a>运行postgresql</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/psql/
-<span class="token function">sudo</span> adduser pg
-<span class="token function">mkdir</span> data
-<span class="token function">chown</span> pg:pg data
-<span class="token function">su</span> - pg
-./bin/initdb -D data/
-./bin/pg_ctl -D data start
-./bin/createdb <span class="token builtin class-name">test</span>
-./bin/psql <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>Postgresql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机操作系统</title>
     <url>/2022/06/21/OperateSystem/</url>
     <content><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><blockquote>
@@ -4078,6 +4044,40 @@ exports<span class="token punctuation">.</span><span class="token function-varia
       </categories>
       <tags>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Postgresql</title>
+    <url>/2023/04/19/Postgresql/</url>
+    <content><![CDATA[<h1 id="Postgresql源码阅读"><a href="#Postgresql源码阅读" class="headerlink" title="Postgresql源码阅读"></a>Postgresql源码阅读</h1><blockquote>
+<p>记录学习Postgresql源码的过程</p>
+</blockquote>
+<h2 id="Postgresql编译安装"><a href="#Postgresql编译安装" class="headerlink" title="Postgresql编译安装"></a>Postgresql编译安装</h2><p>Windows系统下:</p>
+<p>首先进入Postgresql的官网下载相应版本的<a href="https://www.postgresql.org/ftp/source/">源码</a></p>
+<p>Linux系统下:</p>
+<ol>
+<li>通过<code>wget https://ftp.postgresql.org/pub/source/v15.2/postgresql-15.2.tar.gz</code> 下载postgresql的源码。</li>
+<li>解压下载好的源码文件<code>tar -zxvf postgresql-15.2.tar.gz</code></li>
+<li>重命名postgresql<code>mv  postgresql-15.2 postgresql15</code></li>
+<li>进行configure生成makefile文件*.&#x2F;configure –prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;psql –enable-debug –enable-thread-safety –enable-cassert CFLAGS&#x3D;’-O0’*</li>
+<li>安装所需要的依赖库<code>sudo apt install libreadline-dev</code></li>
+<li>然后进行<code>sudo make -j2&amp;&amp;sudo make install -j2</code><span id="more"></span></li>
+</ol>
+<h2 id="运行postgresql"><a href="#运行postgresql" class="headerlink" title="运行postgresql"></a>运行postgresql</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /usr/local/psql/
+<span class="token function">sudo</span> adduser pg
+<span class="token function">mkdir</span> data
+<span class="token function">chown</span> pg:pg data
+<span class="token function">su</span> - pg
+./bin/initdb -D data/
+./bin/pg_ctl -D data start
+./bin/createdb <span class="token builtin class-name">test</span>
+./bin/psql <span class="token builtin class-name">test</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Postgresql</tag>
       </tags>
   </entry>
   <entry>
